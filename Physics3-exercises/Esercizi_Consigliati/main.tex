@@ -1,0 +1,3904 @@
+\documentclass[a4paper, 11pt, oneside]{article}
+\usepackage[a4paper, total={6in, 10in}]{geometry}
+\usepackage[italian]{babel}
+\usepackage{soul, color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Esercizi Consigliati Risolti - Fisica 3}
+\author{Jacopo Martellotto}
+\date{Agosto 2025}
+
+\begin{document}
+\maketitle
+
+\section{Elettromagnetismo Avanzato}
+
+\begin{enumerate}
+	\item \textbf{Domanda:} Dare la definizione di quadri-corrente e di quadri-potenziale
+	      del campo elettromagnetico.\\
+
+	      \underline{Quadri-corrente} \\ La \emph{quadri-corrente} $J^{\mu}$ è definita
+	      come:
+	      \[
+		      J^{\mu}= \left( c\,\rho , \ \mathbf{J}\right)
+	      \]
+	      dove:
+	      \begin{itemize}
+		      \item $\rho(\mathbf{r}, t)$ è la densità di carica elettrica,
+
+		      \item $\mathbf{J}(\mathbf{r}, t)$ è la densità di corrente elettrica,
+
+		      \item $c$ è la velocità della luce nel vuoto.
+	      \end{itemize}
+	      Esso soddisfa l’equazione di continuità:
+	      \[
+		      \partial_{\mu}J^{\mu}= 0
+	      \]
+	      che esprime la conservazione locale della carica elettrica.\\ \underline{Quadri-potenziale}
+	      \\ Il \emph{quadri-potenziale} $A^{\mu}$ è definito come:
+	      \[
+		      A^{\mu}= \left( \frac{\varphi}{c}, \ \mathbf{A}\right)
+	      \]
+	      dove:
+	      \begin{itemize}
+		      \item $\varphi(\mathbf{r}, t)$ è il \emph{potenziale elettrico scalare},
+		            che rappresenta l’energia potenziale elettrica per unità di carica in un
+		            punto dello spazio-tempo. In elettrostatica vale:
+		            \[
+			            \varphi(\mathbf{r}) = \frac{1}{4\pi\varepsilon_{0}}\int \frac{\rho(\mathbf{r}')}{|\mathbf{r}
+				            - \mathbf{r}'|}\, d^{3}r'
+		            \]
+
+		      \item $\mathbf{A}(\mathbf{r}, t)$ è il potenziale vettore magnetico, la
+		            cui rotazione dà il campo magnetico:
+		            \[
+			            \mathbf{B}= \nabla \times \mathbf{A}
+		            \]
+	      \end{itemize}
+	      Dal quadri-potenziale si ricava il \emph{tensore elettromagnetico}:
+	      \[
+		      F^{\mu\nu}= \partial^{\mu}A^{\nu}- \partial^{\nu}A^{\mu}
+	      \]
+	      che contiene, in forma covariante, i campi $\mathbf{E}$ e $\mathbf{B}$.
+
+	\item \textbf{Domanda:} Dare la definizione del tensore del campo
+	      elettromagnetico e scriverne le componenti.
+
+	      \textbf{Risposta:} Il \emph{tensore del campo elettromagnetico}
+	      $F^{\mu\nu}$ è un tensore antisimmmetrico di rango 2 definito a partire
+	      dal quattro-potenziale $A^{\mu}$ come:
+	      \[
+		      F^{\mu\nu}= \partial^{\mu}A^{\nu}- \partial^{\nu}A^{\mu}
+	      \]
+	      Esso contiene, nelle sue componenti, i campi elettrico $\mathbf{E}$ e magnetico
+	      $\mathbf{B}$. Esplicitamente:
+	      \[
+		      F^{\mu\nu}=
+		      \begin{pmatrix}
+			      0             & -\frac{E_x}{c} & -\frac{E_y}{c} & -\frac{E_z}{c} \\
+			      \frac{E_x}{c} & 0              & -B_{z}         & B_{y}          \\
+			      \frac{E_y}{c} & B_{z}          & 0              & -B_{x}         \\
+			      \frac{E_z}{c} & -B_{y}         & B_{x}          & 0
+		      \end{pmatrix}
+	      \]
+	      Le equazioni di Maxwell nel formalismo covariante si scrivono:
+	      \[
+		      \partial_{\mu}F^{\mu\nu}= \mu_{0}J^{\nu}
+	      \]
+	      \[
+		      \partial_{\alpha}F_{\beta\gamma}+ \partial_{\beta}F_{\gamma\alpha}+ \partial
+		      _{\gamma}F_{\alpha\beta}= 0
+	      \]
+	      dove $J^{\nu}$ è il quadri-corrente delle sorgenti.
+
+	\item \textbf{Domanda:} Scrivere le equazioni di Maxwell (sia quelle non omogenee
+	      che quelle omogenee) in forma covariante. Dimostrare che da esse si ricavano
+	      le equazioni di Maxwell nella forma standard tridimensionale.\\
+
+	      \textbf{Risposta.} Coordinate $x^{\mu}=(ct,x,y,z)$, metrica
+	      $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$, tensore di Levi-Civita $\varepsilon
+		      ^{0123}=+1$, unità SI con $c^{-2}=\varepsilon_{0}\mu_{0}$. Il tensore del campo
+	      è
+	      \[
+		      F^{\mu\nu}=\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu},\qquad F^{0i}=-\frac{E_{i}}{c}
+		      ,\quad F^{ij}=-\varepsilon^{ijk}B_{k},
+	      \]
+	      e il duale
+	      \[
+		      \tilde F^{\mu\nu}=\tfrac12\,\varepsilon^{\mu\nu\rho\sigma}F_{\rho\sigma},
+		      \qquad \tilde F^{0i}=-B_{i},\quad \tilde F^{ij}=+\frac{1}{c}\,\varepsilon
+		      ^{ijk}E_{k} .
+	      \]
+
+	      \textbf{Forma covariante.} Le equazioni di Maxwell sono
+	      \[
+		      \boxed{\;\partial_\mu F^{\mu\nu}=\mu_0 J^\nu\;}\qquad\text{(non omogenee)}
+	      \]
+	      \[
+		      \boxed{\;\partial_\mu \tilde F^{\mu\nu}=0\;}\qquad\text{(omogenee,
+			      equivalenti a }\partial_{[\alpha}F_{\beta\gamma]}=0\text{)}
+	      \]
+	      con quadri–corrente $J^{\nu}=(c\rho,\mathbf{J})$.
+
+	      \textbf{Riduzione alle equazioni standard 3D.} Scriviamo
+	      $\partial_{\mu}=(\partial_{0},\partial_{i})$ con
+	      $\partial_{0}=\frac{1}{c}\partial_{t}$.
+
+	      \emph{(i) Equazioni non omogenee.} Per $\nu=0$:
+	      \[
+		      \partial_{\mu} F^{\mu 0}=\partial_{i} F^{i0}=\partial_{i}\!\left(\frac{E_{i}}{c}
+		      \right) =\frac{1}{c}\,\nabla\!\cdot\!\mathbf{E}=\mu_{0} J^{0}=\mu_{0} c\,
+		      \rho \;\Rightarrow\; \nabla\!\cdot\!\mathbf{E}=\frac{\rho}{\varepsilon_{0}}
+		      .
+	      \]
+	      Per $\nu=k=1,2,3$:
+	      \[
+		      \partial_{\mu} F^{\mu k}=\partial_{0} F^{0k}+\partial_{i} F^{ik}= -\frac{1}{c^{2}}
+		      \frac{\partial E_{k}}{\partial t}-\big(\nabla\times\mathbf{B}\big)_{k} =\mu
+		      _{0} J_{k},
+	      \]
+	      ossia
+	      \[
+		      \nabla\times\mathbf{B}=\mu_{0} \mathbf{J}+\frac{1}{c^{2}}\frac{\partial
+			      \mathbf{E}}{\partial t}=\mu_{0} \mathbf{J}+\mu_{0}\varepsilon_{0}\,\frac{\partial
+			      \mathbf{E}}{\partial t}.
+	      \]
+
+	      \emph{(ii) Equazioni omogenee.} Per $\nu=0$:
+	      \[
+		      \partial_{\mu} \tilde F^{\mu 0}=\partial_{i} \tilde F^{i0}=\partial_{i}(-
+		      B_{i})=-\,\nabla\!\cdot\!\mathbf{B}=0 \;\Rightarrow\; \nabla\!\cdot\!\mathbf{B}
+		      =0.
+	      \]
+	      Per $\nu=k$:
+	      \[
+		      \partial_{\mu} \tilde F^{\mu k}=\partial_{0} \tilde F^{0k}+\partial_{i} \tilde
+		      F^{ik}= -\frac{1}{c}\frac{\partial B_{k}}{\partial t}+\frac{1}{c}\big(\nabla
+		      \times\mathbf{E}\big)_{k}=0,
+	      \]
+	      cioè
+	      \[
+		      \nabla\times\mathbf{E}=-\,\frac{\partial \mathbf{B}}{\partial t}.
+	      \]\\ Dai due blocchi covarianti
+	      $\partial_{\mu} F^{\mu\nu}=\mu_{0} J^{\nu}$ e
+	      $\partial_{\mu} \tilde F^{\mu\nu}=0$ si ottengono esattamente le quattro
+	      equazioni di Maxwell nella forma tridimensionale standard:
+	      \[
+		      \boxed{\;\nabla\!\cdot\!\mathbf{E}=\frac{\rho}{\varepsilon_{0}},\quad \nabla\times\mathbf{B}=\mu_0 \mathbf{J}+\mu_0\varepsilon_0\,\frac{\partial \mathbf{E}}{\partial t},\quad \nabla\!\cdot\!\mathbf{B}=0,\quad \nabla\times\mathbf{E}=-\frac{\partial \mathbf{B}}{\partial t}\;}
+	      \]
+	      coerenti con le convenzioni fissate sopra.
+
+	\item \textbf{Domanda} Scrivere l'equazione di continuità per la quadri-corrente
+	      in forma covariante e verificarne la consistenza con le equazioni di
+	      Maxwell.\\
+
+	      \textbf{Risposta.} La conservazione locale della carica è espressa dall'equazione
+	      di continuità
+	      \[
+		      \boxed{\;\partial_\mu J^\mu = 0\;}
+	      \]
+	      dove $J^{\mu}=(c\rho,\mathbf{J})$ e
+	      $\partial_{\mu}=(\tfrac{1}{c}\partial_{t},\nabla)$.
+
+	      \textbf{Riduzione 3D.} Espandendo in componenti si ottiene
+	      \[
+		      \partial_{\mu} J^{\mu}=\frac{1}{c}\partial_{t}(c\rho)+\nabla\!\cdot\!\mathbf{J}
+		      =\partial_{t} \rho+\nabla\!\cdot\!\mathbf{J}=0,
+	      \]
+	      ossia la forma standard tridimensionale dell'equazione di continuità.
+
+	      \textbf{Consistenza con le equazioni di Maxwell.} Dalle equazioni non
+	      omogenee in forma covariante
+	      \[
+		      \partial_{\mu} F^{\mu\nu}=\mu_{0} J^{\nu},
+	      \]
+	      prendendo la divergenza in $\nu$ si ha
+	      \[
+		      \partial_{\nu}\partial_{\mu} F^{\mu\nu}=\mu_{0}\,\partial_{\nu} J^{\nu}.
+	      \]
+	      Usando l'antisimmetria di $F^{\mu\nu}=-F^{\nu\mu}$ e la commutatività
+	      delle derivate parziali:
+	      \[
+		      \partial_{\nu}\partial_{\mu} F^{\mu\nu}= -\,\partial_{\nu}\partial_{\mu}
+		      F^{\nu\mu}= -\,\partial_{\mu}\partial_{\nu} F^{\mu\nu}\;\Rightarrow\; \partial
+		      _{\nu}\partial_{\mu} F^{\mu\nu}=0.
+	      \]
+	      Ne segue immediatamente
+	      \[
+		      \boxed{\;\partial_\nu J^\nu=0\;},
+	      \]
+	      cioè l’equazione di continuità. In altre parole, la conservazione locale della
+	      carica è una conseguenza dell’antisimmetria del tensore del campo $F^{\mu\nu}$
+	      insieme alle equazioni di Maxwell non omogenee.
+
+	\item \textbf{Domanda:} Dato il campo elettrico di un'onda progressiva
+	      monocromatica nel vuoto
+	      $\mathbf{E}(\mathbf{x},t)=\big(E_{0}\cos(kz-\omega t),\,0,\,0\big)$, trovare
+	      un'espressione possibile per il 4-potenziale $A^{\mu}$ e specificare il gauge
+	      utilizzato. Riformulare e risolvere il problema in un sistema di
+	      riferimento in moto relativo lungo l'asse $z$.\\
+
+	      Coordinate $x^{\mu}=(ct,x,y,z)$, metrica
+	      $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$, unità SI con $k=\omega/c$. Il 4-potenziale
+	      è $A^{\mu}=(\varphi/c,\mathbf{A})$ e
+	      \[
+		      \mathbf{E}=-\frac{\partial\mathbf{A}}{\partial t}-\nabla\varphi,\qquad \mathbf{B}
+		      =\nabla\times\mathbf{A}.
+	      \]
+
+	      \textbf{Risposta.} Un possibile 4-potenziale che genera il campo dato è, in
+	      \emph{gauge di radiazione (Coulomb)}:
+	      \[
+		      \varphi=0,\qquad \nabla\!\cdot\!\mathbf{A}=0,\qquad A^{\mu}=(0,\ A_{x},\,
+		      0,\,0),\quad A_{x}(\mathbf{x},t)=\frac{E_{0}}{\omega}\,\sin(kz-\omega t).
+	      \]
+	      Allora
+	      \[
+		      \mathbf{E}=-\partial_{t}\mathbf{A}=\big(E_{0}\cos(kz-\omega t),\,0,\,0\big
+		      ),\qquad \mathbf{B}=\nabla\times\mathbf{A}=\big(0,\,\tfrac{E_0}{c}\cos(kz
+			      -\omega t),\,0\big).
+	      \]
+	      Poiché $\varphi=0$ e $A_{x}$ dipende solo da $z,t$, si ha anche
+	      $\partial_{\mu} A^{\mu}=(1/c)\partial_{t}\varphi+\nabla\!\cdot\!\mathbf{A}=
+		      0$: il potenziale soddisfa pure il \emph{gauge di Lorenz}.
+
+	      \textbf{Trasformazione in un sistema $S'$ in moto lungo $+z$.} Sia $S'$ in
+	      moto a velocità $v$ lungo $+z$ rispetto a $S$, con $\beta=v/c$, $\gamma=(1-
+		      \beta^{2})^{-1/2}$. Il 4-vettore d’onda $k^{\mu}=(\omega/c,0,0,k)$ si
+	      trasforma come
+	      \[
+		      \omega'=\gamma\,\omega(1-\beta),\qquad k'=\gamma\,k(1-\beta)=\frac{\omega'}{c}
+		      ,
+	      \]
+	      cosicché la fase è invariante: $kz-\omega t=k'z'-\omega' t'$.
+
+	      Il 4-potenziale è un 4-vettore: per un boost lungo $z$,
+	      \[
+		      A'^{0}=\gamma(A^{0}-\beta A^{3})=0,\quad A'^{3}=\gamma(A^{3}-\beta A^{0})
+		      =0,\quad A'^{1}=A^{1},\ A'^{2}=0.
+	      \]
+	      Dunque in $S'$ possiamo prendere ancora
+	      \[
+		      A'^{\mu}(x')=(0,\ A'_{x},\,0,\,0),\qquad A'_{x}(x')=\frac{E_{0}}{\omega}\,
+		      \sin\!\big(k'z'-\omega' t'\big).
+	      \]
+	      I campi risultano
+	      \[
+		      \mathbf{E}'=-\partial_{t'}\mathbf{A}'= \Big(\tfrac{\omega'}{\omega}E_{0}\cos
+		      (k'z'-\omega' t'),\,0,\,0\Big),\qquad \mathbf{B}'=\nabla'\times\mathbf{A}
+		      '= \Big(0,\,\tfrac{1}{c}\tfrac{\omega'}{\omega}E_{0}\cos(k'z'-\omega' t')
+		      ,\,0\Big).
+	      \]
+	      Quindi l’ampiezza è Doppler-shiftata di
+	      \[
+		      E_{0}'=\frac{\omega'}{\omega}\,E_{0}=\gamma(1-\beta)\,E_{0},\qquad B_{0}'
+		      =\frac{E_{0}'}{c},
+	      \]
+	      mentre la polarizzazione rimane lungo $x$. Il gauge di radiazione ($\varphi
+		      '=0$, $\nabla'\!\cdot\!\mathbf{A}'=0$) è preservato, e per invarianza
+	      lorentziana vale anche la condizione di Lorenz in $S'$.
+
+	\item \textbf{Domanda:} Sull'asse $z$ di un sistema di coordinate dato si
+	      trova una densità di carica lineare uniforme $\lambda$ che si muove con
+	      velocità $V$ lungo $z$. Trovare l'espressione della 4–corrente $J^{\mu}$ ed
+	      una possibile espressione per il 4–potenziale $A^{\mu}$, specificando il
+	      gauge utilizzato. Riformulare e risolvere il problema in un sistema di riferimento
+	      in moto relativo lungo l'asse $z$.\\
+
+	      Coordinate $x^{\mu}=(ct,x,y,z)$, metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-
+		      ,-)$, unità SI. Indichiamo $r=\sqrt{x^{2}+y^{2}}$ e $\delta^{(2)}(\mathbf{r}
+		      _{\perp})=\delta(x)\delta(y)$.
+
+	      \textbf{Risposta.} \emph{4–corrente (nel sistema $S$ dato).} Se $\lambda$ è
+	      la densità lineare \emph{nel sistema $S$}, la densità di carica e la corrente
+	      sono
+	      \[
+		      \rho(\mathbf{x})=\lambda\,\delta^{(2)}(\mathbf{r}_{\perp}),\qquad \mathbf{J}
+		      (\mathbf{x})=\lambda V\,\delta^{(2)}(\mathbf{r}_{\perp})\,\hat{\mathbf{z}}
+		      ,
+	      \]
+	      per cui
+	      \[
+		      \boxed{\,J^\mu=(c\rho,\mathbf{J})=\big(c\lambda\,\delta^{(2)}(\mathbf{r}_\perp),\ 0,\ 0,\ \lambda V\,\delta^{(2)}(\mathbf{r}_\perp)\big)\, .}
+	      \]
+	      (Se $\lambda_{0}$ è la densità propria nel sistema solidale al filo, allora
+	      $\lambda=\gamma_{V}\,\lambda_{0}$, con $\gamma_{V}=(1-V^{2}/c^{2})^{-1/2}$.)
+
+	      \emph{4–potenziale (una scelta semplice).} Il problema è stazionario in
+	      $S$; scegliamo il \textit{gauge di Coulomb} (detto anche di radiazione),
+	      \[
+		      \varphi=\varphi(\mathbf{x}),\qquad \nabla\!\cdot\!\mathbf{A}=0,\qquad \partial
+		      _{t}(\varphi,\mathbf{A})=0,
+	      \]
+	      che, in condizioni stazionarie, soddisfa anche la \textit{condizione di
+		      Lorenz} $\partial_{\mu} A^{\mu}=0$. Una scelta che riproduce i campi corretti
+	      è
+	      \[
+		      \boxed{\  \varphi(\mathbf{x})=\frac{\lambda}{2\pi\varepsilon_{0}}\,\ln\!\frac{r}{r_{0}},\qquad \mathbf{A}(\mathbf{x})=A_z(r)\,\hat{\mathbf{z}},\quad A_z(r)=-\,\frac{\mu_{0}\lambda V}{2\pi}\,\ln\!\frac{r}{r_{0}}\ , }
+	      \]
+	      dove $r_{0}$ è una lunghezza arbitraria (sposta il riferimento del
+	      potenziale ma non i campi). Allora
+	      \[
+		      \mathbf{E}=-\nabla\varphi=\frac{\lambda}{2\pi\varepsilon_{0}\,r}\,\hat{\mathbf{r}}
+		      ,\qquad \mathbf{B}=\nabla\times\mathbf{A}=\frac{\mu_{0}\lambda V}{2\pi\,r}
+		      \,\hat{\boldsymbol{\phi}},
+	      \]
+	      come atteso per una linea di carica in moto con corrente $I=\lambda V$.
+
+	      \medskip
+
+	      \textbf{Riformulazione in un sistema $S'$ in moto lungo $z$.} Sia $S'$ in
+	      moto rispetto a $S$ con velocità $u$ lungo $+z$, con $\beta_{u}=u/c$,
+	      $\gamma_{u}=(1-\beta_{u}^{2})^{-1/2}$. Il 4–corrente trasforma come un 4–vettore:
+	      \[
+		      J'^{0}=\gamma_{u}(J^{0}-\beta_{u} J^{3}),\qquad J'^{3}=\gamma_{u}(J^{3}-\beta
+		      _{u} J^{0}),\qquad J'^{1}=J'^{2}=0.
+	      \]
+	      Poiché il boost è lungo $z$, $\delta^{(2)}(\mathbf{r}_{\perp})$ è invariante.
+	      Si ottiene dunque
+	      \[
+		      \boxed{\  \rho'=\lambda'\,\delta^{(2)}(\mathbf{r}_\perp'),\qquad \lambda'=\gamma_u\!\left(1-\frac{uV}{c^{2}}\right)\lambda,\qquad \mathbf{J}'=\lambda' V'\,\delta^{(2)}(\mathbf{r}_\perp')\,\hat{\mathbf{z}}, }
+	      \]
+	      dove $V'$ è la velocità del filo misurata in $S'$,
+	      \[
+		      \boxed{\ V'=\frac{V-u}{\,1-\dfrac{Vu}{c^2}\,}\ }.
+	      \]
+	      (Verifica: $J'^{3}=\lambda'V'\delta^{(2)}(\mathbf{r}_{\perp}')$ coincide con
+	      $\gamma_{u}(J^{3}-\beta_{u} J^{0})$.)
+
+	      \emph{Potenziali in $S'$.} È comodo partire da un $A^{\mu}$ che soddisfa la
+	      \textit{Lorenz gauge} in $S$ (vale qui perché il problema è stazionario e $\nabla
+		      \!\cdot\!\mathbf{A}=0$); la condizione di Lorenz è preservata dal boost.
+	      Per un boost lungo $z$:
+	      \[
+		      A'^{0}=\gamma_{u}\!\left(A^{0}-\beta_{u} A^{3}\right),\qquad A'^{3}=\gamma
+		      _{u}\!\left(A^{3}-\beta_{u} A^{0}\right),\qquad A'^{1}=A^{1}=0,\quad A'^{2}
+		      =A^{2}=0.
+	      \]
+	      Con $A^{0}=\varphi/c$ e $A^{3}=A_{z}$, si ha
+	      \[
+		      \boxed{\  \varphi'=\gamma_u\!\left(\varphi-\beta_u c\,A_z\right),\qquad A'_z=\gamma_u\!\left(A_z-\beta_u \frac{\varphi}{c}\right),\qquad \mathbf{A}'_\perp=\mathbf{0}. }
+	      \]
+	      Poiché $\varphi$ e $A_{z}$ dipendono solo da $r$, anche $\varphi'(r)$ e $A'
+		      _{z}(r)$ dipendono solo da $r$. I campi in $S'$ risultano radiali/azimutali
+	      con
+	      \[
+		      \boxed{\  \mathbf{E}'(r)=\frac{\lambda'}{2\pi\varepsilon_{0}\,r}\,\hat{\mathbf{r}},\qquad \mathbf{B}'(r)=\frac{\mu_{0}\lambda' V'}{2\pi\,r}\,\hat{\boldsymbol{\phi}}, }
+	      \]
+	      coerenti sia con la trasformazione dei campi sia con la soluzione dei
+	      potenziali trasformati.
+
+	\item \textbf{Domanda:} Trovare un possibile 4–potenziale
+	      $A^{\mu}=(\varphi/c,\mathbf{A})$ per un solenoide di altezza infinita, raggio
+	      $a$, $n$ spire per unità di lunghezza, percorso da una corrente costante $I$.
+	      Calcolare $\partial_{\mu} A^{\mu}$ e $\nabla\!\cdot\!\mathbf{A}$. Discutere
+	      la possibilità di annullare il potenziale vettore in ogni punto esterno al
+	      solenoide.\\
+
+	      Coordinate cilindriche $(r,\phi,z)$, metrica $\eta_{\mu\nu}=\mathrm{diag}(+
+		      ,-,-,-)$, unità SI. Il campo magnetico ideale del solenoide è
+	      \[
+		      \mathbf{B}(r)=
+		      \begin{cases}
+			      \mu_{0} n I\,\hat{\mathbf{z}}, & r<a, \\[2pt]
+			      \mathbf{0},                    & r>a.
+		      \end{cases}
+	      \]
+
+	      \textbf{Risposta.} Una scelta regolare e continua di potenziale vettore (gauge
+	      di Coulomb) è
+	      \[
+		      \varphi=0,\qquad \nabla\!\cdot\!\mathbf{A}=0,\qquad \mathbf{A}(r)=A_{\phi}
+		      (r)\,\hat{\boldsymbol{\phi}},\quad A_{\phi}(r)=
+		      \begin{cases}
+			      \dfrac{1}{2}\,B_{0}\,r,              & r<a, \\[6pt]
+			      \dfrac{1}{2}\,B_{0}\,\dfrac{a^2}{r}, & r>a,
+		      \end{cases}
+		      \qquad B_{0}:=\mu_{0} n I .
+	      \]
+	      Con questa scelta
+	      \[
+		      \nabla\times\mathbf{A}=
+		      \begin{cases}
+			      B_{0}\,\hat{\mathbf{z}}, & r<a, \\
+			      \mathbf{0},              & r>a,
+		      \end{cases}
+		      \qquad\text{e}\qquad \mathbf{A}\ \text{è continua in }r=a.
+	      \]
+
+	      \textbf{Divergenze.} In coordinate cilindriche, per
+	      $\mathbf{A}=A_{\phi}(r)\,\hat{\boldsymbol{\phi}}$ indipendente da $\phi,z$,
+	      \[
+		      \nabla\!\cdot\!\mathbf{A}=\frac{1}{r}\frac{\partial}{\partial r}(r A_{r})
+		      +\frac{1}{r}\frac{\partial A_{\phi}}{\partial \phi}+\frac{\partial A_{z}}{\partial
+			      z}=0.
+	      \]
+	      Essendo il problema statico e $\varphi=0$, la divergenza
+	      quadridimensionale risulta
+	      \[
+		      \boxed{\ \partial_\mu A^\mu=\frac{1}{c}\,\partial_t\varphi+\nabla\!\cdot\!\mathbf{A}=0\ }
+	      \]
+	      (e quindi il potenziale soddisfa anche la \emph{condizione di Lorenz}).
+
+	      \textbf{Si può annullare $\mathbf{A}$ ovunque per $r>a$?} All’esterno
+	      $r>a$ vale $\mathbf{B}=\mathbf{0}$, quindi localmente $\mathbf{A}=\nabla\chi$
+	      e si può annullare $\mathbf{A}$ \emph{su domini semplicemente connessi}
+	      che non circondano il solenoide, scegliendo $\chi$ adeguata. Tuttavia, globalmente
+	      nella regione esterna (che è \emph{non} semplicemente connessa) la
+	      circuitazione è
+	      \[
+		      \oint_{\mathcal{C}}\mathbf{A}\cdot d\boldsymbol{\ell}=\iint_{S(\mathcal{C})}
+		      \mathbf{B}\cdot d\mathbf{S}=\Phi=\pi a^{2} B_{0}=\mu_{0} n I\,\pi a^{2} \neq
+		      0,
+	      \]
+	      invariante per trasformazioni di gauge con funzione $\chi$ \emph{monodroma}
+	      (a valori singoli). Dunque \emph{non è possibile} rendere $\mathbf{A}=\mathbf{0}$
+	      \emph{globalmente} in tutto l’esterno mantenendo una funzione di gauge ben
+	      definita ovunque. Si può al più scegliere un gauge che annulli $\mathbf{A}$
+	      quasi ovunque introducendo un taglio (gauge multivalutato) in cui $\mathbf{A}$
+	      è singolare: la non banalità della circuitazione riflette l’esistenza del
+	      flusso confinato (cfr. effetto di Aharonov–Bohm).
+
+	\item \textbf{Domanda:} Ricavare esplicitamente le leggi di trasformazione
+	      di Lorentz del campo elettrico e del campo magnetico e dire quali sono gli
+	      invarianti di Lorentz costruibili con il tensore del campo
+	      elettromagnetico. Discutere i casi in cui, in un certo sistema di
+	      riferimento inerziale, il campo magnetico o il campo elettrico è nullo.\\
+
+	      Coordinate $x^{\mu}=(ct,x,y,z)$, metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-
+		      ,-)$, unità SI con $c^{-2}=\varepsilon_{0}\mu_{0}$. Definiamo
+	      \[
+		      F^{\mu\nu}=\partial^{\mu}A^{\nu}-\partial^{\nu}A^{\mu},\qquad F^{0i}=-\frac{E_{i}}{c}
+		      ,\quad F^{ij}=-\varepsilon^{ijk}B_{k},
+	      \]
+	      e il duale
+	      \[
+		      \tilde F^{\mu\nu}=\tfrac12\,\varepsilon^{\mu\nu\rho\sigma}F_{\rho\sigma},
+		      \qquad \tilde F^{0i}=-B_{i},\quad \tilde F^{ij}=+\frac{1}{c}\,\varepsilon
+		      ^{ijk}E_{k} .
+	      \]
+
+	      \textbf{Risposta.}
+
+	      \emph{(1) Trasformazioni di Lorentz dei campi.} I campi si trasformano da $S$
+	      a $S'$ (boost con velocità $\mathbf{v}$) come $F'=\Lambda F \Lambda^{\mathsf{T}}$.
+	      In forma vettoriale:
+	      \[
+		      \boxed{ \begin{aligned}\mathbf{E}'_{\parallel}&= \mathbf{E}_{\parallel},\qquad&\mathbf{B}'_{\parallel}&= \mathbf{B}_{\parallel},\\[2pt] \mathbf{E}'_{\perp}&= \gamma\!\left(\mathbf{E}_{\perp}+\mathbf{v}\times\mathbf{B}\right) -\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf{v}}{c^2}\left(\mathbf{v}\cdot\mathbf{E}\right),\qquad&\mathbf{B}'_{\perp}&= \gamma\!\left(\mathbf{B}_{\perp}-\frac{1}{c^2}\mathbf{v}\times\mathbf{E}\right) -\frac{\gamma^2}{\gamma+1}\,\frac{\mathbf{v}}{c^2}\left(\mathbf{v}\cdot\mathbf{B}\right),\end{aligned}}
+	      \]
+	      dove $\parallel$ e $\perp$ indicano le componenti parallele e perpendicolari
+	      a $\mathbf{v}$ e $\gamma=(1-v^{2}/c^{2})^{-1/2}$.
+
+	      Per un boost lungo $+z$ (utile per esercizi espliciti):
+	      \[
+		      \boxed{ \begin{aligned}E'_{x}&=\gamma\!\left(E_{x}+v B_{y}\right),&\quad B'_{x}&=\gamma\!\left(B_{x}-\frac{v}{c^2}E_{y}\right),\\ E'_{y}&=\gamma\!\left(E_{y}- v B_{x}\right),&B'_{y}&=\gamma\!\left(B_{y}+\frac{v}{c^2}E_{x}\right),\\ E'_{z}&=E_{z},&B'_{z}&=B_{z}.\end{aligned}}
+	      \]
+
+	      \emph{(2) Invarianti lorentziani.} Dalle contrazioni scalari di $F$ e
+	      $\tilde F$ si ottengono due invarianti indipendenti:
+	      \[
+		      \boxed{\ I_1 := F_{\mu\nu}F^{\mu\nu} = 2\!\left(B^2-\frac{E^{2}}{c^{2}}\right) \, ,\qquad I_2 := \tilde F_{\mu\nu}F^{\mu\nu} = -\,\frac{4}{c}\,\mathbf{E}\!\cdot\!\mathbf{B}\, .\ }
+	      \]
+	      I segni sono per la metrica scelta e convenzioni sopra.
+
+	      \emph{(3) Quando si può annullare $\mathbf{E}$ o $\mathbf{B}$ in qualche
+		      sistema inerziale?} Le possibilità sono determinate dagli invarianti:
+	      \begin{itemize}
+		      \item \textbf{Campo elettrico puro in qualche sistema} ($\mathbf{B}'=\mathbf{0}$):
+		            necessario e sufficiente
+		            \[
+			            \mathbf{E}\!\cdot\!\mathbf{B}=0,\qquad \frac{E^{2}}{c^{2}}-B^{2}>0\ \
+			            \big(\text{equiv. }E>cB\big).
+		            \]
+		            In tal caso esiste un boost con velocità $\mathbf{v}\parallel\mathbf{E}
+			            \times\mathbf{B}$ tale che
+		            \[
+			            \boxed{\ \mathbf{v}=\frac{c^{2}}{E^{2}}\,\mathbf{E}\times\mathbf{B}\ ,\qquad |\mathbf{v}|=\frac{c^{2}B}{E}<c\ , }
+		            \]
+		            per cui $\mathbf{B}'=\mathbf{0}$ e $\mathbf{E}'\parallel\mathbf{E}$.
+
+		      \item \textbf{Campo magnetico puro in qualche sistema} ($\mathbf{E}'=\mathbf{0}$):
+		            necessario e sufficiente
+		            \[
+			            \mathbf{E}\!\cdot\!\mathbf{B}=0,\qquad B^{2}-\frac{E^{2}}{c^{2}}>0\ \
+			            \big(\text{equiv. }cB>E\big).
+		            \]
+		            In tal caso esiste un boost con $\mathbf{v}\parallel\mathbf{E}\times\mathbf{B}$
+		            tale che
+		            \[
+			            \boxed{\ \mathbf{v}=\frac{1}{B^{2}}\,\mathbf{E}\times\mathbf{B}\ ,\qquad |\mathbf{v}|=\frac{E}{B}<c\ , }
+		            \]
+		            per cui $\mathbf{E}'=\mathbf{0}$ e $\mathbf{B}'\parallel\mathbf{B}$.
+
+		      \item \textbf{Campo nullo (onda piana)}: se
+		            \[
+			            I_{1}=0,\qquad I_{2}=0\quad\Longleftrightarrow\quad \mathbf{E}\perp\mathbf{B}
+			            ,\ \ |\mathbf{E}|=c|\mathbf{B}|,
+		            \]
+		            nessun boost può annullare $\mathbf{E}$ o $\mathbf{B}$: in ogni
+		            sistema restano trasversi, con $|\mathbf{E}'|=c|\mathbf{B}'|$.
+
+		      \item \textbf{Caso generico con $\mathbf{E}\!\cdot\!\mathbf{B}\neq 0$}: nessun
+		            sistema inerziale può rendere nullo uno dei due campi; entrambi
+		            restano non nulli in ogni riferimento.
+	      \end{itemize}
+
+	      \textbf{Osservazione operativa.} Le formule dei boost mostrano anche che le
+	      componenti parallele a $\mathbf{v}$ sono invarianti, mentre le componenti
+	      trasverse si mescolano con fattori $\gamma$ e termini di tipo
+	      $\mathbf{v}\times$; gli invarianti $I_{1},I_{2}$ permettono di classificare
+	      il campo in classi equivalenti per Lorentz (elettrico–dominante, magnetico–dominante,
+	      nullo).
+
+	\item \textbf{Domanda:} Scrivere le equazioni di Maxwell per i
+	      quattro–potenziali nel \emph{gauge di Lorenz} e nel \emph{gauge di Coulomb},
+	      presentando alcune situazioni pratiche in cui è conveniente utilizzare l’uno
+	      o l’altro gauge.\\
+
+	      Coordinate $x^{\mu}=(ct,x,y,z)$, metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-
+		      ,-)$, unità SI con $c^{-2}=\varepsilon_{0}\mu_{0}$. Si pone
+	      \[
+		      A^{\mu}=\Big(\tfrac{\varphi}{c},\mathbf{A}\Big),\qquad \mathbf{E}=-\nabla
+		      \varphi-\partial_{t}\mathbf{A},\qquad \mathbf{B}=\nabla\times\mathbf{A},\qquad
+		      \square:=\frac{1}{c^{2}}\partial_{t}^{2}-\nabla^{2}.
+	      \]
+
+	      \textbf{Risposta.}
+
+	      \emph{(1) Gauge di Lorenz.} La condizione di gauge è
+	      \[
+		      \boxed{\ \partial_\mu A^\mu=0\ \Longleftrightarrow\ \frac{1}{c}\,\partial_t\varphi+\nabla\!\cdot\!\mathbf{A}=0\ }
+		      .
+	      \]
+	      Con questa scelta le equazioni di Maxwell diventano \emph{onde
+		      disaccoppiate} per i potenziali:
+	      \[
+		      \boxed{\ \square A^\mu=\mu_0 J^\mu\ }\quad\Longleftrightarrow\quad \boxed
+		      {\ \square\,\mathbf{A}=\mu_0\,\mathbf{J},\qquad \square\,\varphi=\frac{\rho}{\varepsilon_{0}}\ }
+		      .
+	      \]
+	      Soluzioni causali: \emph{potenziali ritardati}. Nel dominio armonico ($e^{-i\omega
+				      t}$):
+	      \[
+		      (\nabla^{2}+k^{2})\,\mathbf{A}=-\mu_{0}\,\mathbf{J},\qquad (\nabla^{2}+k^{2}
+		      )\,\varphi=-\frac{\rho}{\varepsilon_{0}},\qquad k=\frac{\omega}{c}.
+	      \]
+
+	      \emph{(2) Gauge di Coulomb (o di radiazione).} La condizione di gauge è
+	      \[
+		      \boxed{\ \nabla\!\cdot\!\mathbf{A}=0\ }.
+	      \]
+	      Da $\nabla\!\cdot\!\mathbf{E}=\rho/\varepsilon_{0}$ segue un’equazione di Poisson
+	      \emph{istantanea} per $\varphi$:
+	      \[
+		      \boxed{\ \nabla^2\varphi=-\frac{\rho}{\varepsilon_{0}}\ }.
+	      \]
+	      L’equazione per $\mathbf{A}$ coinvolge la sola parte \emph{trasversa}
+	      della corrente, $\mathbf{J}_{\!T}$ con $\nabla\!\cdot\!\mathbf{J}_{\!T}=0$:
+	      \[
+		      \boxed{\ \square\,\mathbf{A}=\mu_0\,\mathbf{J}_{\!T},\qquad \mathbf{J}_{\!T}=\mathbf{J}-\varepsilon_0\,\partial_t(\nabla\varphi)\ }
+		      .
+	      \]
+	      Nel dominio armonico:
+	      \[
+		      (\nabla^{2}+k^{2})\,\mathbf{A}=-\mu_{0}\,\mathbf{J}_{\!T},\qquad \nabla^{2}
+		      \varphi=-\frac{\rho}{\varepsilon_{0}}.
+	      \]
+
+	      \textbf{Note di consistenza.} In gauge di Lorenz, applicando
+	      $\partial_{\mu}$ a $\square A^{\mu}=\mu_{0}J^{\mu}$ si ottiene
+	      $\square(\partial_{\mu} A^{\mu})=\mu_{0}\partial_{\mu} J^{\mu}=0$, compatibile
+	      con l’equazione di continuità $\partial_{\mu} J^{\mu}=0$. In gauge di
+	      Coulomb, la Poisson per $\varphi$ e la definizione di $\mathbf{J}_{\!T}$ garantiscono
+	      comunque i campi corretti.
+
+	      \textbf{Quando è conveniente usare l’uno o l’altro gauge?}
+	      \begin{itemize}
+		      \item \textbf{Gauge di Lorenz:} problemi radiativi e relativistici (cariche
+		            in moto, antenne, onde elettromagnetiche), formulazione manifestamente
+		            covariante, uso diretto dei potenziali ritardati; comodo anche nel dominio
+		            armonico (equazioni di Helmholtz accoppiate solo alle sorgenti).
+
+		      \item \textbf{Gauge di Coulomb:} elettrostatica e magnetostatica (o quasi–statici,
+		            $v\!\ll\! c$), circuiti e conduttori a potenziale definito: $\varphi$ si
+		            trova subito da Poisson; separazione naturale tra parte longitudinale
+		            (elettrostatica) e trasversa (radiazione) del campo; molto usato in meccanica
+		            quantistica/condensata e nella quantizzazione canonica del campo elettromagnetico.
+	      \end{itemize}
+
+	\item \textbf{Domanda:} Una carica elettrica $Q$ si muove di moto rettilineo
+	      uniforme lungo $x$, con traiettoria $x=Vt$, $y=b$, $z=0$. Calcolare in
+	      funzione del tempo il campo elettrico ed il campo magnetico generati nel
+	      punto $O=(0,0,0)$ e produrre il grafico di ciascuna delle 6 componenti
+	      trovate in funzione di $t$.\\
+
+	      Coordinate $x^{\mu}=(ct,x,y,z)$, metrica
+	      $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$, unità SI. Indichiamo $\beta=V/c$, $\gamma
+		      =(1-\beta^{2})^{-1/2}$. A tempo $t$ la posizione della carica è
+	      $\mathbf{r}_{q}(t)=(Vt,\ b,\ 0)$, quindi il vettore che unisce la \emph{posizione
+		      istantanea} della carica all’origine è
+	      \[
+		      \mathbf{R}(t)=\mathbf{r}-\mathbf{r}_{q}(t)=(-Vt,\ -b,\ 0)=\mathbf{R}_{\parallel}
+		      +\mathbf{R}_{\perp},\quad \mathbf{R}_{\parallel}=(-Vt,0,0),\ \mathbf{R}_{\perp}
+		      =(0,-b,0).
+	      \]
+	      Per una carica in moto rettilineo uniforme i campi di Heaviside–Liénard (nessuna
+	      parte radiativa) possono essere espressi \emph{in termini della posizione
+		      istantanea}:
+	      \[
+		      \boxed{\  \mathbf{E}(t)=\frac{Q}{4\pi\varepsilon_{0}}\,\frac{(1-\beta^{2})\big(\mathbf{R}_{\perp}+\gamma^{2}\mathbf{R}_{\parallel}\big)}{\big(R_{\perp}^{2}+\gamma^{2} R_{\parallel}^{2}\big)^{3/2}},\qquad \mathbf{B}(t)=\frac{1}{c^{2}}\,\mathbf{V}\times\mathbf{E}(t)\ . }
+	      \]
+	      Nel nostro caso (origine):
+	      \[
+		      \boxed{ \begin{aligned}E_{x}(t)&=-\,\frac{Q}{4\pi\varepsilon_0}\, \frac{Vt}{\big(b^2+\gamma^2 V^2 t^2\big)^{3/2}},\\[4pt] E_{y}(t)&=-\,\frac{Q}{4\pi\varepsilon_0}\, \frac{b/\gamma^{2}}{\big(b^2+\gamma^2 V^2 t^2\big)^{3/2}},\\[4pt] E_{z}(t)&=0,\\[6pt] B_{x}(t)&=0,\qquad B_{y}(t)=0,\qquad B_{z}(t)=\frac{V}{c^2}\,E_{y}(t)\;.\end{aligned}}
+	      \]
+	      Le componenti presentano un picco attorno a $t=0$ (minima distanza $b$);
+	      $E_{x}$ è dispari in $t$, $E_{y}$ ed $B_{z}$ sono pari e negative (direzione
+	      verso la carica; verso $-y$ e $-z$ rispettivamente per $Q>0$, $V>0$).
+
+	      \begin{figure}[H]
+		      \centering
+		      \includegraphics[width=1\linewidth]{E_B_components.png}
+		      \label{fig:EBcomponents}
+	      \end{figure}
+
+	\item \textbf{Domanda:} Dare la definizione di “densità di forza di Lorentz”.\\
+
+	      \textbf{Risposta.} La \emph{densità di forza di Lorentz} è la forza esercitata
+	      dal campo elettromagnetico per unità di volume su una distribuzione continua
+	      di carica e corrente. In unità SI, indicando con $\rho(\mathbf{r},t)$ la densità
+	      di carica elettrica e con $\mathbf{J}(\mathbf{r},t)$ la densità di corrente,
+	      è definita come
+	      \[
+		      \boxed{\ \mathbf{f}(\mathbf{r},t)=\rho(\mathbf{r},t)\,\mathbf{E}(\mathbf{r},t)+\mathbf{J}(\mathbf{r},t)\times\mathbf{B}(\mathbf{r},t)\ }
+	      \]
+	      dove $\mathbf{E}$ e $\mathbf{B}$ sono i campi elettrico e magnetico totali
+	      presenti nel punto considerato.
+
+	      In forma covariante, usando il 4–corrente $J^{\mu}=(c\rho,\mathbf{J})$ e il
+	      tensore elettromagnetico $F^{\mu\nu}$, la densità di forza è il 4–vettore
+	      \[
+		      \boxed{\ f^\mu=F^{\mu\nu}J_\nu\ }
+	      \]
+	      le cui tre componenti spaziali coincidono con $\mathbf{f}$, mentre la componente
+	      temporale $f^{0}$ rappresenta la potenza fornita per unità di volume (divisa
+	      per $c$) al sistema carica–corrente.
+
+	\item \textbf{Domanda:} Scrivere il “tensore energia–impulso” del campo
+	      elettromagnetico (in funzione del tensore del campo elettromagnetico) e
+	      scrivere la sua relazione con la “densità di forza di Lorentz”.\\
+
+	      \textbf{Risposta.} Il \emph{tensore energia–impulso} del campo elettromagnetico,
+	      in unità SI e con metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$, è definito
+	      come
+	      \[
+		      \boxed{ T^{\mu\nu} = \frac{1}{\mu_{0}} \left( F^{\mu\alpha}F^{\nu}{}_{\alpha} - \frac{1}{4}\,\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta} \right) }
+	      \]
+	      dove $F^{\mu\nu}$ è il tensore del campo elettromagnetico e $\mu_{0}$ la permeabilità
+	      magnetica del vuoto.
+
+	      Le componenti di $T^{\mu\nu}$ hanno interpretazione fisica:
+	      \begin{itemize}
+		      \item $T^{00}= \dfrac{\varepsilon_0 E^2 + B^2/\mu_0}{2}$: densità di
+		            energia elettromagnetica.
+
+		      \item $T^{0i}= \dfrac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{i}$:
+		            densità di flusso di energia (vettore di Poynting).
+
+		      \item $T^{i0}$: densità di quantità di moto (legata al vettore di Poynting
+		            tramite $1/c^{2}$).
+
+		      \item $T^{ij}$: tensore delle tensioni di Maxwell (flusso della componente
+		            $i$ di quantità di moto attraverso una superficie normale a $j$).
+	      \end{itemize}
+
+	      \textbf{Relazione con la densità di forza di Lorentz.} La \emph{densità di
+		      forza di Lorentz} in forma covariante è
+	      \[
+		      f^{\mu} = F^{\mu\nu}J_{\nu} .
+	      \]
+	      Dalle equazioni di Maxwell non omogenee $\partial_{\nu} F^{\mu\nu}= \mu_{0}
+		      J^{\mu}$, e usando la definizione di $T^{\mu\nu}$, si ricava la \emph{legge
+		      di bilancio}:
+	      \[
+		      \boxed{\ \partial_\nu T^{\mu\nu} = -\,F^{\mu\nu}J_\nu = -\,f^\mu\ }
+	      \]
+	      che esprime la conservazione locale dell’energia–impulso totale: la
+	      variazione locale dell’energia–impulso del campo è uguale e opposta alla
+	      densità di forza esercitata dal campo sulle sorgenti materiali.
+
+	\item \textbf{Domanda:} Calcolare la traccia del “tensore energia–impulso”
+	      del campo elettromagnetico.\\
+
+	      \textbf{Risposta.} Con metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$ e
+	      \[
+		      T^{\mu\nu}=\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}
+		      \eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
+	      \]
+	      la traccia è
+	      \[
+		      \boxed{\ T^{\mu}{}_{\mu}=\eta_{\mu\nu}T^{\mu\nu} =\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F_{\mu\alpha}-\frac{1}{4}\,\eta_{\mu\nu}\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right) =\frac{1}{\mu_{0}}\!\left(F_{\alpha\beta}F^{\alpha\beta}-\frac{4}{4}F_{\alpha\beta}F^{\alpha\beta}\right)=0\ .}
+	      \]
+	      Quindi il tensore energia–impulso elettromagnetico nel vuoto è \emph{traccia–nullo}.
+	      In termini di campi, $F_{\alpha\beta}F^{\alpha\beta}=2\!\left(B^{2}-\dfrac{E^2}
+		      {c^2}\right)$, ma il contributo si cancella esattamente nella combinazione
+	      che definisce la traccia.
+
+	\item \textbf{Domanda:} Dire come, dal “tensore energia–impulso” del campo elettromagnetico,
+	      si possano individuare le seguenti grandezze fisiche: densità di energia elettromagnetica,
+	      densità di flusso di energia elettromagnetica, densità di volume di impulso
+	      elettromagnetico, densità di flusso di impulso elettromagnetico.\\
+
+	      \textbf{Risposta.} Il tensore energia–impulso elettromagnetico in unità SI
+	      e con metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$ è
+	      \[
+		      T^{\mu\nu}= \frac{1}{\mu_{0}}\left( F^{\mu\alpha}F^{\nu}{}_{\alpha}- \frac{1}{4}
+		      \,\eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right).
+	      \]
+	      Le sue componenti hanno interpretazioni fisiche dirette:
+
+	      \begin{itemize}
+		      \item \textbf{Densità di energia elettromagnetica}:
+		            \[
+			            u_{\mathrm{em}}= T^{00}= \frac{\varepsilon_{0} E^{2} + B^{2}/\mu_{0}}{2}
+			            .
+		            \]
+
+		      \item \textbf{Densità di flusso di energia elettromagnetica} (vettore di
+		            Poynting):
+		            \[
+			            S^{i} = c\,T^{0i}= \frac{1}{\mu_{0}}(\mathbf{E}\times\mathbf{B})_{i},
+		            \]
+		            dove $S^{i}$ è la componente $i$ del vettore $\mathbf{S}=\frac{1}{\mu_{0}}
+			            \mathbf{E}\times\mathbf{B}$.
+
+		      \item \textbf{Densità di quantità di moto elettromagnetica}:
+		            \[
+			            g^{i} = \frac{T^{i0}}{c}= \varepsilon_{0}\,(\mathbf{E}\times\mathbf{B}
+			            )_{i} / c^{2},
+		            \]
+		            cioè $\mathbf{g}= \mathbf{S}/ c^{2}$.
+
+		      \item \textbf{Densità di flusso di quantità di moto elettromagnetico} (tensore
+		            delle tensioni di Maxwell):
+		            \[
+			            \sigma^{ij}= T^{ij}= \varepsilon_{0}\left(E_{i}E_{j} + c^{2} B_{i}B_{j}
+			            - \frac{\delta_{ij}}{2}(E^{2} + c^{2} B^{2})\right).
+		            \]
+		            La componente $\sigma^{ij}$ rappresenta il flusso della $i$–esima
+		            componente di quantità di moto attraverso una superficie con normale
+		            lungo la direzione $j$.
+	      \end{itemize}
+
+	      \textbf{Sintesi:}
+	      \[
+		      \boxed{ \begin{aligned}&\text{Densità di energia:}&&u_{\mathrm{em}}= T^{00},\\&\text{Flusso di energia:}&&\mathbf{S}= c\,T^{0i}\,\hat{\mathbf{e}}_{i},\\&\text{Densità di impulso:}&&\mathbf{g}= \frac{T^{i0}}{c}\,\hat{\mathbf{e}}_{i},\\&\text{Flusso di impulso:}&&\sigma^{ij}= T^{ij}.\end{aligned} }
+	      \]
+
+	\item \textbf{Domanda:} A partire dall’espressione del tensore
+	      energia–impulso in funzione del tensore del campo elettromagnetico
+	      $F^{\mu\nu}$, scriverne le componenti in funzione dei campi elettrico e magnetico
+	      $\mathbf{E}$ e $\mathbf{B}$.\\
+
+	      \textbf{Risposta.} Con metrica $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$ e in
+	      unità SI,
+	      \[
+		      T^{\mu\nu}=\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}
+		      \eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
+	      \]
+	      dove $F^{0i}=-E_{i}/c$ e $F^{ij}=-\varepsilon^{ijk}B_{k}$. Sostituendo si ottengono
+	      le componenti esplicite:
+	      \[
+		      \boxed{ \begin{aligned}&T^{00}=\frac{1}{2}\!\left(\varepsilon_{0} E^{2}+\frac{B^2}{\mu_0}\right),\\[4pt]&T^{0i}=T^{i0}=\frac{1}{\mu_0}\,(\mathbf{E}\times\mathbf{B})_{i},\\[4pt]&T^{ij}=\varepsilon_{0}\!\left(E_{i}E_{j}+c^{2} B_{i}B_{j}-\frac{\delta_{ij}}{2}\,(E^{2}+c^{2} B^{2})\right).\end{aligned}}
+	      \]
+	      In forma matriciale (ordinando le componenti come $0,x,y,z$):
+	      \[
+		      T^{\mu\nu}=
+		      \begin{pmatrix}
+			      \frac{\varepsilon_0 E^2+B^2/\mu_0}{2}           & \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{x} & \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{y} & \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{z} \\[6pt]
+			      \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{x} & \sigma_{xx}                                     & \sigma_{xy}                                     & \sigma_{xz}                                     \\
+			      \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{y} & \sigma_{yx}                                     & \sigma_{yy}                                     & \sigma_{yz}                                     \\
+			      \frac{1}{\mu_0}(\mathbf{E}\times\mathbf{B})_{z} & \sigma_{zx}                                     & \sigma_{zy}                                     & \sigma_{zz}
+		      \end{pmatrix},
+	      \]
+	      \[
+		      \sigma_{ij}=\varepsilon_{0}\!\left(E_{i}E_{j}+c^{2}B_{i}B_{j}-\frac{\delta_{ij}}{2}
+		      (E^{2}+c^{2}B^{2})\right).
+	      \]
+
+	\item \textbf{Domanda:} Enunciare la generalizzazione del teorema di
+	      Poynting.\\
+
+	      \textbf{Risposta.} Nella formulazione macroscopica, per campi $\mathbf{E},\mathbf{H}$
+	      e grandezze costitutive $\mathbf{D},\mathbf{B}$, la \emph{generalizzazione
+		      del teorema di Poynting} afferma la conservazione locale dell’energia elettromagnetica
+	      sotto forma di bilancio:
+	      \[
+		      \boxed{\ \frac{\partial u_{\rm em}}{\partial t} + \nabla\!\cdot\!\mathbf{S} = -\,\mathbf{J}_{\rm free}\!\cdot\!\mathbf{E}\ }
+	      \]
+	      dove
+	      \[
+		      \boxed{\ u_{\rm em}=\tfrac{1}{2}\big(\mathbf{E}\!\cdot\!\mathbf{D}+\mathbf{B}\!\cdot\!\mathbf{H}\big),\qquad \mathbf{S}=\mathbf{E}\times\mathbf{H}\ }
+		      .
+	      \]
+	      Il termine $-\mathbf{J}_{\rm free}\!\cdot\!\mathbf{E}$ è la potenza per
+	      unità di volume trasferita dal campo alle cariche \emph{libere}; eventuali
+	      contributi di polarizzazione e magnetizzazione (assorbimento, perdite) sono
+	      contenuti nell’evoluzione di $\mathbf{D},\mathbf{H}$ dentro $u_{\rm em}$ (in
+	      mezzi dispersivi/assorbenti si può separare un termine di dissipazione
+	      esplicito).
+
+	      \medskip
+
+	      \textbf{Forme equivalenti utili.}
+	      \begin{itemize}
+		      \item In vuoto ($\mathbf{D}=\varepsilon_{0}\mathbf{E}$, $\mathbf{H}=\mathbf{B}
+			            /\mu_{0}$):
+		            \[
+			            \frac{\partial}{\partial t}\!\left(\tfrac{\varepsilon_0 E^2}{2}+\tfrac
+			            {B^2}{2\mu_0}\right) +\nabla\!\cdot\!\left(\tfrac{1}{\mu_0}\mathbf{E}
+			            \times\mathbf{B}\right) = -\,\mathbf{J}\!\cdot\!\mathbf{E}.
+		            \]
+
+		      \item Forma covariante (connessione con la densità di forza di Lorentz
+		            $f^{\mu}$):
+		            \[
+			            \boxed{\ \partial_\nu T^{\mu\nu}_{\rm em} = -\,F^{\mu\nu}J_\nu \equiv -\,f^\mu\ }
+			            ,
+		            \]
+		            la cui componente temporale ($\mu=0$) riproduce il bilancio energetico;
+		            le componenti spaziali ($\mu=i$) danno il bilancio dell’impulso.
+	      \end{itemize}
+
+	      \textbf{Interpretazione.} L’energia elettromagnetica per unità di volume $u
+			      _{\rm em}$ diminuisce per (i) potenza irradiata/trasportata fuori dal volume,
+	      rappresentata dal flusso $\mathbf{S}$ attraverso il bordo, e (ii) lavoro compiuto
+	      sui portatori di carica liberi, $\mathbf{J}_{\rm free}\!\cdot\!\mathbf{E}$.
+	      Includendo l’energia/meccanica del mezzo $u_{\rm mech}$ si ottiene la conservazione
+	      totale:
+	      \[
+		      \frac{\partial}{\partial t}\big(u_{\rm em}+u_{\rm mech}\big)+\nabla\!\cdot
+		      \!\mathbf{S}=0.
+	      \]
+
+	\item \textbf{Domanda:} Calcolare tutte le componenti del tensore
+	      energia–impulso per un condensatore piano in condizioni statiche e
+	      utilizzarlo per calcolare la forza per unità di superficie sulle armature.\\
+
+	      \textbf{Risposta.} Consideriamo un condensatore piano ideale con lastre
+	      piane parallele ortogonali all’asse $z$, campo uniforme tra le armature
+	      \[
+		      \mathbf{E}=E\,\hat{\mathbf{z}},\qquad \mathbf{B}=\mathbf{0},
+	      \]
+	      (trascuriamo gli effetti di bordo). Usiamo la forma SI del tensore
+	      energia–impulso con metrica $\eta=\mathrm{diag}(+,-,-,-)$:
+	      \[
+		      T^{\mu\nu}=\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}
+		      \eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
+	      \]
+	      le cui componenti, in termini di $\mathbf{E},\mathbf{B}$, sono
+	      \[
+		      T^{00}=\frac{\varepsilon_{0} E^{2}+B^{2}/\mu_{0}}{2},\quad T^{0i}=\frac{1}{\mu_{0}}
+		      (\mathbf{E}\times\mathbf{B})_{i},\quad T^{ij}=\varepsilon_{0}\!\left(E_{i}
+		      E_{j}+c^{2} B_{i}B_{j}-\frac{\delta_{ij}}{2}(E^{2}+c^{2} B^{2})\right).
+	      \]
+
+	      \emph{Per il condensatore statico} ($\mathbf{B}=\mathbf{0}$, $E_{x}=E_{y}=0$,
+	      $E_{z}=E$):
+	      \[
+		      \boxed{ \begin{aligned}&T^{00}=\frac{\varepsilon_0 E^2}{2},\qquad T^{0i}=T^{i0}=0,\\[4pt]&T^{xx}=T^{yy}=-\,\frac{\varepsilon_0 E^2}{2},\qquad T^{zz}=+\,\frac{\varepsilon_0 E^2}{2},\\[2pt]&T^{ij}=0\ \text{per }i\neq j.\end{aligned}}
+	      \]
+	      In forma matriciale (ordine $0,x,y,z$):
+	      \[
+		      T^{\mu\nu}=
+		      \begin{pmatrix}
+			      \frac{\varepsilon_{0} E^{2}}{2} & 0                                & 0                                & 0                               \\
+			      0                               & -\frac{\varepsilon_{0} E^{2}}{2} & 0                                & 0                               \\
+			      0                               & 0                                & -\frac{\varepsilon_{0} E^{2}}{2} & 0                               \\
+			      0                               & 0                                & 0                                & \frac{\varepsilon_{0} E^{2}}{2}
+		      \end{pmatrix}.
+	      \]
+
+	      \textbf{Forza per unità di superficie sulle armature.} La forza (per unità
+	      di area) esercitata dal campo su una superficie con normale $\hat{\mathbf{n}}$
+	      è data dal tensore delle tensioni (blocchi spaziali di $T^{\mu\nu}$):
+	      \[
+		      \frac{\mathbf{F}}{A}=\mathbf{T}\cdot\hat{\mathbf{n}},\qquad \mathbf{T}\equiv
+		      [T^{ij}]_{i,j=x,y,z}.
+	      \]
+	      Per la lastra perpendicolare a $z$ (normale $\hat{\mathbf{n}}=\pm\hat{\mathbf{z}}$)
+	      e trascurando il campo al di fuori (ideale: $E_{\text{out}}=0$), la
+	      pressione sul lato interno è
+	      \[
+		      \boxed{\ p=\Delta T^{zz}=T^{zz}_{\text{in}}-T^{zz}_{\text{out}}=\frac{\varepsilon_{0} E^{2}}{2}-0=\frac{\varepsilon_{0} E^{2}}{2}\ }
+		      .
+	      \]
+	      La direzione della forza è \emph{attrattiva}: ciascuna armatura è spinta
+	      verso l’altra lungo la normale entrante.
+
+	      In termini della densità di carica superficiale $\sigma$ (condensatore piano
+	      ideale $E=\sigma/\varepsilon_{0}$ tra le piastre):
+	      \[
+		      \boxed{\ p=\frac{\sigma^{2}}{2\varepsilon_{0}} }.
+	      \]
+	      Per un’armatura di area $A$, la forza totale vale $F=p\,A$.
+
+	\item \textbf{Domanda:} Calcolare tutte le componenti del tensore
+	      energia–impulso per un solenoide in condizioni stazionarie e utilizzarlo
+	      per calcolare la forza per unità di superficie sulla sua superficie.\\
+
+	      \textbf{Risposta.} Consideriamo un solenoide ideale, infinito, di raggio
+	      $a$, con $n$ spire per unità di lunghezza percorso da una corrente stazionaria
+	      $I$. Il campo magnetico è
+	      \[
+		      \mathbf{B}(r)=
+		      \begin{cases}
+			      B_{0}\,\hat{\mathbf{z}}, & r<a, \\[2pt]
+			      \mathbf{0},              & r>a,
+		      \end{cases}
+		      \qquad B_{0}=\mu_{0} n I,
+	      \]
+	      e $\mathbf{E}=\mathbf{0}$ (regime magnetostatico). Usiamo il tensore energia–impulso
+	      (unità SI, metrica $\eta=\mathrm{diag}(+,-,-,-)$)
+	      \[
+		      T^{\mu\nu}=\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}
+		      \eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
+	      \]
+	      le cui componenti in termini di campi sono
+	      \[
+		      T^{00}=\frac{\varepsilon_{0} E^{2}+B^{2}/\mu_{0}}{2},\quad T^{0i}=\frac{1}{\mu_{0}}
+		      (\mathbf{E}\times\mathbf{B})_{i},\quad T^{ij}=\varepsilon_{0}\!\left(E_{i}
+		      E_{j}+c^{2} B_{i}B_{j}-\frac{\delta_{ij}}{2}(E^{2}+c^{2} B^{2})\right).
+	      \]
+
+	      \emph{All’interno} ($r<a$, $\mathbf{B}=B_{0}\hat{\mathbf{z}}$, $\mathbf{E}=
+	      \mathbf{0}$) si ha
+	      \[
+		      \boxed{ \begin{aligned}&T^{00}_{\rm in}=\frac{B_0^2}{2\mu_0},\qquad T^{0i}_{\rm in}=0,\\[4pt]&T^{xx}_{\rm in}=T^{yy}_{\rm in}=-\,\frac{B_0^2}{2\mu_0},\qquad T^{zz}_{\rm in}=+\,\frac{B_0^2}{2\mu_0},\\[2pt]&T^{ij}_{\rm in}=0\ \ (i\neq j).\end{aligned}}
+	      \]
+	      \emph{All’esterno} ($r>a$, $\mathbf{B}=\mathbf{0}$) tutte le componenti
+	      sono nulle:
+	      \[
+		      T^{00}_{\rm out}=0,\quad T^{0i}_{\rm out}=0,\quad T^{ij}_{\rm out}=0.
+	      \]
+
+	      \textbf{Forza per unità di superficie sulla parete cilindrica $r=a$.} La trazione
+	      esercitata dal campo su una superficie con normale $\hat{\mathbf{n}}$ è $\boldsymbol
+		      {t}= \mathbf{T}\cdot\hat{\mathbf{n}}$, dove $\mathbf{T}=[T^{ij}]$. Per la superficie
+	      laterale del solenoide la normale è radiale $\hat{\mathbf{n}}=\hat{\mathbf{r}}$.
+	      La componente normale della trazione \emph{dal lato interno} vale
+	      \[
+		      t_{n,{\rm in}}= T^{rr}_{\rm in}.
+	      \]
+	      Poiché nel piano trasverso $T^{xx}_{\rm in}=T^{yy}_{\rm in}$, risulta
+	      $T^{rr}_{\rm in}= -\,\dfrac{B_0^2}{2\mu_0}$ (indipendente da $\phi$). All’esterno
+	      $T^{rr}_{\rm out}=0$. Dunque la discontinuità
+	      \[
+		      \Delta T^{rr}=T^{rr}_{\rm in}-T^{rr}_{\rm out}=-\,\frac{B_{0}^{2}}{2\mu_{0}}
+	      \]
+	      fornisce il \emph{modulo della pressione magnetica} sulla parete:
+	      \[
+		      \boxed{\ p=\big|\Delta T^{rr}\big|=\frac{B_{0}^{2}}{2\mu_{0}}=\frac{(\mu_{0} n I)^{2}}{2\mu_{0}}=\frac{\mu_{0} (nI)^{2}}{2}\ .}
+	      \]
+	      Il segno di $T^{rr}_{\rm in}<0$ indica che la trazione del campo (sul lato
+	      del vuoto) è diretta \emph{inward} verso l’asse (pressione trasversa che
+	      “stringe” il tubo di flusso); per azione–reazione, la forza agente sulle spire
+	      percorrenti corrente è \emph{outward} (tensione anulare, “hoop stress”) di
+	      modulo $p$.
+
+	      \textbf{Commento fisico.} Il blocco spaziale $T^{ij}$ mostra \emph{tensione}
+	      lungo le linee di campo ($T^{zz}_{\rm in}=+B_{0}^{2}/2\mu_{0}$) e \emph{pressione}
+	      trasversa ($T^{xx}_{\rm in}=T^{yy}_{\rm in}=-B_{0}^{2}/2\mu_{0}$). L’integrale
+	      della trazione su una porzione della superficie cilindrica restituisce la forza
+	      totale sulla parete; la pressione uniforme $p=B_{0}^{2}/2\mu_{0}$ è la ben
+	      nota “pressione magnetica” esercitata dal campo del solenoide.
+
+	\item \textbf{Domanda:} Scrivere il tensore degli sforzi per un’onda
+	      elettromagnetica piana che si propaga in una direzione $\hat{\mathbf{n}}$
+	      con densità di energia $u$.\\
+
+	      \textbf{Risposta.} In vuoto il tensore degli sforzi (blocchi spaziali del tensore
+	      energia–impulso) è
+	      \[
+		      \sigma_{ij}=T^{ij}= \varepsilon_{0}\!\left(E_{i}E_{j}+c^{2} B_{i}B_{j}-\frac{\delta_{ij}}{2}
+		      \,(E^{2}+c^{2}B^{2})\right).
+	      \]
+	      Per un’onda piana con $\mathbf{E}\perp\mathbf{B}\perp\hat{\mathbf{n}}$ e
+	      $|\mathbf{E}|=c|\mathbf{B}|$, la densità di energia è
+	      \[
+		      u=\tfrac12\!\left(\varepsilon_{0} E^{2}+\frac{B^{2}}{\mu_{0}}\right)=\varepsilon
+		      _{0} E^{2}=\frac{B^{2}}{\mu_{0}}.
+	      \]
+	      Sostituendo $E^{2}=c^{2}B^{2}$ e usando che $\{\hat{\mathbf{e}},\hat{\mathbf{b}}
+		      ,\hat{\mathbf{n}}\}$ è una terna ortonormale, si ottiene
+	      \[
+		      \boxed{\ \sigma_{ij} = -\,u\,\hat n_i\,\hat n_j\ }.
+	      \]
+	      In particolare, se l’onda viaggia lungo $+\hat{\mathbf{z}}$,
+	      \[
+		      [\sigma_{ij}]=
+		      \begin{pmatrix}
+			      0 & 0 & 0  \\
+			      0 & 0 & 0  \\
+			      0 & 0 & -u
+		      \end{pmatrix},
+	      \]
+	      cioè stress nullo trasversalmente e compressivo ($-u$) lungo la direzione
+	      di propagazione. Coerentemente, il flusso di energia è
+	      $\mathbf{S}=\frac{1}{\mu_{0}}\mathbf{E}\times\mathbf{B}=u\,c\,\hat{\mathbf{n}}$
+	      e la pressione di radiazione su un assorbitore ideale è
+	      $p=|\sigma_{nn}|=u$.
+
+	\item \textbf{Domanda:} Scrivere esplicitamente il 4–tensore impulso–energia
+	      per un’onda elettromagnetica piana monocromatica che si propaga lungo
+	      l’asse $x$ con densità di energia $u$.\\
+
+	      \textbf{Risposta.} Usiamo unità SI e metrica
+	      $\eta_{\mu\nu}=\mathrm{diag}(+,-,-,-)$. Per un’onda piana in vuoto che si propaga
+	      lungo $+\hat{\mathbf{x}}$ possiamo scegliere
+	      \[
+		      \mathbf{E}=E\,\hat{\mathbf{y}},\qquad \mathbf{B}=\frac{E}{c}\,\hat{\mathbf{z}}
+		      ,\qquad u=\frac{1}{2}\!\left(\varepsilon_{0} E^{2}+\frac{B^{2}}{\mu_{0}}\right
+		      )=\varepsilon_{0} E^{2}=\frac{B^{2}}{\mu_{0}},
+	      \]
+	      e $\mathbf{S}=\frac{1}{\mu_{0}}\mathbf{E}\times\mathbf{B}=u\,c\,\hat{\mathbf{x}}$.
+	      Il tensore energia–impulso è
+	      \[
+		      T^{\mu\nu}=\frac{1}{\mu_{0}}\!\left(F^{\mu\alpha}F^{\nu}{}_{\alpha}-\frac{1}{4}
+		      \eta^{\mu\nu}F_{\alpha\beta}F^{\alpha\beta}\right),
+	      \]
+	      le cui componenti (in termini di $\mathbf{E},\mathbf{B}$) danno, per quest’onda:
+	      \[
+		      \boxed{ \begin{aligned}&T^{00}= u, \quad T^{0x}= T^{x0}= \frac{S_x}{c}= u, \quad T^{xx}= -u, \\&T^{yy}= T^{zz}= 0, \quad T^{\mu\nu}= 0 \ \text{se }\mu\neq\nu \text{ e }(\mu,\nu) \neq (0,x),(x,0)\end{aligned} }
+	      \]
+
+	      In forma matriciale (ordine di indici $0,x,y,z$):
+	      \[
+		      T^{\mu\nu}=
+		      \begin{pmatrix}
+			      u & u  & 0 & 0 \\
+			      u & -u & 0 & 0 \\
+			      0 & 0  & 0 & 0 \\
+			      0 & 0  & 0 & 0
+		      \end{pmatrix}.
+	      \]
+	      Questa forma soddisfa $T^{\mu}{}_{\mu}=0$ (tensore traccia–nullo), $\partial
+		      _{\nu} T^{\mu\nu}=0$ in assenza di sorgenti, e codifica: densità di energia
+	      $u$, flusso di energia $S_{x}=uc$, densità di impulso $g_{x}=S_{x}/c^{2}=u/
+		      c$, stress (pressione di radiazione) lungo la direzione di propagazione di
+	      modulo $|T^{xx}|=u$.
+
+	\item \textbf{Domanda:} Spiegare tutti i termini dell’espressione del campo
+	      elettrico generato da una carica puntiforme in moto arbitrario (campi di Liénard–Wiechert)
+	      e dire quanto vale il campo magnetico associato.\\
+
+	      \textbf{Risposta.} In unità SI, il campo elettrico è
+	      \[
+		      \boxed{\
+		      \mathbf{E}(\mathbf{r},t)=\frac{q}{4\pi\varepsilon_{0}} \left[ \frac{1-\beta^{2}}{\kappa^{3}R^{2}}\;(\mathbf{n}-\boldsymbol{\beta}) +\frac{1}{c}\,\frac{\mathbf{n}\times\big[(\mathbf{n}-\boldsymbol{\beta})\times \dot{\boldsymbol{\beta}}\big]}{\kappa^{3}R} \right]_{\text{ret}}\!, }
+	      \]
+	      dove:
+	      \begin{itemize}
+		      \item $q$ è la carica; $\boldsymbol{\beta}(t_{r})=\mathbf{v}(t_{r})/c$, $\dot
+			            {\boldsymbol{\beta}}(t_{r})=\mathbf{a}(t_{r})/c$.
+
+		      \item $\mathbf{R}=\mathbf{r}-\mathbf{r}_{q}(t_{r})$, $R=|\mathbf{R}|$, $\mathbf{n}
+			            =\mathbf{R}/R$.
+
+		      \item $t_{r}$ è il \emph{tempo ritardato}, definito implicitamente da $t_{r}
+			            =t-\dfrac{R}{c}$.
+
+		      \item $\kappa=1-\mathbf{n}\!\cdot\!\boldsymbol{\beta}$, e
+		            $\gamma=(1-\beta^{2})^{-1/2}$ (talvolta si scrive il primo termine come
+		            $\dfrac{\gamma}{R^2}\dfrac{\mathbf{n}-\boldsymbol{\beta}}{\gamma^2\kappa^3}$).
+	      \end{itemize}
+
+	      \textbf{Interpretazione dei due addendi.}
+	      \begin{itemize}
+		      \item \emph{Termine di velocità} (o “quasi–statico”): $\displaystyle \frac{1-\beta^{2}}{\kappa^{3}
+				            R^{2}}(\mathbf{n}-\boldsymbol{\beta})\propto R^{-2}$; è la
+		            generalizzazione relativistica del campo di Coulomb, distorto dal moto
+		            ($\kappa$) e compresso trasversalmente (fattore $1-\beta^{2}$).
+
+		      \item \emph{Termine di accelerazione} (o “radiativo”): $\displaystyle \frac{1}{c}
+			            \frac{\mathbf{n}\times[(\mathbf{n}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}]}{\kappa^{3}
+				            R}\propto R^{-1}$; è responsabile dell’irraggiamento elettromagnetico
+		            e dipende esplicitamente dall’accelerazione.
+	      \end{itemize}
+	      Entrambi i termini sono valutati al \emph{tempo ritardato} $t_{r}$ (notazione
+	      $[\cdots]_{\text{ret}}$).
+
+	      \textbf{Campo magnetico associato.} Per i campi di Liénard–Wiechert vale
+	      \[
+		      \boxed{\ \mathbf{B}(\mathbf{r},t)=\frac{1}{c}\,\mathbf{n}\times \mathbf{E}(\mathbf{r},t)\ }
+		      _{\text{ret}}.
+	      \]
+	      In particolare, anche $\mathbf{B}$ si decompone in una parte $\propto R^{-2}$
+	      (da velocità) e una parte radiativa $\propto R^{-1}$ (da accelerazione),
+	      ortogonale a $\mathbf{n}$ e a $\mathbf{E}$.
+
+	\item \textbf{Domanda:} A partire dall’espressione dei campi di
+	      Liénard–Wiechert,
+	      \[
+		      \mathbf{E}_{\rm rad}(\mathbf{r},t)=\frac{q}{4\pi\varepsilon_{0}}\, \frac{\mathbf{n}\times\big[(\mathbf{n}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}\big]}{c\,\kappa^{3}R}
+		      \Bigg|_{\rm ret},\qquad \mathbf{B}_{\rm rad}=\frac{1}{c}\,\mathbf{n}\times
+		      \mathbf{E}_{\rm rad},
+	      \]
+	      con $\boldsymbol{\beta}=\mathbf{v}/c$,
+	      $\dot{\boldsymbol{\beta}}=\mathbf{a}/c$, $\mathbf{n}$ direzione di osservazione
+	      dal punto ritardato e $\kappa=1-\mathbf{n}\!\cdot\!\boldsymbol{\beta}$,
+	      dimostrare la distribuzione angolare di potenza emessa da una carica in
+	      moto circolare uniforme.\\
+
+	      \textbf{Risposta.} La potenza per angolo solido (vuoto) è
+	      \[
+		      \boxed{\ \frac{{\rm d}P}{{\rm d}\Omega} = R^2\,\mathbf{S}\!\cdot\!\mathbf{n} =\frac{q^{2}}{16\pi^{2}\varepsilon_{0} c}\, \frac{\big|\mathbf{n}\times\big[(\mathbf{n}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}\big]\big|^{2}}{\kappa^{5}}\ }
+		      _{\rm ret}.
+	      \]
+	      Per \emph{moto circolare} a velocità costante:
+	      $\boldsymbol{\beta}\!\perp\!\dot{\boldsymbol{\beta}}$, $|\dot{\boldsymbol{\beta}}
+		      |=a/c$, con $a$ modulo dell’accelerazione centripeta. Scegliamo assi al tempo
+	      ritardato con
+	      \[
+		      \boldsymbol{\beta}=\beta\,\hat{\mathbf{x}},\qquad \dot{\boldsymbol{\beta}}
+		      =\frac{a}{c}\,\hat{\mathbf{y}},
+	      \]
+	      e parametrizziamo la direzione di osservazione con angoli sferici \emph{intorno
+		      a $\hat{\mathbf{x}}$} (cioè $\theta$ misurato dall’asse $x$ e $\phi$ dall’asse
+	      $y$ nel piano trasverso):
+	      \[
+		      \mathbf{n}=(\cos\theta,\ \sin\theta\cos\phi,\ \sin\theta\sin\phi),\qquad
+		      \kappa=1-\beta\cos\theta.
+	      \]
+	      Con questa scelta si trova (algebrica diretta delle doppi croci):
+	      \[
+		      \Big|\mathbf{n}\times\big[(\mathbf{n}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}
+			      \big]\Big|^{2}=\frac{a^{2}}{c^{2}}\Bigg[\,1-\frac{\sin^{2}\theta\,\sin^{2}\phi}{\gamma^{2}\kappa^{2}}
+			      \,\Bigg], \qquad \gamma=\frac{1}{\sqrt{1-\beta^{2}}}.
+	      \]
+	      Sostituendo nell’espressione generale si ottiene la distribuzione angolare
+	      cercata:
+	      \[
+		      \boxed{\  \frac{{\rm d}P}{{\rm d}\Omega} =\frac{q^{2}a^{2}}{16\pi^{2}\varepsilon_{0} c^{3}}\, \frac{1}{(1-\beta\cos\theta)^{3}}\, \Bigg(1-\frac{\sin^{2}\theta\,\sin^{2}\phi}{\gamma^{2}(1-\beta\cos\theta)^{2}}\Bigg)\, . }
+	      \]
+	      Questa è la dipendenza angolare (MKSA) della potenza irradiata da una carica
+	      in moto circolare, espressa in funzione degli angoli $(\theta,\phi)$
+	      rispetto alla direzione istantanea della velocità (asse $x$) e al piano
+	      dell’orbita (asse $y$). L’integrazione su tutto lo spazio angolare restituisce
+	      la potenza totale relativistica di Liénard per il caso $\mathbf{a}\!\perp\!
+		      \mathbf{v}$:
+	      \[
+		      P_{\rm tot}=\frac{q^{2}\gamma^{4}a^{2}}{6\pi\varepsilon_{0} c^{3}}.
+	      \]
+
+	\item \textbf{Domanda:} Si consideri una carica accelerata in moto non
+	      relativistico. Si calcolino la distribuzione angolare e la potenza totale della
+	      radiazione emessa.\\
+
+	      \textbf{Risposta.} Nel limite $v\ll c$, il campo di radiazione (a grande distanza
+	      $R$) di una carica $q$ con accelerazione istantanea $\mathbf{a}(t)$ è
+	      \[
+		      \mathbf{E}_{\rm rad}(\mathbf{r},t)=\frac{q}{4\pi\varepsilon_{0} c^{2}}\,
+		      \frac{\mathbf{n}\times(\mathbf{n}\times\mathbf{a})}{R},\qquad \mathbf{B}_{\rm
+			      rad}=\frac{1}{c}\,\mathbf{n}\times\mathbf{E}_{\rm rad},
+	      \]
+	      dove $\mathbf{n}=\mathbf{R}/R$ è la direzione di osservazione. Il vettore di
+	      Poynting radiale vale
+	      \[
+		      S_{r}=\frac{1}{\mu_{0}}\,|\mathbf{E}_{\rm rad}|^{2} =\frac{q^{2}}{16\pi^{2}\varepsilon_{0}
+			      c^{3}}\,\frac{|\mathbf{n}\times(\mathbf{n}\times\mathbf{a})|^{2}}{R^{2}}.
+	      \]
+
+	      \textbf{Distribuzione angolare di potenza.} La potenza emessa per angolo solido
+	      è
+	      \[
+		      \boxed{\ \frac{{\rm d}P}{{\rm d}\Omega}=R^2 S_r =\frac{q^{2}}{16\pi^{2}\varepsilon_{0} c^{3}}\, \big|\mathbf{n}\times(\mathbf{n}\times\mathbf{a})\big|^2\ }
+		      .
+	      \]
+	      Poiché $\mathbf{n}\times(\mathbf{n}\times\mathbf{a})=\mathbf{a}-\mathbf{n}(
+		      \mathbf{n}\!\cdot\!\mathbf{a})$, se $\theta$ è l’angolo tra $\mathbf{a}$ e
+	      $\mathbf{n}$ si ha
+	      $|\mathbf{n}\times(\mathbf{n}\times\mathbf{a})|^{2}=a^{2}\sin^{2}\theta$, quindi
+	      \[
+		      \boxed{\ \frac{{\rm d}P}{{\rm d}\Omega} =\frac{q^{2} a^{2}}{16\pi^{2}\varepsilon_{0} c^{3}}\,\sin^2\theta\ }
+		      .
+	      \]
+	      È il tipico \emph{diagramma a “dipolo”} con nodi lungo $\pm\mathbf{a}$ e
+	      massimo sul piano perpendicolare a $\mathbf{a}$.
+
+	      \textbf{Potenza totale (formula di Larmor).} Integrando su tutto lo spazio
+	      angolare:
+	      \[
+		      P=\int \frac{{\rm d}P}{{\rm d}\Omega}\,{\rm d}\Omega =\frac{q^{2} a^{2}}{16\pi^{2}\varepsilon_{0}
+			      c^{3}}\int \sin^{2}\theta\,{\rm d}\Omega =\frac{q^{2} a^{2}}{16\pi^{2}\varepsilon_{0}
+			      c^{3}}\,\Big(\tfrac{8\pi}{3}\Big) =\boxed{\ \frac{q^{2} a^{2}}{6\pi\varepsilon_{0} c^{3}}\ }
+		      .
+	      \]
+	      Questa è la \emph{formula di Larmor} (istantanea). Per un’accelerazione
+	      armonica $\mathbf{a}(t)=\Re[\mathbf{a}_{0} e^{-i\omega t}]$, la potenza media
+	      è $\langle P\rangle=\dfrac{q^2}{6\pi\varepsilon_0 c^3}\,\langle a^{2}\rangle
+		      =\dfrac{q^2|\mathbf{a}_0|^2}{12\pi\varepsilon_0 c^3}$.
+
+	\item \textbf{Domanda:} Dimostrare che la forza di reazione radiativa (non relativistica)
+	      è
+	      \[
+		      \mathbf{F}_{\rm rad}=\frac{2q^{2}}{3c^{3}}\,\dot{\mathbf{a}}= z^{2}m_{e}\,
+		      \tau_{e}\,\dot{\mathbf{a}}, \qquad \tau_{e}=\frac{2e^{2}}{3m_{e}c^{3}}\simeq
+		      6.2\times 10^{-24}\ \mathrm{s},
+	      \]
+	      e indicarne il campo di applicazione.\\
+
+	      \textbf{Risposta.} (Unità CGS/Gaussiane; in fondo diamo l’equivalente in
+	      SI.)
+
+	      \emph{Idea della dimostrazione (bilancio energetico).} La potenza
+	      irradiata istantanea da una carica $q$ con accelerazione $\mathbf{a}$ (formula
+	      di Larmor) è
+	      \[
+		      P_{\rm L}=\frac{2 q^{2}}{3c^{3}}\,a^{2}.
+	      \]
+	      Sia $\mathbf{F}_{\rm ext}$ la forza esterna e $\mathbf{F}_{\rm rad}$ la
+	      forza di reazione (auto–forza). L’equazione del moto è
+	      \[
+		      m\mathbf{a}=\mathbf{F}_{\rm ext}+\mathbf{F}_{\rm rad}.
+	      \]
+	      Moltiplicando per $\mathbf{v}$ si ottiene il bilancio di potenza
+	      \[
+		      \mathbf{F}_{\rm ext}\!\cdot\!\mathbf{v}=\frac{{\rm d}}{{\rm d}t}\!\left(\tfrac
+		      12 m v^{2}\right) -\mathbf{F}_{\rm rad}\!\cdot\!\mathbf{v}.
+	      \]
+	      Affinché la potenza irradiata derivi dal lavoro delle forze sul punto materiale
+	      e da un \emph{termine di energia di campo vicino} (energia di Schott), imponiamo
+	      che
+	      \[
+		      \mathbf{F}_{\rm rad}\!\cdot\!\mathbf{v}=\frac{{\rm d}}{{\rm d}t}U_{\rm S}
+		      -P_{\rm L}, \qquad U_{\rm S}=\frac{2 q^{2}}{3c^{3}}\ \mathbf{a}\!\cdot\!\mathbf{v}
+		      .
+	      \]
+	      Poiché
+	      \[
+		      \frac{{\rm d}}{{\rm d}t}(\mathbf{a}\!\cdot\!\mathbf{v}) =\dot{\mathbf{a}}
+		      \!\cdot\!\mathbf{v}+a^{2},
+	      \]
+	      si ha
+	      \[
+		      \frac{{\rm d}U_{\rm S}}{{\rm d}t}-P_{\rm L}=\frac{2q^{2}}{3c^{3}}\Big(\dot
+		      {\mathbf{a}}\!\cdot\!\mathbf{v}+a^{2}\Big) -\frac{2q^{2}}{3c^{3}}a^{2}=\frac{2q^{2}}{3c^{3}}
+		      \ \dot{\mathbf{a}}\!\cdot\!\mathbf{v}.
+	      \]
+	      Confrontando con $\mathbf{F}_{\rm rad}\!\cdot\!\mathbf{v}$ per traiettorie
+	      arbitrarie si identifica
+	      \[
+		      \boxed{\ \mathbf{F}_{\rm rad}=\frac{2q^{2}}{3c^{3}}\ \dot{\mathbf{a}}\ }\qquad
+		      \text{(Abraham–Lorentz, limite non relativistico).}
+	      \]
+	      Scrivendo $q=z\,e$ e $m=m_{e}$ per un elettrone con numero di carica $z$,
+	      si ottiene
+	      \[
+		      \mathbf{F}_{\rm rad}=z^{2}m_{e}\,\tau_{e}\,\dot{\mathbf{a}}, \quad \tau_{e}
+		      =\frac{2e^{2}}{3m_{e}c^{3}}\simeq 6.2\times 10^{-24}\ \mathrm{s}.
+	      \]
+
+	      \textbf{Campo di applicazione.} Valida per:
+	      \begin{itemize}
+		      \item moto \emph{non relativistico} ($v\ll c$);
+
+		      \item accelerazioni \emph{dolci} su tempi $\Delta t\gg\tau_{e}$ (forze esterne
+		            regolari, nessuna variazione impulsiva);
+
+		      \item particelle “puntiformi” classiche dove si trascurano estensione e struttura
+		            interna.
+	      \end{itemize}
+	      Fuori da questo regime compaiono patologie (soluzioni “runaway”, pre–accelerazione).
+	      La formulazione consistente e relativistica è l’equazione di Abraham–Lorentz–Dirac;
+	      in applicazioni pratiche si usa spesso la forma “ridotta” di
+	      Landau–Lifshitz.
+
+	      \textbf{Nota (unità SI).} In SI la stessa espressione diventa
+	      \[
+		      \boxed{\ \mathbf{F}_{\rm rad} =\frac{q^{2}}{6\pi\varepsilon_{0}c^{3}}\ \dot{\mathbf{a}} = m\,\tau_{\!{\rm SI}}\,\dot{\mathbf{a}},\qquad \tau_{\!{\rm SI}}=\frac{q^{2}}{6\pi\varepsilon_{0}m c^{3}}. }
+	      \]
+	      Per l’elettrone si ha $\tau_{\!{\rm SI}}\simeq 6.26\times 10^{-24}\ \mathrm{s}$.
+
+	\item \textbf{Domanda:} Dopo avere calcolato l’energia persa in una
+	      rivoluzione per una carica in moto uniforme su una circonferenza (acceleratore
+	      circolare), calcolare la frazione di energia persa in un giro rispetto alla
+	      sua energia cinetica. Effettuare una valutazione numerica per elettroni a
+	      LEP (energia $50\,\mathrm{GeV}$, raggio $\sim 4\ \mathrm{km}$) e protoni all’LHC
+	      (energia $7\,\mathrm{TeV}$, raggio $\sim 4\ \mathrm{km}$).\\
+
+	      \textbf{Risposta.} Dalla potenza di Liénard per moto circolare uniforme ($\mathbf{a}
+		      \perp\mathbf{v}$),
+	      \[
+		      P=\frac{q^{2} \gamma^{4} a^{2}}{6\pi\varepsilon_{0} c^{3}},\qquad a=\frac{v^{2}}{\rho}
+		      ,
+	      \]
+	      l’energia persa per giro è
+	      \[
+		      \boxed{\ U_0=P\,T=\frac{q^{2} \gamma^{4} a^{2}}{6\pi\varepsilon_{0} c^{3}}\,\frac{2\pi\rho}{v} =\frac{q^{2}\gamma^{4}}{3\varepsilon_{0} c^{3}}\,\frac{v^{3}}{\rho}\ \simeq\ C_\gamma\, \left(\frac{q}{e}\right)^2\!\left(\frac{m_{e}}{m}\right)^4 \frac{E^{4}}{\rho}\ }
+		      ,
+	      \]
+	      dove $E=\gamma mc^{2}$; nell’ultima forma ($v\simeq c$) si è usata la
+	      costante
+	      \[
+		      C_{\gamma}=8.846\times 10^{-5}\ \frac{\mathrm{m}}{\mathrm{GeV}^{3}}\qquad
+		      \big(\ U_{0}[\mathrm{GeV}]=C_{\gamma}\,(q/e)^{2}(m_{e}/m)^{4}\,\frac{E[\mathrm{GeV}]^{4}}{\rho[\mathrm{m}]}
+		      \ \big).
+	      \]
+	      La \emph{frazione} di energia persa per giro è $f=U_{0}/E$.
+
+	      \medskip
+	      \textbf{Valutazioni numeriche} (prendendo $\rho=4.0\times 10^{3}\,$m):
+
+	      \begin{itemize}
+		      \item \textbf{Elettroni (LEP), $E=50$ GeV, $m=m_{e}$, $q=e$:}
+		            \[
+			            U_{0} \simeq 0.0885\,\frac{E^{4}}{\rho}\;[\mathrm{GeV}] =0.0885\,\frac{50^{4}}{4000}
+			            \approx 0.138\ \mathrm{GeV}=138\ \mathrm{MeV},
+		            \]
+		            \[
+			            \boxed{\,f=\frac{U_{0}}{E}\approx \frac{0.138}{50}\simeq 2.8\times 10^{-3}\; (\sim 0.28\%)\, }
+			            .
+		            \]
+
+		      \item \textbf{Protoni (LHC), $E=7$ TeV $=7000$ GeV, $q=e$, $m=m_{p}$:}
+		            \[
+			            U_{0} \simeq 0.0885\,\frac{E^{4}}{\rho}\left(\frac{m_{e}}{m_{p}}\right
+			            )^{4} \approx \frac{0.0885\,(7000)^{4}}{4000}\times \left(\frac{1}{1836}
+			            \right)^{\!4}\approx 4.7\times 10^{-2}\ \mathrm{MeV}=47\ \mathrm{keV}
+			            ,
+		            \]
+		            \[
+			            \boxed{\,f=\frac{U_{0}}{E}\approx \frac{47\ \mathrm{keV}}{7\times 10^{6}\ \mathrm{keV}} \simeq 6.7\times 10^{-9}\, }
+			            .
+		            \]
+	      \end{itemize}
+
+	      \textbf{Commento.} La perdita per giro cresce come $E^{4}/\rho$ e come $(m_{e}
+		      /m)^{4}$: è grande per elettroni (LEP: decine di MeV per giro a $50$ GeV) e
+	      trascurabile per protoni (LHC: poche decine di keV per giro anche a $7$ TeV).
+
+	\item \textbf{Domanda:} Spiegare tutti i termini dell’espressione
+	      \[
+		      \frac{{\rm d}I_{\omega}}{{\rm d}\Omega}=\frac{q^{2}}{4\pi^{2}c}\, \left|\,
+		      \int_{-\infty}^{+\infty}\frac{\hat{\mathbf{n}}\times\big[(\hat{\mathbf{n}}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}\big]}{\big(1-\hat{\mathbf{n}}\!\cdot\!\boldsymbol{\beta}\big)^{2}}
+		      \; e^{\,i\omega\left(t'-\frac{\hat{\mathbf{n}}\cdot\mathbf{r}'(t')}{c}\right)}
+		      \,{\rm d}t'\ \right|^{2}
+	      \]
+	      per la funzione di distribuzione dell’energia irraggiata da una carica
+	      puntiforme in moto arbitrario.\\
+
+	      \textbf{Risposta.} Questa espressione fornisce la \emph{distribuzione
+		      spettrale angolare} dell’energia irradiata:
+	      \[
+		      \frac{{\rm d}I_{\omega}}{{\rm d}\Omega}\quad\text{[J Hz$^{-1}$ sr$^{-1}$]}
+		      .
+	      \]
+	      Ogni termine ha il seguente significato:
+
+	      \begin{itemize}
+		      \item $q$: carica della particella.
+
+		      \item $c$: velocità della luce.
+
+		      \item $\hat{\mathbf{n}}$: versore nella direzione di osservazione, dal punto
+		            ritardato alla posizione dell’osservatore.
+
+		      \item $\boldsymbol{\beta}(t')=\mathbf{v}(t')/c$: velocità istantanea (adimensionale)
+		            della carica al tempo $t'$.
+
+		      \item $\dot{\boldsymbol{\beta}}(t')=\mathbf{a}(t')/c$: accelerazione
+		            istantanea (adimensionale).
+
+		      \item $(\hat{\mathbf{n}}-\boldsymbol{\beta})$: differenza tra direzione
+		            di osservazione e direzione di moto istantanea.
+
+		      \item $(\hat{\mathbf{n}}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}$:
+		            contribuisce al campo radiativo istantaneo; il prodotto vettoriale con
+		            $\hat{\mathbf{n}}$ seleziona la componente trasversale del campo (perpendicolare
+		            alla direzione di propagazione).
+
+		      \item $(1-\hat{\mathbf{n}}\cdot\boldsymbol{\beta})^{-2}$: fattore
+		            relativistico di \emph{beaming}, che tiene conto della compressione
+		            del fronte d’onda nella direzione del moto.
+
+		      \item Esponenziale $e^{\,i\omega(t'-\hat{\mathbf{n}}\cdot\mathbf{r}'/c)}$:
+		            fase della radiazione osservata a frequenza angolare $\omega$, con tempo
+		            di arrivo legato alla differenza cammino–tempo $t_{\rm arr}=t'-\hat{\mathbf{n}}
+			            \cdot\mathbf{r}'/c$.
+
+		      \item L’integrale su $t'$: somma coerente (interferenza) di tutte le
+		            emissioni istantanee lungo la traiettoria; la modulazione di fase determina
+		            lo spettro.
+
+		      \item Modulo al quadrato: potenza spettrale angolare (intensità) alla
+		            frequenza $\omega$ e direzione $\hat{\mathbf{n}}$.
+
+		      \item Fattore $\dfrac{q^{2}}{4\pi^{2}c}$: costante di normalizzazione
+		            derivante dalla relazione campo–energia (Poynting).
+	      \end{itemize}
+
+	      \textbf{Commento fisico.}
+	      \begin{itemize}
+		      \item L’integrando contiene l’informazione locale (istantanea) sul moto della
+		            particella: direzione, velocità, accelerazione.
+
+		      \item La dipendenza da $(1-\hat{\mathbf{n}}\cdot\boldsymbol{\beta})^{-2}$
+		            e dalla fase porta al \emph{beaming relativistico} e allo spostamento
+		            di frequenza (Doppler).
+
+		      \item L’espressione è valida per traiettorie arbitrarie, relativistiche
+		            o no; specializzandola a moti semplici (circolare, rettilineo accelerato)
+		            si ottengono formule note per radiazione di sincrotrone, di bremsstrahlung,
+		            ecc.
+	      \end{itemize}
+
+	\item \textbf{Domanda:} Dimostrare che
+	      \[
+		      \frac{{\rm d}I_{\omega}}{{\rm d}\Omega}=\frac{q^{2}}{4\pi^{2}c}\, \left|\,
+		      \int_{-\infty}^{+\infty}\frac{\hat{\mathbf{n}}\times\big[(\hat{\mathbf{n}}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}\big]}{\big(1-\hat{\mathbf{n}}\!\cdot\!\boldsymbol{\beta}\big)^{2}}
+		      \; e^{\,i\omega\left(t'-\frac{\hat{\mathbf{n}}\cdot\mathbf{r}'(t')}{c}\right)}
+		      \,{\rm d}t' \right|^{2}
+	      \]
+	      è l’energia irradiata per unità di angolo solido e di frequenza da una
+	      carica accelerata in funzione dell’angolo di emissione, e mostrare che per
+	      un moto armonico a basse velocità l’emissione avviene alla sola frequenza di
+	      oscillazione.\\
+
+	      \textbf{Risposta.} (Unità gaussiane.) L’espressione data si ottiene
+	      prendendo il campo radiativo dei Liénard–Wiechert, calcolando il vettore di
+	      Poynting nel far–field, passando allo spazio delle frequenze con la
+	      trasformata di Fourier e moltiplicando per $R^{2}$:
+	      \[
+		      \frac{{\rm d}I_{\omega}}{{\rm d}\Omega}=R^{2}\frac{c}{4\pi}\,|\tilde{\mathbf{E}}
+		      _{\rm rad}(\omega)|^{2},
+	      \]
+	      da cui la formula riportata con $\hat{\mathbf{n}}=\mathbf{R}/R$,
+	      $\boldsymbol{\beta}=\mathbf{v}/c$, $\dot{\boldsymbol{\beta}}=\mathbf{a}/c$
+	      e fase $t'-\hat{\mathbf{n}}\!\cdot\!\mathbf{r}'/c$ (tempo d’arrivo).
+
+	      \medskip
+
+	      \textbf{Limite non relativistico \& dipolare.} Se $v\ll c$ e la sorgente è
+	      piccola rispetto alla lunghezza d’onda ($\omega\,|\mathbf{r}'|/c\ll1$),
+	      \[
+		      \frac{\hat{\mathbf{n}}\times[(\hat{\mathbf{n}}-\boldsymbol{\beta})\times\dot{\boldsymbol{\beta}}]}{(1-\hat{\mathbf{n}}\!\cdot\!\boldsymbol{\beta})^{2}}
+		      \;\simeq\; \hat{\mathbf{n}}\times\big(\hat{\mathbf{n}}\times\dot{\boldsymbol{\beta}}
+		      \big) =\dot{\boldsymbol{\beta}}_{\!\perp}, \qquad e^{\,i\omega(t'-\hat{\mathbf{n}}\cdot\mathbf{r}'/c)}
+		      \simeq e^{\,i\omega t'}.
+	      \]
+	      Segue
+	      \[
+		      \boxed{\ \frac{{\rm d}I_{\omega}}{{\rm d}\Omega} \simeq \frac{q^{2}}{4\pi^{2}c^{3}} \left|\,\int_{-\infty}^{+\infty} \mathbf{a}_{\perp}(t')\,e^{i\omega t'}\,{\rm d}t'\right|^{2}\, ,}
+	      \]
+	      cioè lo \emph{spettro angolare} è proporzionale al modulo quadro della trasformata
+	      di Fourier della componente di accelerazione perpendicolare alla direzione
+	      di osservazione.
+
+	      \textbf{Moto armonico a basse velocità.} Sia la carica oscillante lungo
+	      $\hat{\mathbf{z}}$:
+	      \[
+		      \mathbf{a}(t')=a_{0}\cos(\omega_{0} t')\,\hat{\mathbf{z}}, \qquad \mathbf{a}
+		      _{\perp}(t')=a_{0}\cos(\omega_{0} t')\,\sin\theta\,\hat{\boldsymbol{\theta}}
+		      ,
+	      \]
+	      dove $\theta$ è l’angolo tra $\hat{\mathbf{n}}$ e $\hat{\mathbf{z}}$. Per
+	      un’osservazione lunga $T$,
+	      \[
+		      \left|\int_{-T/2}^{T/2}\! \mathbf{a}_{\perp}(t')\,e^{i\omega t'}\,dt'\right
+		      |^{2}\ \xrightarrow[T\to\infty]{}\  \pi T\,a_{0}^{2}\sin^{2}\theta\,\delta
+		      (\omega-\omega_{0}).
+	      \]
+	      Dunque l’energia spettrale–angolare (o, dividendo per $T$, la potenza
+	      spettrale–angolare) è
+	      \[
+		      \boxed{\ \frac{{\rm d}I_{\omega}}{{\rm d}\Omega} =\frac{q^{2}a_{0}^{2}}{4\pi c^{3}}\, \sin^{2}\theta\ \delta(\omega-\omega_0)\ ,}
+	      \]
+	      cioè l’emissione è \emph{monocromatica} alla sola frequenza di
+	      oscillazione $\omega_{0}$ e presenta il tipico \emph{diagramma dipolare} $\propto
+		      \sin^{2}\theta$.
+
+	      \textbf{(Nota SI.)} In unità MKSA si inserisce il fattore
+	      $\varepsilon_{0}^{-1}$: $\dfrac{{\rm d}I_\omega}{{\rm d}\Omega}= \dfrac{q^{2}}
+		      {16\pi^{3}\varepsilon_0 c^{3}}\big|\int \mathbf{a}_{\perp} e^{i\omega t'}dt
+		      '\big|^{2}$, e l’ultima riga diventa
+	      $\dfrac{{\rm d}I_\omega}{{\rm d}\Omega}=\dfrac{q^{2}a_0^{2}}{16\pi\varepsilon_0 c^{3}}
+		      \sin^{2}\theta\,\delta(\omega-\omega_{0}).$
+\end{enumerate}
+
+\section{Indagini della materia con onde elettromagnetiche}
+\begin{enumerate}
+	\item \textbf{Domanda:} Dimostrare che un elettrone non relativistico, soggetto a una forza elastica di richiamo, a un’attrito viscoso e alla forza di reazione radiativa, immerso in un’onda e.m. piana armonica linearmente polarizzata, oscilla come
+	      \[
+		      \boldsymbol{x}(t)=\frac{e\,\boldsymbol{E}_{0}}{m_{e}}\,
+		      \frac{1}{\omega_{0}^{2}-\omega^{2}-i\omega\,\Gamma_{\rm tot}}\;e^{-i\omega t},
+		      \qquad
+		      \Gamma_{\rm tot}=\Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_{0}^{2}} .
+	      \]
+
+	      \textbf{Risposta.} (Unità gaussiane.) Consideriamo un’onda piana polarizzata lungo
+	      $\hat{\boldsymbol{e}}$,
+	      \[
+		      \boldsymbol{E}(t)=\Re\!\left[\boldsymbol{E}_{0}\,e^{-i\omega t}\right],
+		      \qquad \boldsymbol{E}_{0}=E_{0}\,\hat{\boldsymbol{e}},
+	      \]
+	      e trascuriamo il termine magnetico $e\,\boldsymbol{v}\!\times\!\boldsymbol{B}/c$ poiché
+	      $v\ll c$. Siano inoltre presenti:
+	      \begin{itemize}
+		      \item la forza elastica di richiamo $-m_{e}\omega_{0}^{2}\boldsymbol{x}$;
+		      \item un attrito viscoso $-m_{e}\Gamma'\,\dot{\boldsymbol{x}}$;
+		      \item la reazione radiativa non relativistica di Abraham–Lorentz,
+		            \[
+			            \boldsymbol{F}_{\rm rad}=\frac{2e^{2}}{3c^{3}}\;\dddot{\boldsymbol{x}}.
+		            \]
+	      \end{itemize}
+	      L’equazione del moto è pertanto
+	      \[
+		      m_{e}\ddot{\boldsymbol{x}}
+		      =-m_{e}\omega_{0}^{2}\boldsymbol{x}-m_{e}\Gamma'\dot{\boldsymbol{x}}
+		      +e\boldsymbol{E}_{0}e^{-i\omega t}
+		      +\frac{2e^{2}}{3c^{3}}\dddot{\boldsymbol{x}} .
+	      \]
+
+	      Cercando la soluzione stazionaria alla frequenza di forzante
+	      $\boldsymbol{x}(t)=\boldsymbol{x}_{0}\,e^{-i\omega t}$ si ha
+	      \[
+		      \ddot{\boldsymbol{x}}=-\omega^{2}\boldsymbol{x},\qquad
+		      \dot{\boldsymbol{x}}=-i\omega\boldsymbol{x},\qquad
+		      \dddot{\boldsymbol{x}}=i\omega^{3}\boldsymbol{x},
+	      \]
+	      e quindi
+	      \[
+		      m_{e}\Big(\omega_{0}^{2}-\omega^{2}-i\omega\Gamma'
+		      -i\frac{2e^{2}}{3m_{e}c^{3}}\,\omega^{3}\Big)\boldsymbol{x}_{0}
+		      =e\,\boldsymbol{E}_{0}.
+	      \]
+
+	      Definiamo
+	      \[
+		      \Gamma\equiv \frac{2e^{2}\omega_{0}^{2}}{3m_{e}c^{3}},
+		      \qquad
+		      \Gamma_{\rm tot}(\omega)\equiv \Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_{0}^{2}}
+		      =\Gamma'+\frac{2e^{2}}{3m_{e}c^{3}}\omega^{2}.
+	      \]
+
+	      Allora
+	      \[
+		      \boxed{\;
+		      \boldsymbol{x}(t)=\frac{e\,\boldsymbol{E}_{0}}{m_{e}}\,
+		      \frac{1}{\omega_{0}^{2}-\omega^{2}-i\omega\,\Gamma_{\rm tot}(\omega)}\;e^{-i\omega t}
+		      \;}
+	      \]
+	      come richiesto.
+
+	      \medskip
+
+	      \textit{Osservazione.} L’effetto della radiazione è una “dissipazione” addizionale
+	      con coefficiente proporzionale a $\omega^{2}$; vicino alla risonanza l’equazione
+	      coincide con quella di un oscillatore armonico forzato con smorzamento totale
+	      $\Gamma_{\rm tot}=\Gamma'+\Gamma\,\omega^{2}/\omega_{0}^{2}$.
+
+	\item \textbf{Domanda:} Descrivere qualitativamente il fenomeno dell’assorbimento,
+	      il fenomeno della diffusione elastica ed il fenomeno della diffusione inelastica
+	      di un’onda elettromagnetica su un sistema.
+
+	      \textbf{Risposta.}
+	      Quando un’onda elettromagnetica incide su un sistema materiale (atomi, molecole,
+	      solidi), essa può interagire con le cariche legate e trasferire loro energia
+	      in modi diversi. In particolare, si distinguono tre fenomeni principali:
+
+	      \begin{itemize}
+		      \item \textbf{Assorbimento.}
+		            L’onda elettromagnetica cede energia al sistema eccitando i gradi di libertà
+		            interni (per esempio transizioni elettroniche, vibrazionali o rotazionali).
+		            L’energia dell’onda viene quindi trasformata in energia interna del sistema,
+		            e non viene riemessa alla stessa frequenza. Macroscopicamente, questo
+		            fenomeno si manifesta come attenuazione dell’intensità trasmessa.
+		            Spettroscopicamente, l’assorbimento avviene in corrispondenza di frequenze
+		            risonanti del sistema.
+
+		      \item \textbf{Diffusione elastica.}
+		            Il sistema, polarizzato dal campo incidente, si comporta come un dipolo
+		            oscillante che riemette radiazione alla stessa frequenza dell’onda incidente.
+		            Non c’è scambio netto di energia tra onda e sistema: l’energia dell’onda
+		            diffusa è uguale a quella ricevuta. Questo processo è alla base della
+		            \emph{diffusione di Rayleigh} e spiega, ad esempio, la diffusione della luce
+		            nel cielo. La frequenza della radiazione diffusa coincide con quella incidente.
+
+		      \item \textbf{Diffusione anelastica (o inelastica).}
+		            In questo caso, durante l’interazione avviene un trasferimento parziale di
+		            energia tra l’onda e il sistema. L’onda diffusa possiede quindi una frequenza
+		            diversa rispetto a quella incidente. Il sistema può assorbire una parte
+		            dell’energia per passare a uno stato eccitato, oppure può cederne se si
+		            trovava già in uno stato eccitato. Un esempio tipico è l’effetto Raman,
+		            in cui la luce diffusa è spostata in frequenza rispetto alla radiazione
+		            incidente in corrispondenza delle frequenze vibrazionali della molecola.
+	      \end{itemize}
+
+	\item \textbf{Domanda:} Per un'onda e.m. monocromatica che incide su un bersaglio
+	      (per esempio un circuito o un atomo) definire le sezioni d'urto:
+	      i) di assorbimento, ii) elastica differenziale, iii) totale elastica;
+	      iv) inelastica differenziale; v) inelastica totale; vi) totale.
+
+	      \textbf{Risposta.}
+	      Sia $I_{\rm inc}$ l’intensità dell’onda incidente e siano $dP$ oppure $P$ le potenze
+	      diffusa/assorbita dal bersaglio. Si definiscono:
+
+	      \begin{enumerate}
+		      \renewcommand\labelenumi{(\roman{enumi})}
+		      \item \textbf{Sezione d’urto di assorbimento:}
+		            \[
+			            \sigma_{\rm abs}=\frac{P_{\rm assorbita}}{I_{\rm inc}}.
+		            \]
+
+		      \item \textbf{Sezione d’urto elastica differenziale:}
+		            \[
+			            \frac{d\sigma_{\rm el}}{d\Omega}
+			            =\frac{1}{I_{\rm inc}}\,
+			            \frac{dP_{\rm diffusa}^{(\rm el)}}{d\Omega},
+		            \]
+		            dove $dP_{\rm diffusa}^{(\rm el)}$ è la potenza diffusa elasticamente
+		            nell’elemento solido $d\Omega$.
+
+		      \item \textbf{Sezione d’urto elastica totale:}
+		            \[
+			            \sigma_{\rm el}=\int \frac{d\sigma_{\rm el}}{d\Omega}\,d\Omega.
+		            \]
+
+		      \item \textbf{Sezione d’urto inelastica differenziale:}
+		            \[
+			            \frac{d\sigma_{\rm inel}}{d\Omega}
+			            =\frac{1}{I_{\rm inc}}\,
+			            \frac{dP_{\rm diffusa}^{(\rm inel)}}{d\Omega},
+		            \]
+		            dove $dP_{\rm diffusa}^{(\rm inel)}$ è la potenza diffusa con cambiamento di frequenza.
+
+		      \item \textbf{Sezione d’urto inelastica totale:}
+		            \[
+			            \sigma_{\rm inel}=\int \frac{d\sigma_{\rm inel}}{d\Omega}\,d\Omega.
+		            \]
+
+		      \item \textbf{Sezione d’urto totale:}
+		            \[
+			            \sigma_{\rm tot}=\sigma_{\rm abs}+\sigma_{\rm el}+\sigma_{\rm inel}.
+		            \]
+	      \end{enumerate}
+
+	\item \textbf{Domanda:} Definire l’ampiezza di scattering per un’onda e.m. monocromatica che incide su un bersaglio fisso (per esempio un circuito o un atomo).
+
+	      \textbf{Risposta.}
+	      Consideriamo un’onda elettromagnetica piana monocromatica incidente di intensità $I_{\rm inc}$ e frequenza $\omega$, che interagisce con un bersaglio localizzato. Nel regime di scattering lontano (far–field), il campo diffuso può essere scritto come un’onda sferica uscente:
+
+	      \[
+		      \mathbf{E}_{\rm diff}(\mathbf{r}) \;\simeq\;
+		      \frac{e^{ikr}}{r}\,\mathbf{f}(\theta,\phi)\cdot \mathbf{E}_{0},
+	      \]
+
+	      dove $k=\omega/c$, $\mathbf{E}_{0}$ è l’ampiezza del campo incidente,
+	      e $\mathbf{f}(\theta,\phi)$ è un tensore (o vettore, a seconda della polarizzazione)
+	      detto \emph{ampiezza di scattering}, che contiene l’informazione sull’efficienza
+	      e sulla direzionalità della radiazione diffusa.
+
+	      Il modulo quadro di questa ampiezza è direttamente legato alla \emph{sezione d’urto differenziale}:
+
+	      \[
+		      \frac{d\sigma}{d\Omega} = \frac{|\mathbf{E}_{\rm diff}|^{2}\,r^{2}}{|\mathbf{E}_{0}|^{2}}
+		      = |\mathbf{f}(\theta,\phi)|^{2}.
+	      \]
+
+	      Pertanto:
+	      - $\mathbf{f}(\theta,\phi)$ rappresenta l’ampiezza complessa della radiazione diffusa in direzione $(\theta,\phi)$;
+	      - la distribuzione angolare dell’intensità diffusa è data da $|\mathbf{f}(\theta,\phi)|^{2}$;
+	      - l’informazione sulla polarizzazione incidente e diffusa è contenuta nella struttura vettoriale di $\mathbf{f}$.
+
+	\item \textbf{Domanda:} Definire la “resistenza di irraggiamento” di un circuito elettrico a una maglia e fornire un esempio.
+
+	      \textbf{Risposta.}
+	      Quando un circuito percorso da corrente variabile nel tempo irradia onde elettromagnetiche, parte della potenza fornita dal generatore non viene dissipata per effetto Joule nelle resistenze ohmiche, ma viene convertita in radiazione elettromagnetica.
+	      Per tener conto di questo effetto si introduce la \emph{resistenza di irraggiamento} $R_{\rm rad}$, definita come la resistenza fittizia che, inserita al posto della radiazione, dissiperebbe la stessa potenza che il circuito emette sotto forma di onde e.m.:
+
+	      \[
+		      P_{\rm rad} = \tfrac{1}{2} I_{0}^{2} \, R_{\rm rad},
+	      \]
+
+	      dove $I_{0}$ è il valore efficace della corrente nel circuito.
+
+	      \medskip
+
+	      \textbf{Esempio.}
+	      Per un dipolo elettrico corto ($\ell \ll \lambda$), percorso da una corrente armonica $I(t)=I_{0}e^{-i\omega t}$, la potenza irradiata è
+
+	      \[
+		      P_{\rm rad} = \frac{2}{3c^{3}}\,\ddot{p}^{2}
+		      = \frac{2}{3c^{3}}\,(\omega^{2}q\ell)^{2}\,\frac{I_{0}^{2}}{\omega^{2}},
+	      \]
+
+	      dove $p=q\ell$ è il momento di dipolo elettrico.
+	      Confrontando con la definizione $P_{\rm rad} = \tfrac{1}{2} I_{0}^{2} R_{\rm rad}$ si ricava
+
+	      \[
+		      R_{\rm rad} \;\simeq\; \frac{2}{3}\,\frac{(k\ell)^{2}\,Z_{0}}{\,}, \qquad
+		      Z_{0}=\frac{4\pi}{c} \;\; \text{(in unità gaussiane)},
+	      \]
+
+	      oppure, in unità SI,
+
+	      \[
+		      R_{\rm rad} \;\simeq\; 80\pi^{2}\,\Big(\tfrac{\ell}{\lambda}\Big)^{2}\;\; \Omega.
+	      \]
+
+	      Questo mostra che un dipolo corto si comporta come se fosse dotato di una resistenza addizionale $R_{\rm rad}$: maggiore è la lunghezza del dipolo rispetto alla lunghezza d’onda, maggiore è la potenza che esso irraggia.
+
+
+	\item \textbf{Domanda:} Calcolare la “resistenza di irraggiamento” di un circuito elettrico quadrato di lato $L$, investito da una radiazione monocromatica di lunghezza d’onda $\lambda\gg L$. Il circuito è puramente resistivo con resistenza $R$. Si calcoli poi l’ampiezza di scattering elastico, la sezione d’urto di assorbimento e la sezione d’urto elastica, nel caso in cui l’onda incidente abbia il campo magnetico perpendicolare al piano del circuito e di modulo massimo $B$.
+
+	      \textbf{Risposta.} (Unità gaussiane; regime quasi–statico $kL\ll1$). Sia il circuito un quadrato di area $A=L^{2}$, con normale $\hat{\mathbf{z}}$. Una onda piana monocromatica incide con
+	      \[
+		      \mathbf{B}(t)=B\cos(\omega t)\,\hat{\mathbf{z}},\qquad \omega=\tfrac{2\pi c}{\lambda}.
+	      \]
+	      Per la legge di Faraday la f.e.m. indotta ha ampiezza
+	      \[
+		      \mathcal{E}_0=\frac{\omega A B}{c},
+	      \]
+	      e, poiché l’impedenza è puramente ohmica, la corrente sinusoidale di picco è
+	      \[
+		      I_0=\frac{\mathcal{E}_0}{R}=\frac{\omega A B}{c\,R},\qquad
+		      I_{\rm rms}=\frac{I_0}{\sqrt{2}}.
+	      \]
+	      La corrente genera un dipolo magnetico oscillante
+	      \[
+		      m(t)=m_0\cos(\omega t),\qquad m_0=\frac{A}{c}\,I_0=\frac{\omega A^{2}B}{c^{2}R}.
+	      \]
+
+	      \medskip
+
+	      \textbf{Potenza irradiata e resistenza di irraggiamento.}
+	      Un dipolo magnetico armonico irradia in media
+	      \[
+		      P_{\rm rad}=\frac{1}{3c^{3}}\,\omega^{4}m_{0}^{2}.
+	      \]
+	      Definiamo la resistenza di irraggiamento $R_{\rm rad}$ tramite
+	      \[
+		      P_{\rm rad}=\tfrac{1}{2}I_{\rm rms}^{2}\,R_{\rm rad}.
+	      \]
+	      Sostituendo $m_0$ e $I_{\rm rms}$ si ottiene
+	      \[
+		      \boxed{\,R_{\rm rad}=\frac{4\,\omega^{4}A^{2}}{3\,c^{5}}
+		      =\frac{4}{3}\,\frac{(k^{4}A^{2})}{c}\,}\qquad\big(A=L^{2},\;k=\omega/c\big),
+	      \]
+	      che dipende solo dalla geometria (piccolo loop) e dalla frequenza, non da $B$ né da $R$.
+
+	      \medskip
+
+	      \textbf{Scattering elastico (far–field).}
+	      Il diagramma angolare di potenza irradiata da un dipolo magnetico $\mathbf{m}\parallel\hat{\mathbf{z}}$ è
+	      \[
+		      \frac{dP_{\rm rad}}{d\Omega}=\frac{\omega^{4}m_{0}^{2}}{4\pi c^{3}}\sin^{2}\theta,
+	      \]
+	      dove $\theta$ è l’angolo rispetto a $\hat{\mathbf{z}}$. Poiché l’intensità incidente vale
+	      \[
+		      I_{\rm inc}=\frac{c\,B^{2}}{8\pi},
+	      \]
+	      la sezione d’urto \emph{elastica differenziale} risulta
+	      \[
+		      \boxed{\,\frac{d\sigma_{\rm el}}{d\Omega}
+		      =\frac{1}{I_{\rm inc}}\frac{dP_{\rm rad}}{d\Omega}
+		      =\frac{2\,\omega^{4}m_{0}^{2}}{c^{4}B^{2}}\sin^{2}\theta
+		      =\frac{2\,\omega^{6}A^{4}}{c^{8}R^{2}}\,\sin^{2}\theta\, .}
+	      \]
+	      Da questa, integrando su $4\pi$,
+	      \[
+		      \boxed{\,\sigma_{\rm el}=\int \frac{d\sigma_{\rm el}}{d\Omega}\,d\Omega
+		      =\frac{16\pi}{3}\,\frac{\omega^{6}A^{4}}{c^{8}R^{2}}\, .}
+	      \]
+
+	      \medskip
+
+	      \textbf{Ampiezza di scattering (definizione).}
+	      Introduciamo $f(\theta)$ tramite $\displaystyle \frac{d\sigma_{\rm el}}{d\Omega}=|f(\theta)|^{2}$. Dalle espressioni sopra segue
+	      \[
+		      \boxed{\,f(\theta)=\frac{\sqrt{2}\,\omega^{3}A^{2}}{c^{4}R}\,\sin\theta\, ,}
+	      \]
+	      con struttura vettoriale $\propto \hat{\mathbf{n}}\times(\hat{\mathbf{n}}\times\hat{\mathbf{z}})$.
+
+	      \medskip
+
+	      \textbf{Assorbimento ohmico.}
+	      La potenza dissipata per effetto Joule è
+	      \[
+		      P_{\rm abs}=I_{\rm rms}^{2}\,R=\frac{\omega^{2}A^{2}B^{2}}{2c^{2}R}.
+	      \]
+	      Quindi la sezione d’urto di assorbimento è
+	      \[
+		      \boxed{\,\sigma_{\rm abs}=\frac{P_{\rm abs}}{I_{\rm inc}}
+		      =\frac{4\pi\,\omega^{2}A^{2}}{c^{3}R}\, .}
+	      \]
+
+	      \medskip
+
+	      \textbf{Osservazioni.}
+	      (i) Nella banda $kL\ll1$ il circuito si comporta come un \emph{piccolo loop} (dipolo magnetico);
+	      (ii) $R_{\rm rad}$ è indipendente da $R$ e da $B$;
+	      (iii) $\sigma_{\rm abs}\propto R^{-1}$ mentre $\sigma_{\rm el}\propto R^{-2}$: per resistenze piccole domina l’assorbimento, per resistenze grandi lo scattering elastico diventa relativamente più importante.
+
+	      \medskip
+
+	      \textbf{(Nota SI.)} Per confronto con la letteratura d’antenna, la resistenza di irraggiamento di un piccolo loop (un giro) in unità SI si può esprimere come
+	      \[
+		      R_{\rm rad}^{\rm (SI)}\simeq 320\,\pi^{4}\left(\frac{A}{\lambda^{2}}\right)^{2}\ \Omega,
+	      \]
+	      che coincide con la stima ottenuta sopra convertendo le unità ($A=L^{2}$).
+
+
+	\item \textbf{Domanda:} Spiegare il significato e indicare l’unità di misura di ogni grandezza fisica nelle seguenti formule, inerenti l’interazione di un’onda e.m. piana e monocromatica su un elettrone legato elasticamente:
+	      \[
+		      \frac{d\sigma_{el}}{d\Omega}
+		      = r_{e}^{2}\,\frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,\sin^{2}\alpha,
+	      \]
+	      \[
+		      \frac{d\sigma_{el}}{d\Omega}
+		      = r_{e}^{2}\,\frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \frac{1+\cos^{2}\vartheta}{2},
+	      \]
+	      \[
+		      \sigma_{el}=\sigma_{\rm Th}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},
+		      \qquad
+		      \sigma_{\rm TOT}=4\pi r_{e}c\,
+		      \frac{\omega^{2}\Gamma_{\rm tot}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},
+	      \]
+	      con
+	      \[
+		      \sigma_{\rm Th}=\frac{8}{3}\pi r_{e}^{2}=0.66\,\text{barn}.
+	      \]
+
+	      \textbf{Risposta.}
+
+	      \begin{itemize}
+		      \item $\dfrac{d\sigma_{el}}{d\Omega}$: sezione d’urto elastica differenziale, rappresenta la probabilità di scattering elastico per unità di angolo solido nella direzione considerata.
+		            \textit{Unità}: area/steradiante, cioè $[L^{2}\,{\rm sr}^{-1}]$.
+
+		      \item $\sigma_{el}$: sezione d’urto elastica totale, ottenuta integrando la differenziale su tutto lo spazio angolare. Misura l’efficienza totale di scattering elastico.
+		            \textit{Unità}: area, $[L^{2}]$.
+
+		      \item $\sigma_{\rm TOT}$: sezione d’urto totale (comprendente anche processi di assorbimento e rilassamento radiativo).
+		            \textit{Unità}: area, $[L^{2}]$.
+
+		      \item $\sigma_{\rm Th}$: sezione d’urto di Thomson, caso limite di scattering elastico per elettrone libero ($\omega_{0}=0$, $\Gamma_{\rm tot}=0$).
+		            \textit{Unità}: area, $[L^{2}]$.
+		            Valore numerico: $\sigma_{\rm Th}\simeq 6.65\times 10^{-25}\,{\rm cm}^{2}\equiv0.66\,{\rm barn}$.
+
+		      \item $r_{e}$: raggio classico dell’elettrone,
+		            \[
+			            r_{e}=\frac{e^{2}}{m_{e}c^{2}},
+		            \]
+		            che rappresenta la lunghezza caratteristica del problema.
+		            \textit{Unità}: lunghezza, $[L]$.
+
+		      \item $\omega$: pulsazione dell’onda incidente ($\omega=2\pi\nu$).
+		            \textit{Unità}: $[T^{-1}]$.
+
+		      \item $\omega_{0}$: pulsazione propria dell’elettrone legato (frequenza di risonanza).
+		            \textit{Unità}: $[T^{-1}]$.
+
+		      \item $\Gamma_{\rm tot}$: coefficiente di smorzamento totale (dovuto a attrito viscoso + reazione radiativa).
+		            \textit{Unità}: $[T^{-1}]$.
+
+		      \item $\alpha$: angolo tra la polarizzazione dell’onda incidente e la direzione di osservazione.
+		            \textit{Unità}: angolo (adimensionale).
+
+		      \item $\vartheta$: angolo di scattering rispetto alla direzione incidente.
+		            \textit{Unità}: angolo (adimensionale).
+	      \end{itemize}
+
+	      \medskip
+
+	      \textbf{Interpretazione fisica.}
+	      Le formule descrivono lo scattering elastico della radiazione da un elettrone legato.
+	      Il termine $\dfrac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}$ è la tipica \emph{risonanza di Lorentz}: vicino a $\omega\simeq\omega_{0}$ lo scattering è massimo, con un picco di ampiezza determinata da $r_{e}$ e di larghezza $\Gamma_{\rm tot}$. Nel limite $\omega\ll\omega_{0}$ si recupera lo scattering di Thomson (elettrone libero).
+
+	\item \textbf{Domanda:} Dimostrare che la sezione d’urto differenziale elastica per
+	      un’onda e.m. piana, monocromatica e polarizzata linearmente che incide su un
+	      elettrone legato elasticamente vale
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_e^{\,2}\,\frac{\omega^{4}}{(\omega_0^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \sin^{2}\alpha,
+	      \]
+	      dove $\alpha$ è l’angolo tra direzione di osservazione e direzione di
+	      polarizzazione. Dimostrare inoltre che se l’onda è non polarizzata
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_e^{\,2}\,\frac{\omega^{4}}{(\omega_0^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \frac{1+\cos^{2}\theta}{2},
+	      \]
+	      con $\theta$ angolo tra direzione di osservazione e direzione di propagazione
+	      dell’onda incidente.
+
+	      \textbf{Risposta.} (Unità gaussiane, regime non relativistico.)
+	      L’elettrone è descritto da un oscillatore armonico smorzato e forzato:
+	      \[
+		      m_e\ddot{\mathbf{x}}+m_e\Gamma_{\rm tot}\dot{\mathbf{x}}+m_e\omega_0^{2}\mathbf{x}
+		      =e\mathbf{E}_0 e^{-i\omega t},
+		      \qquad
+		      \Gamma_{\rm tot}=\Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_0^{2}} .
+	      \]
+	      La soluzione stazionaria è
+	      \[
+		      \mathbf{x}(t)=\mathbf{x}_0\,e^{-i\omega t},\qquad
+		      \mathbf{x}_0=\frac{e\,\mathbf{E}_0/m_e}{\omega_0^{2}-\omega^{2}-i\omega\Gamma_{\rm tot}},
+	      \]
+	      per cui l’accelerazione armonica ha ampiezza
+	      \[
+		      \mathbf{a}_0=-\omega^{2}\mathbf{x}_0
+		      =\frac{e\,\omega^{2}\,\mathbf{E}_0/m_e}{\omega_0^{2}-\omega^{2}-i\omega\Gamma_{\rm tot}} .
+	      \]
+
+	      \textbf{Campo diffuso e potenza angolare.}
+	      Nel far–field il campo radiativo di una carica con accelerazione $\mathbf{a}$ è
+	      \[
+		      \mathbf{E}_{\rm rad}(\mathbf{r},t)=\frac{e}{c^{2}R}\,
+		      \hat{\mathbf{n}}\times\big(\hat{\mathbf{n}}\times\mathbf{a}(t_{\rm ret})\big),
+	      \]
+	      dove $\hat{\mathbf{n}}=\mathbf{r}/R$. Per una dipendenza $e^{-i\omega t}$, la
+	      potenza media per unità di angolo solido è
+	      \[
+		      \frac{dP}{d\Omega}=\frac{c}{8\pi}\,R^{2}\,|\mathbf{E}_{\rm rad}|^{2}
+		      =\frac{e^{2}}{4\pi c^{3}}\,|\mathbf{a}_{0,\perp}|^{2},
+	      \]
+	      con $\mathbf{a}_{0,\perp}$ proiezione di $\mathbf{a}_0$ perpendicolare a
+	      $\hat{\mathbf{n}}$.
+
+	      \textbf{Sezione d’urto differenziale.}
+	      L’intensità media dell’onda incidente è $I_{\rm inc}=cE_{0}^{2}/(8\pi)$. Per
+	      polarizzazione lineare $\mathbf{a}_0\parallel\mathbf{E}_0$, e
+	      $|\mathbf{a}_{0,\perp}|^{2}=|\mathbf{a}_0|^{2}\sin^{2}\alpha$, da cui
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}\equiv
+		      \frac{1}{I_{\rm inc}}\frac{dP}{d\Omega}
+		      =\frac{e^{2}}{c^{4}}\,
+		      \frac{|\mathbf{a}_0|^{2}}{E_{0}^{2}}\,
+		      \sin^{2}\alpha .
+	      \]
+	      Inserendo $|\mathbf{a}_0|^{2}/E_{0}^{2}=
+		      \big(e\omega^{2}/m_e\big)^{2}/\big[(\omega_0^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}\big]$
+	      e usando $r_e\equiv e^{2}/(m_e c^{2})$ si ottiene
+	      \[
+		      \boxed{\;
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_e^{\,2}\,\frac{\omega^{4}}{(\omega_0^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \sin^{2}\alpha \; } .
+	      \]
+
+	      \textbf{Media su polarizzazioni (onda non polarizzata).}
+	      Poniamo l’onda incidente lungo $\hat{\mathbf{z}}$ e scegliamo due
+	      polarizzazioni ortogonali $\hat{\mathbf{x}}$, $\hat{\mathbf{y}}$.
+	      Per un osservatore in direzione $(\theta,\varphi)$ vale
+	      \[
+		      \sin^{2}\alpha_x=1-(\hat{\mathbf{n}}\!\cdot\!\hat{\mathbf{x}})^{2}
+		      =1-\sin^{2}\theta\cos^{2}\varphi,\qquad
+		      \sin^{2}\alpha_y=1-\sin^{2}\theta\sin^{2}\varphi.
+	      \]
+	      Mediando su $\hat{\mathbf{x}}$ e $\hat{\mathbf{y}}$:
+	      \[
+		      \Big\langle\sin^{2}\alpha\Big\rangle
+		      =\tfrac{1}{2}\big(\sin^{2}\alpha_x+\sin^{2}\alpha_y\big)
+		      =1-\tfrac{1}{2}\sin^{2}\theta=\frac{1+\cos^{2}\theta}{2}.
+	      \]
+	      Dunque
+	      \[
+		      \boxed{\;
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_e^{\,2}\,\frac{\omega^{4}}{(\omega_0^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \frac{1+\cos^{2}\theta}{2}\; } ,
+	      \]
+	      come richiesto.
+
+	\item \textbf{Domanda:} Dimostrare che la sezione d’urto \emph{elastica totale} per
+	      un’onda e.m. piana e monocromatica su un elettrone legato elasticamente vale
+	      \[
+		      \sigma_{\rm el}=\sigma_{\rm Th}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},
+		      \qquad
+		      \sigma_{\rm Th}=\frac{8}{3}\pi r_{e}^{2},
+	      \]
+	      e mostrare che, in prossimità di una risonanza \emph{stretta}, si può
+	      approssimare con una curva lorentziana
+	      \[
+		      \sigma_{\rm el}\simeq
+		      \sigma_{\rm Th}\,\frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma+\Gamma')^{2}}{4}}.
+	      \]
+
+	      \textbf{Risposta.} (Unità gaussiane; limite non relativistico.)
+	      Per l’oscillatore armonico forzato
+	      \[
+		      m_{e}\ddot{\mathbf{x}}+m_{e}\Gamma_{\rm tot}\dot{\mathbf{x}}+m_{e}\omega_{0}^{2}\mathbf{x}
+		      =e\mathbf{E}_{0}e^{-i\omega t},
+		      \qquad
+		      \Gamma_{\rm tot}(\omega)=\Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_{0}^{2}},
+	      \]
+	      la sezione d’urto \emph{differenziale} per un’onda linearmente polarizzata è
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_{e}^{2}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \sin^{2}\alpha,
+		      \qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}} .
+	      \]
+	      Integrando su tutto lo spazio angolare e usando
+	      \[
+		      \int \sin^{2}\alpha\,d\Omega
+		      =\int \big(1-(\hat{\boldsymbol{\epsilon}}\!\cdot\!\hat{\mathbf{n}})^{2}\big)\,d\Omega
+		      =4\pi-\hat{\epsilon}_{i}\hat{\epsilon}_{j}\!\int n_{i}n_{j}\,d\Omega
+		      =4\pi-\frac{4\pi}{3}=\frac{8\pi}{3},
+	      \]
+	      (oppure mediando la formula non polarizzata e poi integrando) si ottiene
+	      \[
+		      \boxed{\;
+		      \sigma_{\rm el}=
+		      \frac{8\pi}{3}\,r_{e}^{2}\;
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \equiv \sigma_{\rm Th}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \; } .
+	      \]
+
+	      \textbf{Approssimazione lorentziana vicino alla risonanza.}
+	      Sia $\Delta\equiv\omega-\omega_{0}$ con $|\Delta|\ll\omega_{0}$ e risonanza
+	      \emph{stretta} nel senso
+	      \[
+		      \Gamma_{\rm tot}(\omega)\simeq\Gamma_{\rm tot}(\omega_{0})
+		      =\Gamma'+\Gamma\ll \omega_{0},\qquad |\Delta|\ll\omega_{0}.
+	      \]
+	      Allora
+	      \[
+		      \omega_{0}^{2}-\omega^{2}=(\omega_{0}-\omega)(\omega_{0}+\omega)
+		      \simeq -2\omega_{0}\Delta, \qquad
+		      \omega^{2}\Gamma_{\rm tot}^{2}\simeq \omega_{0}^{2}(\Gamma'+\Gamma)^{2},
+	      \]
+	      e nel numeratore $\omega^{4}\simeq \omega_{0}^{4}$. Ne segue
+	      \[
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \simeq
+		      \frac{\omega_{0}^{4}}{4\omega_{0}^{2}\left[\Delta^{2}+\frac{(\Gamma'+\Gamma)^{2}}{4}\right]}
+		      =\frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma'+\Gamma)^{2}}{4}}.
+	      \]
+	      Quindi
+	      \[
+		      \boxed{\;
+			      \sigma_{\rm el}\simeq
+			      \sigma_{\rm Th}\,
+			      \frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma+\Gamma')^{2}}{4}}
+			      \;}
+	      \]
+	      che è una lorentziana centrata in $\omega_{0}$ di larghezza a mezza altezza
+	      $\Gamma+\Gamma'$.
+
+
+	\item \textbf{Domanda:} Dimostrare che la sezione d’urto \emph{elastica totale} per
+	      un’onda e.m. piana e monocromatica su un elettrone legato elasticamente vale
+	      \[
+		      \sigma_{\rm el}=\sigma_{\rm Th}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},
+		      \qquad
+		      \sigma_{\rm Th}=\frac{8}{3}\pi r_{e}^{2},
+	      \]
+	      e mostrare che, in prossimità di una risonanza \emph{stretta}, si può
+	      approssimare con una curva lorentziana
+	      \[
+		      \sigma_{\rm el}\simeq
+		      \sigma_{\rm Th}\,\frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma+\Gamma')^{2}}{4}}.
+	      \]
+
+	      \textbf{Risposta.} (Unità gaussiane; limite non relativistico.)
+	      Per l’oscillatore armonico forzato
+	      \[
+		      m_{e}\ddot{\mathbf{x}}+m_{e}\Gamma_{\rm tot}\dot{\mathbf{x}}+m_{e}\omega_{0}^{2}\mathbf{x}
+		      =e\mathbf{E}_{0}e^{-i\omega t},
+		      \qquad
+		      \Gamma_{\rm tot}(\omega)=\Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_{0}^{2}},
+	      \]
+	      la sezione d’urto \emph{differenziale} per un’onda linearmente polarizzata è
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}
+		      =r_{e}^{2}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}\,
+		      \sin^{2}\alpha,
+		      \qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}} .
+	      \]
+	      Integrando su tutto lo spazio angolare e usando
+	      \[
+		      \int \sin^{2}\alpha\,d\Omega
+		      =\int \big(1-(\hat{\boldsymbol{\epsilon}}\!\cdot\!\hat{\mathbf{n}})^{2}\big)\,d\Omega
+		      =4\pi-\hat{\epsilon}_{i}\hat{\epsilon}_{j}\!\int n_{i}n_{j}\,d\Omega
+		      =4\pi-\frac{4\pi}{3}=\frac{8\pi}{3},
+	      \]
+	      (oppure mediando la formula non polarizzata e poi integrando) si ottiene
+	      \[
+		      \boxed{\;
+		      \sigma_{\rm el}=
+		      \frac{8\pi}{3}\,r_{e}^{2}\;
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \equiv \sigma_{\rm Th}\,
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \; } .
+	      \]
+
+	      \textbf{Approssimazione lorentziana vicino alla risonanza.}
+	      Sia $\Delta\equiv\omega-\omega_{0}$ con $|\Delta|\ll\omega_{0}$ e risonanza
+	      \emph{stretta} nel senso
+	      \[
+		      \Gamma_{\rm tot}(\omega)\simeq\Gamma_{\rm tot}(\omega_{0})
+		      =\Gamma'+\Gamma\ll \omega_{0},\qquad |\Delta|\ll\omega_{0}.
+	      \]
+	      Allora
+	      \[
+		      \omega_{0}^{2}-\omega^{2}=(\omega_{0}-\omega)(\omega_{0}+\omega)
+		      \simeq -2\omega_{0}\Delta, \qquad
+		      \omega^{2}\Gamma_{\rm tot}^{2}\simeq \omega_{0}^{2}(\Gamma'+\Gamma)^{2},
+	      \]
+	      e nel numeratore $\omega^{4}\simeq \omega_{0}^{4}$. Ne segue
+	      \[
+		      \frac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+		      \simeq
+		      \frac{\omega_{0}^{4}}{4\omega_{0}^{2}\left[\Delta^{2}+\frac{(\Gamma'+\Gamma)^{2}}{4}\right]}
+		      =\frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma'+\Gamma)^{2}}{4}}.
+	      \]
+	      Quindi
+	      \[
+		      \boxed{\;
+			      \sigma_{\rm el}\simeq
+			      \sigma_{\rm Th}\,
+			      \frac{\omega_{0}^{2}/4}{(\omega-\omega_{0})^{2}+\frac{(\Gamma+\Gamma')^{2}}{4}}
+			      \;}
+	      \]
+	      che è una lorentziana centrata in $\omega_{0}$ di larghezza a mezza altezza
+	      $\Gamma+\Gamma'$.
+
+	\item \textbf{Domanda:} Dimostrare che la sezione d’urto \emph{totale} per un’onda
+	      e.m. piana e monocromatica su un elettrone legato elasticamente vale
+	      \[
+		      \sigma_{\rm TOT}
+		      =4\pi r_{e}c\,\frac{\omega^{2}\Gamma_{\rm tot}}
+		      {(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}} .
+	      \]
+
+	      \textbf{Risposta.} (Unità gaussiane; regime dipolare $k a\ll1$, non relativistico.)
+	      L’elettrone legato è un oscillatore armonico smorzato:
+	      \[
+		      m_{e}\ddot{\mathbf{x}}+m_{e}\Gamma_{\rm tot}\dot{\mathbf{x}}+m_{e}\omega_{0}^{2}\mathbf{x}
+		      =e\mathbf{E}_{0}e^{-i\omega t}.
+	      \]
+	      La soluzione stazionaria $\mathbf{x}(t)=\mathbf{x}_{0}e^{-i\omega t}$ dà il momento
+	      di dipolo indotto $\mathbf{p}=-e\mathbf{x}=\boldsymbol{\alpha}(\omega)\mathbf{E}$ con
+	      \[
+		      \alpha(\omega)=\frac{e^{2}/m_{e}}{\omega_{0}^{2}-\omega^{2}-i\omega\Gamma_{\rm tot}}\!,
+		      \qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}} .
+	      \]
+
+	      \textit{Teorema di estinzione / ottico.} La potenza media sottratta al fascio
+	      incidente (estinzione) da un dipolo indotto è
+	      \[
+		      P_{\rm ext}= \frac{\omega}{2}\,\Im\!\big(\alpha(\omega)\big)\,|E_{0}|^{2},
+	      \]
+	      mentre l’intensità media dell’onda incidente è
+	      $I_{\rm inc}=c|E_{0}|^{2}/(8\pi)$. Ne segue la sezione d’urto \emph{totale}
+	      \[
+		      \sigma_{\rm TOT}\equiv \frac{P_{\rm ext}}{I_{\rm inc}}
+		      =4\pi\frac{\omega}{c}\,\Im\!\big(\alpha(\omega)\big)
+		      =4\pi k\,\Im\!\big(\alpha(\omega)\big).
+	      \]
+	      Con
+	      \[
+		      \Im\!\big(\alpha(\omega)\big)
+		      =\frac{e^{2}}{m_{e}}
+		      \,\frac{\omega\Gamma_{\rm tot}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},
+	      \]
+	      e $k=\omega/c$, si ottiene
+	      \[
+		      \boxed{\;
+			      \sigma_{\rm TOT}
+			      =4\pi r_{e}c\,
+			      \frac{\omega^{2}\Gamma_{\rm tot}}
+			      {(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+			      \;}
+	      \]
+	      che coincide con la formula richiesta.
+
+	      \medskip
+	      \textit{Nota.} La decomposizione
+	      $\sigma_{\rm TOT}=\sigma_{\rm el}+\sigma_{\rm abs}$ dà
+	      \[
+		      \sigma_{\rm el}=\frac{8\pi}{3}\,k^{4}|\alpha|^{2}
+		      =\sigma_{\rm Th}\,\frac{\omega^{4}}
+		      {(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}},\qquad
+		      \sigma_{\rm Th}=\frac{8}{3}\pi r_{e}^{2},
+	      \]
+	      e quindi $\sigma_{\rm abs}=\sigma_{\rm TOT}-\sigma_{\rm el}\ge0$.
+
+
+	\item \textbf{Domanda:} Dimostrare che un elettrone (moto non relativistico) soggetto
+	      a una forza elastica di richiamo, a un’attrito viscoso e alla forza di reazione
+	      radiativa, se lasciato libero di oscillare da una posizione iniziale, perde
+	      energia con una legge esponenziale con costante di tempo $1/(\Gamma+\Gamma')$.
+	      Come si chiama questa costante di tempo? Qual è, invece, la costante con cui si
+	      smorza l’ampiezza delle oscillazioni?
+
+	      \textbf{Risposta.} (Unità gaussiane; smorzamento debole $\Gamma_{\rm tot}\ll\omega_0$.)
+	      Sia $\Gamma_{\rm tot}\equiv\Gamma'+\Gamma$ la somma dello smorzamento viscoso e
+	      di quello radiativo. L’equazione del moto non forzata è
+	      \[
+		      m_e\ddot x+m_e\Gamma_{\rm tot}\dot x+m_e\omega_0^2 x=0.
+	      \]
+	      Definiamo l’energia meccanica dell’oscillatore
+	      \[
+		      E(t)=\frac{m_e}{2}\dot x^{\,2}+\frac{m_e\omega_0^2}{2}x^{2}.
+	      \]
+	      Derivando e usando l’equazione del moto:
+	      \[
+		      \dot E
+		      = m_e\dot x\,\ddot x+m_e\omega_0^2 x\,\dot x
+		      = \dot x\!\left[m_e\ddot x+m_e\omega_0^2 x\right]
+		      = -\,m_e\Gamma_{\rm tot}\,\dot x^{\,2}\;\le 0 .
+	      \]
+	      Mediando su molti periodi (smorzamento debole) vale
+	      $\langle \dot x^{\,2}\rangle = \omega_0^2 \langle x^{2}\rangle$ e quindi
+	      $\langle E\rangle = m_e\langle \dot x^{\,2}\rangle$. Da cui
+	      \[
+		      \frac{d\langle E\rangle}{dt}
+		      = -\,\Gamma_{\rm tot}\,\langle E\rangle
+		      \quad\Rightarrow\quad
+		      \boxed{\ \langle E(t)\rangle=\langle E(0)\rangle\,e^{-\Gamma_{\rm tot} t}\ } .
+	      \]
+	      La costante di tempo dell’energia è dunque
+	      \[
+		      \boxed{\ \tau_E=\frac{1}{\Gamma_{\rm tot}}=\frac{1}{\Gamma+\Gamma'}\ } ,
+	      \]
+	      nota come \emph{tempo di decadimento (o rilassamento) dell’energia}
+	      (\emph{energy damping time}).
+
+	      La soluzione esatta dell’equazione del moto (sottosmorzata) è
+	      \[
+		      x(t)=A_0\,e^{-\Gamma_{\rm tot} t/2}\cos(\omega_{\!d} t+\phi),\qquad
+		      \omega_{\!d}\simeq \sqrt{\omega_0^2-\frac{\Gamma_{\rm tot}^2}{4}}\simeq\omega_0,
+	      \]
+	      per cui l’inviluppo dell’ampiezza decade con legge esponenziale
+	      \[
+		      \boxed{\ A(t)=A_0\,e^{-\Gamma_{\rm tot} t/2}\ } .
+	      \]
+	      La relativa costante di tempo è
+	      \[
+		      \boxed{\ \tau_A=\frac{2}{\Gamma_{\rm tot}}=\frac{2}{\Gamma+\Gamma'}\ } ,
+	      \]
+	      cioè il tempo in cui l’ampiezza si riduce di un fattore $e$.
+
+	      \medskip
+	      \textit{Osservazione.} Il fattore $2$ tra $\tau_A$ e $\tau_E$ riflette che
+	      $E\propto A^{2}$: se $A(t)\propto e^{-(\Gamma_{\rm tot}/2)t}$ allora
+	      $E(t)\propto A^{2}(t)\propto e^{-\Gamma_{\rm tot} t}$.
+
+	\item \textbf{Domanda:} Definire il \emph{fattore di forma}, giustificando la
+	      motivazione di tale definizione, per lo scattering elastico di un’onda
+	      elettromagnetica su un sistema esteso.
+
+	      \textbf{Risposta.}
+	      Nel regime dipolare e far–field, ogni elemento di volume del bersaglio
+	      (esteso nello spazio) irradia con una fase che dipende dalla posizione:
+	      l’onda incidente è $\propto e^{i\mathbf{k}_{i}\!\cdot\mathbf{r}}$ mentre quella
+	      diffusa verso $\hat{\mathbf{n}}$ è $\propto e^{i\mathbf{k}_{f}\!\cdot\mathbf{r}}$.
+	      La \emph{fase relativa} che pesa il contributo dell’elemento in $\mathbf{r}$ è
+	      dunque $e^{i(\mathbf{k}_{f}-\mathbf{k}_{i})\cdot\mathbf{r}}
+		      =e^{i\mathbf{q}\cdot\mathbf{r}}$, con
+	      \[
+		      \mathbf{q}\equiv\mathbf{k}_{f}-\mathbf{k}_{i},\qquad
+		      |\mathbf{k}_{i}|=|\mathbf{k}_{f}|=k=\omega/c,\qquad
+		      q=|\mathbf{q}|=2k\sin\frac{\theta}{2}\;( \text{elastico} ).
+	      \]
+	      Sommando coerentemente tutti i contributi (ovvero integrando la densità di
+	      carica elettronica $\rho_{e}(\mathbf{r})$ o, in ottica/X–ray, la densità di
+	      elettroni $n_{e}$) si ottiene l’\emph{ampiezza} diffusa proporzionale alla
+	      \emph{trasformata di Fourier} della distribuzione spaziale:
+	      \[
+		      F(\mathbf{q}) \;\equiv\;
+		      \frac{\displaystyle \int \rho_{e}(\mathbf{r})\,e^{\,i\mathbf{q}\cdot\mathbf{r}}\,
+		      d^{3}r}
+		      {\displaystyle \int \rho_{e}(\mathbf{r})\,d^{3}r}\, .
+	      \]
+	      La quantità $F(\mathbf{q})$ (adimensionale, con $F(\mathbf{0})=1$) è detta
+	      \textbf{fattore di forma}. Essa misura la perdita di coerenza tra le parti del
+	      bersaglio quando la fase $\,\mathbf{q}\!\cdot\!\mathbf{r}\,$ non è più
+	      trascurabile: per $qR\ll1$ (bersaglio “puntiforme” rispetto alla lunghezza
+	      d’onda) tutti i contributi sono in fase e $F\simeq1$; per $qR\gtrsim1$
+	      appaiono interferenze distruttive e $|F(\mathbf{q})|$ decresce, sopprimendo lo
+	      scattering a grande angolo.
+
+	      Operativamente, il fattore di forma entra come moltiplicatore dell’ampiezza (o
+	      della sezione d’urto differenziale) di un \emph{scatterer puntiforme}:
+	      \[
+		      \frac{d\sigma_{\rm el}}{d\Omega}(\mathbf{q})
+		      = \left|F(\mathbf{q})\right|^{2}\,
+		      \left(\frac{d\sigma_{\rm el}}{d\Omega}\right)_{\!\text{punt.}},
+	      \]
+	      ad esempio, per onda non polarizzata su elettroni liberi
+	      \[
+		      \left(\frac{d\sigma_{\rm el}}{d\Omega}\right)_{\!\text{punt.}}
+		      = r_{e}^{2}\,\frac{1+\cos^{2}\theta}{2},
+		      \qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}}.
+	      \]
+
+	      \textit{Proprietà utili.} (i) $F(0)=1$ (normalizzazione alla carica totale);
+	      (ii) per bersaglio sferico: $F(q)=F(q)$ dipende solo da $q$ e
+	      $F(q)\simeq 1-\tfrac{q^{2}\langle r^{2}\rangle}{6}+\cdots$; (iii) la scala di
+	      decadimento di $|F(q)|$ è $q\sim 1/R$, dove $R$ caratterizza l’estensione
+	      spaziale del sistema.
+
+	      \textit{Esempi tipici.} Per un “duro” sferico di raggio $a$:
+	      \[
+		      F(q)=3\,\frac{\sin(qa)-qa\cos(qa)}{(qa)^{3}};\qquad
+		      \text{per una gaussiana } \rho\propto e^{-r^{2}/(2\sigma^{2})}:
+		      \;F(q)=e^{-q^{2}\sigma^{2}/2}.
+	      \]
+
+	\item \textbf{Domanda:} Calcolare il fattore di forma elettromagnetico per una
+	      sfera uniformemente carica di raggio $a$.
+
+	      \textbf{Risposta.}
+	      Per un sistema esteso il fattore di forma (normalizzato alla carica totale $Q$) è
+	      \[
+		      F(\mathbf{q})=\frac{1}{Q}\int \rho(\mathbf{r})\,e^{\,i\mathbf{q}\cdot\mathbf{r}}\,d^3r,
+		      \qquad F(\mathbf{0})=1 .
+	      \]
+	      Per una sfera uniforme di raggio $a$:
+	      \[
+		      \rho(\mathbf{r})=\rho_0\,\Theta(a-r),\qquad
+		      \rho_0=\frac{3Q}{4\pi a^{3}} .
+	      \]
+	      Poiché la distribuzione è sferica, $F$ dipende solo da $q=|\mathbf{q}|$. Usando
+	      $e^{i\mathbf{q}\cdot\mathbf{r}}=\sum_\ell (2\ell+1)i^\ell j_\ell(qr)P_\ell(\cos\theta)$
+	      o, equivalentemente, integrando gli angoli:
+	      \[
+		      \int e^{i\mathbf{q}\cdot\mathbf{r}}\,d\Omega_r
+		      =4\pi\,\frac{\sin(qr)}{qr}.
+	      \]
+	      Segue
+	      \[
+		      F(q)=\frac{4\pi\rho_0}{Q}\int_0^{a} r^{2}\,\frac{\sin(qr)}{qr}\,dr
+		      =\frac{3}{a^{3}}\int_0^{a} r^{2}\,\frac{\sin(qr)}{qr}\,dr.
+	      \]
+	      Ponendo $x=qr$ si ottiene l’integrale elementare
+	      \[
+		      \int_0^{qa} \frac{x\sin x}{q^{3}}\,dx
+		      =\frac{1}{q^{3}}\left[\sin x - x\cos x\right]_{0}^{qa}.
+	      \]
+	      Quindi
+	      \[
+		      \boxed{\;
+			      F(q)=3\,\frac{\sin(qa)-qa\cos(qa)}{(qa)^{3}}\; } .
+	      \]
+
+	      \textit{Controlli e limiti.}
+	      Per $q\to0$:
+	      \[
+		      F(q)\simeq 1-\frac{(qa)^{2}}{10}+\mathcal{O}\!\left((qa)^{4}\right),
+	      \]
+	      quindi $F(0)=1$ come da normalizzazione. Gli zeri principali soddisfano
+	      $\tan(qa)=qa$ (il primo a $qa\simeq 4.493$), segnando l’abbattimento dello
+	      scattering a grande angolo.
+
+	\item \textbf{Domanda:} Spiegare come dalla misura del fattore di forma si possano
+	      determinare le dimensioni del bersaglio, con particolare riferimento al raggio
+	      quadratico medio della distribuzione di carica.
+
+	      \textbf{Risposta.}
+	      Il fattore di forma elettromagnetico è definito come la trasformata di Fourier
+	      normalizzata della densità di carica:
+	      \[
+		      F(\mathbf{q})=\frac{1}{Q}\int \rho(\mathbf{r})\,e^{\,i\mathbf{q}\cdot\mathbf{r}}\,d^{3}r,
+		      \qquad F(\mathbf{0})=1,
+	      \]
+	      dove $\mathbf{q}=\mathbf{k}_{f}-\mathbf{k}_{i}$ è il trasferimento di momento.
+	      La misura sperimentale di $F(q)$ fornisce quindi informazioni sulla
+	      distribuzione spaziale della carica.
+
+	      \medskip
+	      \textbf{Espansione a piccolo $q$.}
+	      Per $q\to 0$ si può espandere l’esponenziale:
+	      \[
+		      e^{i\mathbf{q}\cdot\mathbf{r}}
+		      \simeq 1+\tfrac{i}{1!}\,\mathbf{q}\cdot\mathbf{r}
+		      -\tfrac{1}{2!}(\mathbf{q}\cdot\mathbf{r})^{2}+\cdots .
+	      \]
+	      Essendo $\rho(\mathbf{r})$ reale e centrata nell’origine, il termine lineare
+	      si annulla e rimane
+	      \[
+		      F(q)\simeq 1-\frac{q^{2}}{6}\,\langle r^{2}\rangle +\mathcal{O}(q^{4}),
+	      \]
+	      dove
+	      \[
+		      \langle r^{2}\rangle \equiv \frac{1}{Q}\int r^{2}\,\rho(\mathbf{r})\,d^{3}r
+	      \]
+	      è il raggio quadratico medio della distribuzione.
+
+	      \medskip
+	      \textbf{Interpretazione sperimentale.}
+	      La pendenza del fattore di forma in $q^{2}\to 0$ determina dunque $\langle r^{2}\rangle$:
+	      \[
+		      \boxed{\;
+		      \langle r^{2}\rangle = -6\,\left.\frac{dF}{dq^{2}}\right|_{q^{2}=0}\;}
+	      \]
+	      e quindi la misura di $F(q)$ a piccolo angolo (ossia a piccolo trasferimento
+	      di momento) consente di estrarre il raggio medio–quadratico del bersaglio.
+
+	      \medskip
+	      \textbf{Osservazioni.}
+	      \begin{itemize}
+		      \item Nel caso di distribuzione sferica $F(q)$ dipende solo da $q=|\mathbf{q}|$,
+		            e il raggio r.m.s. fornisce una stima diretta delle dimensioni spaziali.
+		      \item Per distribuzioni più complesse, la dipendenza angolare di $F(\mathbf{q})$
+		            rivela informazioni sulla forma (anisotropie).
+		      \item Questo metodo è alla base della determinazione del raggio del protone
+		            e di nuclei atomici tramite scattering elastico di elettroni.
+	      \end{itemize}
+
+	\item \textbf{Domanda:} Data un’onda e.m. di frequenza nota che incide su un
+	      bersaglio esteso, determinare quali angoli nel sistema di laboratorio debbano
+	      essere coperti dalla strumentazione (che rivela l’onda scatterata) per ottenere
+	      una misura del raggio quadratico medio $\langle r^{2}\rangle$ precisa entro il
+	      $10\%$.
+
+	      \textbf{Risposta.}
+	      La misura di $\langle r^{2}\rangle$ si ricava dalla pendenza a piccolo
+	      trasferimento di momento del \emph{fattore di forma}:
+	      \[
+		      F(\mathbf{q})=\frac{1}{Q}\!\int\!\rho(\mathbf{r})e^{i\mathbf{q}\cdot\mathbf{r}}\,d^{3}r,
+		      \qquad F(q)=1-\frac{q^{2}}{6}\langle r^{2}\rangle+\mathcal{O}(q^{4}),
+	      \]
+	      da cui
+	      \[
+		      \langle r^{2}\rangle=-6\,\left.\frac{dF}{dq^{2}}\right|_{q=0}.
+	      \]
+	      Per avere un’estrazione della pendenza con errore sistematico (da termini
+	      $\mathcal{O}(q^{4})$) inferiore al $10\%$ occorre limitarsi a un intervallo di
+	      $q$ tale che la \emph{curvatura} non contamini oltre il $10\%$ il termine
+	      lineare in $q^{2}$.
+
+	      Per fissare un criterio concreto (indipendente dal dettaglio della forma ma
+	      realistico) usiamo un modello standard di riferimento, la sfera uniformemente
+	      carica (per cui $F(q)$ si conosce esattamente):
+	      \[
+		      F(q)=3\,\frac{\sin(qa)-qa\cos(qa)}{(qa)^{3}},\qquad
+		      \langle r^{2}\rangle=\frac{3a^{2}}{5}.
+	      \]
+	      La sua espansione a piccolo $x\equiv qa$ è
+	      \[
+		      F(q)=1-\frac{x^{2}}{10}+\frac{x^{4}}{280}+\cdots .
+	      \]
+	      La correzione relativa dovuta al termine $x^{4}$ rispetto al termine $x^{2}$ è
+	      \[
+		      \varepsilon(x)=\frac{x^{4}/280}{x^{2}/10}=\frac{10}{280}\,x^{2}=
+		      \frac{5}{14}x^{2}\approx0.357\,x^{2}.
+	      \]
+	      Richiedendo $\varepsilon(x)\le 0.10$ (errore $\le 10\%$) si ottiene
+	      \[
+		      x^{2}\le 0.28\quad\Rightarrow\quad qa\lesssim 0.53.
+	      \]
+	      In termini del raggio r.m.s. $r_{\rm rms}\equiv\sqrt{\langle r^{2}\rangle}
+		      =\sqrt{3/5}\,a$:
+	      \[
+		      \boxed{\; q\,r_{\rm rms}\ \lesssim\ 0.41 \;}
+	      \]
+	      è una condizione pratica per restare nel regime “lineare” a $10\%$.
+
+	      Nel laboratorio, per scattering \emph{elastico}, il modulo del trasferimento di
+	      momento è
+	      \[
+		      q=|\mathbf{k}_{f}-\mathbf{k}_{i}|=2k\sin\frac{\theta}{2},
+		      \qquad k=\frac{2\pi}{\lambda}.
+	      \]
+	      Quindi gli angoli da coprire devono soddisfare
+	      \[
+		      2k\sin\frac{\theta_{\max}}{2}\ \lesssim\ \frac{0.41}{r_{\rm rms}}
+		      \quad\Rightarrow\quad
+		      \boxed{\;
+			      \theta_{\max}\ \lesssim\ 2\arcsin\!\left(\frac{0.41}{4\pi}\,\frac{\lambda}{r_{\rm rms}}\right).
+			      \;}
+	      \]
+	      Per piccoli angoli ($\theta\ll 1$ rad) si può usare l’approssimazione
+	      \[
+		      \boxed{\; \theta_{\max}\ \simeq\ \frac{0.41}{k\,r_{\rm rms}}
+		      =\frac{0.41}{2\pi}\,\frac{\lambda}{r_{\rm rms}}
+		      \ \approx\ 0.065\,\frac{\lambda}{r_{\rm rms}}\ \text{(radianti)}. \;}
+	      \]
+
+	      \textit{Commento operativo.} La strumentazione dovrebbe campionare diversi
+	      piccoli angoli $0<\theta\le \theta_{\max}$ per stimare la pendenza di $F$ in
+	      funzione di $q^{2}$; l’espressione sopra fornisce un \emph{criterio} che
+	      assicura un errore sistematico $\lesssim 10\%$ sull’estrazione di
+	      $\langle r^{2}\rangle$ (criterio verificato esattamente per la sfera uniforme e
+	      di buona generalità per sistemi “morbidi”; per forme più ripide la condizione è
+	      ancora più conservativa).
+
+	\item \textbf{Domanda:} Ricavare la sezione d’urto di Rayleigh in funzione della
+	      sezione d’urto differenziale di Thomson e del fattore di forma atomico $F(\theta)$.
+
+	      \textbf{Risposta.}
+	      Nel regime elastico e dipolare (far–field), i contributi dei singoli elettroni
+	      di un atomo si sommano \emph{coerentemente} in ampiezza. Se
+	      $\left(\frac{d\sigma}{d\Omega}\right)_{\!\rm Th}$ è la sezione d’urto
+	      differenziale per uno \emph{scatterer puntiforme} (elettrone libero, scattering
+	      di Thomson) e se $F(\mathbf{q})$ è il \emph{fattore di forma atomico}
+	      (normalizzato in modo che $F(0)=1$), allora l’ampiezza atomica è
+	      $\mathcal{A}_{\rm atom}(\mathbf{q})=F(\mathbf{q})\,\mathcal{A}_{\rm Th}$ e la
+	      sezione d’urto differenziale di Rayleigh (scattering elastico coerente) è
+	      \[
+		      \boxed{\;
+		      \frac{d\sigma_{\rm Ray}}{d\Omega}(\theta)
+		      = |F(\mathbf{q})|^{2}\,
+		      \left(\frac{d\sigma}{d\Omega}\right)_{\!\rm Th}(\theta),
+		      \qquad \mathbf{q}=\mathbf{k}_{f}-\mathbf{k}_{i},\ \ |\mathbf{q}|=2k\sin\frac{\theta}{2}.
+		      \;}
+	      \]
+
+	      Per onda non polarizzata (media sulle polarizzazioni incidenti) la Thomson vale
+	      \[
+		      \left(\frac{d\sigma}{d\Omega}\right)_{\!\rm Th}(\theta)
+		      = r_{e}^{2}\,\frac{1+\cos^{2}\theta}{2},
+		      \qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}},
+	      \]
+	      e quindi
+	      \[
+		      \boxed{\;
+		      \frac{d\sigma_{\rm Ray}}{d\Omega}(\theta)
+		      = r_{e}^{2}\,|F(\theta)|^{2}\,\frac{1+\cos^{2}\theta}{2}.
+		      \;}
+	      \]
+	      (Per polarizzazione lineare, basta sostituire
+	      $\frac{1+\cos^{2}\theta}{2}\mapsto \sin^{2}\alpha$ con $\alpha$ l’angolo tra
+	      polarizzazione e direzione di osservazione.)
+
+	      Integrando su $4\pi$ si ottiene la sezione d’urto \emph{totale} di Rayleigh:
+	      \[
+		      \boxed{\;
+		      \sigma_{\rm Ray}=\int |F(\mathbf{q})|^{2}\,
+		      \left(\frac{d\sigma}{d\Omega}\right)_{\!\rm Th}(\theta)\,d\Omega.
+		      \;}
+	      \]
+	      Nel limite di piccolo trasferimento di momento ($qR\ll1$) si ha $F\simeq1$ e si
+	      recupera la Thomson totale dell’elettrone libero (eventualmente moltiplicata per
+	      $Z^{2}$ se si usa un fattore di forma \emph{non} normalizzato).
+
+	\item \textbf{Domanda:} Con riferimento ai grafici delle sezioni d’urto
+	      $\gamma + C$ e $\gamma + Pb$ (reperibili negli appunti), si spieghi il rapporto
+	      a bassa energia fra le sezioni d’urto Rayleigh dei due processi.
+
+	      \textbf{Risposta.}
+	      Lo scattering di Rayleigh è la diffusione elastica coerente dei fotoni sugli
+	      elettroni legati in un atomo. La sezione d’urto differenziale è
+	      \[
+		      \frac{d\sigma_{\rm Ray}}{d\Omega}(\theta)
+		      = |F(\mathbf{q})|^{2}\,
+		      \left(\frac{d\sigma}{d\Omega}\right)_{\!\rm Th}(\theta),
+	      \]
+	      dove $F(\mathbf{q})$ è il fattore di forma atomico. Integrando:
+	      \[
+		      \sigma_{\rm Ray}\propto \int |F(\mathbf{q})|^{2}\, d\Omega .
+	      \]
+
+	      \textbf{Limite di bassa energia.}
+	      Se l’energia del fotone è piccola (lunghezza d’onda $\lambda$ molto più grande
+	      delle dimensioni atomiche $R$), il trasferimento di momento è piccolo
+	      ($qR\ll 1$) e quindi
+	      \[
+		      F(\mathbf{q})\simeq Z,
+	      \]
+	      dove $Z$ è il numero atomico (numero di elettroni). In questo limite tutti gli
+	      elettroni diffondono in fase, e l’ampiezza atomica è proporzionale a $Z$,
+	      mentre la sezione d’urto, essendo proporzionale al modulo quadro
+	      dell’ampiezza, scala come $Z^{2}$:
+	      \[
+		      \sigma_{\rm Ray}\;\propto\; Z^{2}\,\sigma_{\rm Th}.
+	      \]
+
+	      \textbf{Confronto fra carbonio e piombo.}
+	      Per due atomi diversi, il rapporto delle sezioni d’urto di Rayleigh a bassa
+	      energia è quindi
+	      \[
+		      \frac{\sigma_{\rm Ray}(Pb)}{\sigma_{\rm Ray}(C)}
+		      \simeq \left(\frac{Z_{Pb}}{Z_{C}}\right)^{2}
+		      =\left(\frac{82}{6}\right)^{2}\approx 186 .
+	      \]
+	      Dunque, a basse energie, la sezione d’urto di Rayleigh del piombo è circa due
+	      ordini di grandezza maggiore di quella del carbonio. Questo andamento è
+	      chiaramente visibile nei grafici sperimentali riportati negli appunti.
+
+	      \textit{Osservazione.} Alle alte energie (lunghezza d’onda comparabile o più
+	      piccola delle dimensioni atomiche) gli elettroni non diffondono più in fase e
+	      l’effetto coerente viene meno: il fattore di forma $F(q)$ diminuisce e la
+	      scalatura $\propto Z^{2}$ non è più valida.
+
+
+	\item \textbf{Domanda:} Spiegare qualitativamente l’effetto fotoelettrico e lo
+	      scattering Compton, indicandone le differenti caratteristiche.
+
+	      \textbf{Risposta.}
+	      Quando un’onda elettromagnetica ad alta energia (raggi X, $\gamma$) interagisce
+	      con un elettrone legato o quasi libero, possono avvenire diversi processi di
+	      interazione. Due fra i più importanti sono l’effetto fotoelettrico e lo
+	      scattering Compton.
+
+	      \begin{itemize}
+		      \item \textbf{Effetto fotoelettrico.}
+		            Un fotone incidente trasferisce \emph{tutta} la propria energia a un elettrone
+		            legato, che viene espulso dall’atomo (fotoelettrone).
+		            L’energia cinetica dell’elettrone estratto è
+		            \[
+			            E_{c}=h\nu-W,
+		            \]
+		            dove $h\nu$ è l’energia del fotone incidente e $W$ è la funzione lavoro (o
+		            energia di legame).
+		            \textit{Caratteristiche principali:}
+		            \begin{itemize}
+			            \item è un processo di \emph{assorbimento totale} del fotone;
+			            \item domina a basse energie ($h\nu$ poco sopra l’energia di legame);
+			            \item la probabilità (sezione d’urto) cresce con il numero atomico $Z$ e
+			                  mostra bruschi aumenti (edge) in corrispondenza delle energie di soglia
+			                  degli shell elettronici.
+		            \end{itemize}
+
+		      \item \textbf{Scattering Compton.}
+		            Un fotone interagisce elasticamente con un elettrone \emph{quasi libero}
+		            (legato debolmente), trasferendogli solo una parte della propria energia.
+		            Dopo l’urto, il fotone diffuso ha energia minore (quindi lunghezza d’onda
+		            maggiore) e direzione diversa da quella incidente.
+		            La variazione di lunghezza d’onda è data dalla formula di Compton:
+		            \[
+			            \Delta\lambda=\lambda'-\lambda=\frac{h}{m_{e}c}\,(1-\cos\theta),
+		            \]
+		            dove $\theta$ è l’angolo di scattering.
+		            \textit{Caratteristiche principali:}
+		            \begin{itemize}
+			            \item è un processo di \emph{diffusione inelastica};
+			            \item l’energia del fotone diffuso dipende dall’angolo di scattering;
+			            \item domina alle energie intermedie (dove il fotone non è più facilmente
+			                  assorbito ma neanche ancora abbastanza energetico da creare coppie).
+		            \end{itemize}
+	      \end{itemize}
+
+	      \textbf{Differenze chiave:}
+	      \begin{itemize}
+		      \item Nel fotoelettrico il fotone viene assorbito completamente, nell’effetto
+		            Compton sopravvive un fotone diffuso.
+		      \item Il fotoelettrico produce un elettrone con energia fissa
+		            ($E_{c}=h\nu-W$), mentre nel Compton l’elettrone riceve un’energia variabile
+		            a seconda dell’angolo di scattering.
+		      \item Il fotoelettrico è dominante a basse energie e cresce fortemente con $Z$,
+		            mentre lo scattering Compton domina a energie più alte ed è proporzionale
+		            (in prima approssimazione) al numero di elettroni $Z$.
+	      \end{itemize}
+
+
+	\item \textbf{Domanda:} Ricavare la relazione tra l’angolo di scattering e il cambio
+	      di frequenza nell’effetto Compton.
+
+	      \textbf{Risposta.}
+	      Consideriamo un urto elastico relativistico tra un fotone incidente
+	      ($E=h\nu=\hbar\omega$, $\mathbf{p}=\hbar\mathbf{k}$) e un elettrone inizialmente
+	      a riposo ($E=m_{e}c^{2}$, $\mathbf{p}=0$).
+	      Dopo l’urto, il fotone diffuso ha energia $E'=h\nu'=\hbar\omega'$, impulso
+	      $\mathbf{p}'=\hbar\mathbf{k}'$ che forma un angolo $\theta$ con la direzione
+	      iniziale, e l’elettrone ha energia $E_{e}=\gamma m_{e}c^{2}$ e impulso
+	      $\mathbf{p}_{e}$.
+
+	      \medskip
+	      \textbf{Conservazione dell’energia e della quantità di moto:}
+	      \[
+		      h\nu + m_{e}c^{2} = h\nu' + E_{e},\qquad
+		      \hbar\mathbf{k} = \hbar\mathbf{k}' + \mathbf{p}_{e}.
+	      \]
+
+	      \textbf{Quadrando il bilancio dei momenti} e usando le relazioni relativistiche
+	      $E_{e}^{2}=(\mathbf{p}_{e}c)^{2}+(m_{e}c^{2})^{2}$, si ricava la nota
+	      \emph{formula di Compton}:
+	      \[
+		      \lambda'-\lambda = \frac{h}{m_{e}c}(1-\cos\theta),
+	      \]
+	      dove $\lambda=c/\nu$ e $\lambda'=c/\nu'$ sono le lunghezze d’onda prima e dopo
+	      lo scattering.
+
+	      \medskip
+	      \textbf{In termini di frequenza} ($\nu=c/\lambda$):
+	      \[
+		      \frac{c}{\nu'} - \frac{c}{\nu}
+		      = \frac{h}{m_{e}c}(1-\cos\theta)
+		      \quad\Rightarrow\quad
+		      \nu'=\frac{\nu}{1+\dfrac{h\nu}{m_{e}c^{2}}(1-\cos\theta)}.
+	      \]
+
+	      \medskip
+	      \textbf{Conclusione.} Il cambio di frequenza dipende unicamente dall’angolo di
+	      scattering $\theta$: maggiore è l’angolo, maggiore è la perdita di energia del
+	      fotone (cioè minore è $\nu'$). In particolare, lo \emph{spostamento massimo}
+	      si ha per $\theta=180^{\circ}$, con incremento di lunghezza d’onda pari a
+	      $2h/(m_{e}c)$.
+
+	\item \textbf{Domanda:} Dare l’espressione ed il valore numerico della lunghezza
+	      d’onda Compton.
+
+	      \textbf{Risposta.}
+	      La \emph{lunghezza d’onda Compton} associata a una particella di massa $m$ è
+	      definita come
+	      \[
+		      \lambda_{C}=\frac{h}{m c},
+	      \]
+	      dove $h$ è la costante di Planck e $c$ la velocità della luce.
+
+	      Per l’elettrone ($m_{e}=9.109\times 10^{-31}\,\text{kg}$):
+	      \[
+		      \lambda_{C}(e^{-})=\frac{6.626\times 10^{-34}\,\text{J·s}}
+		      {(9.109\times 10^{-31}\,\text{kg})(3.00\times 10^{8}\,\text{m/s})}.
+	      \]
+
+	      Il valore numerico è
+	      \[
+		      \boxed{\;\lambda_{C}(e^{-})\simeq 2.43\times 10^{-12}\ \text{m}\;}
+	      \]
+
+	      \textit{Osservazione.} Questo valore è tipico delle lunghezze d’onda dei raggi
+	      X e $\gamma$, ed è l’ordine di grandezza in cui lo scattering Compton diventa
+	      rilevante.
+
+	\item \textbf{Domanda:} Spiegare qualitativamente il fenomeno della creazione di
+	      coppie $e^{+}e^{-}$ da parte di un raggio $\gamma$ che incide su un atomo.
+	      Dimostrare che l’energia di soglia del processo di produzione su nuclei o su
+	      elettroni atomici si può ottenere con un semplice calcolo di relatività
+	      speciale.
+
+	      \textbf{Risposta.}
+
+	      \textbf{Fenomeno.}
+	      Un fotone $\gamma$ di energia sufficiente, interagendo con il campo
+	      elettromagnetico di un nucleo (o di un elettrone atomico), può trasformare
+	      la sua energia in una coppia particella–antiparticella $e^{+}e^{-}$.
+	      Il fotone, da solo, non può produrre la coppia nel vuoto, perché non si
+	      possono soddisfare simultaneamente le leggi di conservazione di energia e
+	      quantità di moto con un solo quanto di radiazione iniziale. È necessario un
+	      terzo corpo (tipicamente il nucleo, molto massivo) che possa assorbire l’eccesso
+	      di quantità di moto.
+
+	      \medskip
+	      \textbf{Calcolo della soglia.}
+	      Consideriamo il caso di produzione su un nucleo molto massivo $M\gg m_{e}$,
+	      inizialmente a riposo. Sia $E_{\gamma}=h\nu$ l’energia del fotone incidente.
+
+	      Lo stato finale minimo (soglia) corrisponde a coppia $e^{+}e^{-}$ prodotta a
+	      riposo (in moto congiunto col nucleo) così da minimizzare l’energia richiesta.
+	      La conservazione dell’energia dà
+	      \[
+		      E_{\gamma}+Mc^{2}=2m_{e}c^{2}+Mc^{2}+T_{R},
+	      \]
+	      dove $T_{R}$ è l’energia cinetica di rinculo del nucleo.
+	      Poiché $M\gg m_{e}$, il rinculo può essere trascurato e la soglia risulta
+	      \[
+		      \boxed{\,E_{\gamma}^{\rm (soglia)}\simeq 2m_{e}c^{2}\,}
+	      \]
+	      cioè circa $1.022\ \text{MeV}$.
+
+	      \medskip
+	      \textbf{Caso di produzione su elettrone atomico.}
+	      Se il terzo corpo è un elettrone legato (massa $m_{e}$), allora esso deve
+	      assorbire il rinculo. In questo caso, allo stato finale ci sono tre particelle
+	      di massa $m_{e}$: l’elettrone bersaglio, l’elettrone prodotto e il positrone.
+	      L’energia minima richiesta è quindi
+	      \[
+		      E_{\gamma}^{\rm (soglia)}=4m_{e}c^{2},
+	      \]
+	      corrispondente a $\simeq 2.044\ \text{MeV}$.
+
+	      \medskip
+	      \textbf{Conclusione.}
+	      \begin{itemize}
+		      \item La creazione di coppie $e^{+}e^{-}$ da fotoni $\gamma$ è possibile
+		            solo in presenza di un campo esterno (nucleo o elettrone).
+		      \item L’energia di soglia è $2m_{e}c^{2}$ nel caso di produzione su nuclei
+		            massivi, e $4m_{e}c^{2}$ se il processo avviene su elettroni atomici.
+	      \end{itemize}
+
+	\item \textbf{Domanda:} Si calcoli l’ampiezza di scattering di un’onda
+	      elettromagnetica da una apertura in uno schermo opaco oppure da un ostacolo
+	      opaco complementare all’apertura (principio di Babinet).
+
+	      \textbf{Risposta.}
+
+	      \textbf{Principio di Babinet.}
+	      Consideriamo uno schermo infinitamente esteso che intercetta un fronte d’onda
+	      piano monocromatico. Sia $U_{0}(\mathbf{r})$ l’ampiezza del campo (scalare per
+	      semplicità, ad esempio componente trasversa $E$) che si osserverebbe in assenza
+	      dello schermo. Indichiamo con $U_{A}(\mathbf{r})$ l’ampiezza diffusa da un
+	      apertura $A$ nello schermo, e con $U_{O}(\mathbf{r})$ quella diffusa
+	      dall’ostacolo complementare (cioè lo schermo stesso con l’apertura tappata).
+
+	      Il principio di Babinet afferma che la somma dei due campi diffusi ricostruisce
+	      l’onda che si avrebbe senza ostacoli:
+	      \[
+		      U_{A}(\mathbf{r})+U_{O}(\mathbf{r})=U_{0}(\mathbf{r}).
+	      \]
+
+	      \medskip
+	      \textbf{Calcolo con l’integrale di diffrazione.}
+	      Nel regime di Kirchhoff–Fraunhofer, l’ampiezza in direzione di scattering
+	      $\hat{\mathbf{n}}$ è proporzionale all’integrale sulla regione trasparente $S$
+	      (apertura) del fronte d’onda incidente pesato con il fattore di fase:
+	      \[
+		      U_{A}(\hat{\mathbf{n}})\;\propto\;
+		      \int_{S} e^{\,i\mathbf{q}\cdot\mathbf{r}_{\perp}}\,d^{2}r_{\perp},
+		      \qquad
+		      \mathbf{q}=\mathbf{k}_{f}-\mathbf{k}_{i},\;
+		      q=|\mathbf{q}|=2k\sin\frac{\theta}{2}.
+	      \]
+	      L’ostacolo complementare fornisce invece
+	      \[
+		      U_{O}(\hat{\mathbf{n}})
+		      \;\propto\;
+		      \int_{\mathbb{R}^{2}\setminus S}
+		      e^{\,i\mathbf{q}\cdot\mathbf{r}_{\perp}}\,d^{2}r_{\perp}.
+	      \]
+
+	      Sommando,
+	      \[
+		      U_{A}(\hat{\mathbf{n}})+U_{O}(\hat{\mathbf{n}})
+		      \;\propto\;
+		      \int_{\mathbb{R}^{2}}
+		      e^{\,i\mathbf{q}\cdot\mathbf{r}_{\perp}}\,d^{2}r_{\perp}
+		      \;\propto\;\delta(\mathbf{q}),
+	      \]
+	      cioè la ricostruzione del fronte incidente non diffuso, in accordo con il
+	      principio di Babinet.
+
+	      \medskip
+	      \textbf{Conclusione.}
+	      L’ampiezza di scattering prodotta da un’apertura $A$ e quella prodotta
+	      dall’ostacolo complementare sono legate dalla relazione
+	      \[
+		      \boxed{\; U_{A}(\hat{\mathbf{n}})+U_{O}(\hat{\mathbf{n}})=U_{0}(\hat{\mathbf{n}})\;}
+	      \]
+	      dove $U_{0}$ è il campo non perturbato. In particolare, per $\hat{\mathbf{n}}\neq
+		      \hat{\mathbf{k}}_{i}$ (direzioni diverse da quella di propagazione originale),
+	      $U_{0}(\hat{\mathbf{n}})=0$ e quindi
+	      \[
+		      \boxed{\; U_{A}(\hat{\mathbf{n}})=-\,U_{O}(\hat{\mathbf{n}}),\;}
+	      \]
+	      cioè l’ampiezza diffusa dall’apertura coincide (a meno di un segno di fase)
+	      con quella diffusa dall’ostacolo complementare.
+
+	\item \textbf{Domanda:} Applicare il teorema ottico nei casi particolari di:
+	      (i) diffrazione da una apertura; (ii) diffusione su elettrone legato
+	      elasticamente; (iii) diffusione su una piccola spira piana puramente
+	      resistiva.
+
+	      \textbf{Risposta.} (Unità gaussiane; definizione d’ampiezza: nel far–field
+	      $E_{\rm diff}(\mathbf{r}) \simeq \dfrac{e^{ikr}}{r}\,f(\theta,\varphi)\,E_0$.)
+	      Il \textbf{teorema ottico} lega la sezione d’urto totale all’ampiezza in avanti:
+	      \[
+		      \boxed{\;\sigma_{\rm TOT}=\frac{4\pi}{k}\,\Im f(0)\;},\qquad k=\omega/c .
+	      \]
+
+	      \begin{enumerate}
+		      \renewcommand\labelenumi{(\roman{enumi})}
+		      \item \textbf{Diffrazione da una apertura.}
+		            Nel regime di Kirchhoff–Fraunhofer, l’ampiezza diffusa da un’apertura $S$
+		            di schermo piano è (con le convenzioni standard di Kirchhoff)
+		            \[
+			            f_{A}(\hat{\mathbf{n}})=\frac{k}{2\pi i}\int_{S} e^{-i\mathbf{q}\cdot\boldsymbol{\rho}}\,d^{2}\rho,
+			            \qquad \mathbf{q}=\mathbf{k}_{f}-\mathbf{k}_{i},\ \ q=2k\sin\frac{\theta}{2}.
+		            \]
+		            In avanti ($\theta=0$) vale $\mathbf{q}=\mathbf{0}$ e dunque
+		            \[
+			            f_{A}(0)=\frac{k}{2\pi i}\,S \;\Rightarrow\; \Im f_{A}(0)=\frac{k}{2\pi}\,S .
+		            \]
+		            Per il \emph{principio di Babinet}, il risultato per l’ostacolo complementare
+		            coincide (a meno del segno di fase) nelle direzioni diverse da quella in avanti.
+		            Applicando il teorema ottico:
+		            \[
+			            \boxed{\;\sigma_{\rm TOT}^{\,(A)}=\frac{4\pi}{k}\Im f_{A}(0)=2S\; } .
+		            \]
+		            Questo è il \emph{paradosso dell’estinzione}: la sezione d’urto totale (o di
+		            estinzione) di una grande apertura/ostacolo tende al doppio dell’area
+		            geometrica.
+
+		      \item \textbf{Diffusione su elettrone legato (oscillatore di Lorentz).}
+		            Il dipolo indotto è $p=\alpha(\omega)E_0$ con
+		            \[
+			            \alpha(\omega)=\frac{e^{2}/m_{e}}{\omega_{0}^{2}-\omega^{2}-i\omega\Gamma_{\rm tot}},
+			            \qquad \Gamma_{\rm tot}=\Gamma'+\Gamma\,\frac{\omega^{2}}{\omega_{0}^{2}} .
+		            \]
+		            L’ampiezza in avanti per un dipolo elettrico è $f(0)=k^{2}\alpha(\omega)$,
+		            perciò
+		            \[
+			            \Im f(0)=k^{2}\Im\alpha
+			            =k^{2}\frac{e^{2}}{m_{e}}\,
+			            \frac{\omega\Gamma_{\rm tot}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}} .
+		            \]
+		            Il teorema ottico dà
+		            \[
+			            \boxed{\;
+				            \sigma_{\rm TOT}
+				            =\frac{4\pi}{k}\Im f(0)
+				            =4\pi r_{e}c\,
+				            \frac{\omega^{2}\Gamma_{\rm tot}}
+				            {(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}
+				            \;},\qquad r_{e}=\frac{e^{2}}{m_{e}c^{2}} .
+		            \]
+		            Coerentemente, $\sigma_{\rm TOT}=\sigma_{\rm el}+\sigma_{\rm abs}$ con
+		            $\displaystyle \sigma_{\rm el}
+			            =\sigma_{\rm Th}\,\dfrac{\omega^{4}}{(\omega_{0}^{2}-\omega^{2})^{2}+\omega^{2}\Gamma_{\rm tot}^{2}}$,
+		            $\sigma_{\rm Th}=\tfrac{8}{3}\pi r_{e}^{2}$.
+
+		      \item \textbf{Diffusione su una piccola spira piana puramente resistiva.}
+		            Per una spira quadrata di area $A=L^{2}$ (o circolare di area $A$), con campo
+		            magnetico incidente $B(t)=B_{0}e^{-i\omega t}\hat{\mathbf{z}}$ perpendicolare
+		            al piano, la f.e.m. è $\mathcal{E}=i\omega AB_{0}/c$. Con resistenza $R$:
+		            \[
+			            I=\frac{\mathcal{E}}{R}=\frac{i\omega A}{c\,R}B_{0},\qquad
+			            m=\frac{A}{c}I=\underbrace{\frac{i\omega A^{2}}{c^{2}R}}_{\alpha_{m}}\,B_{0}.
+		            \]
+		            La spira è quindi un \emph{dipolo magnetico} con polarizzabilità
+		            $\displaystyle \alpha_{m}=i\,\frac{\omega A^{2}}{c^{2}R}$ puramente immaginaria
+		            (assorbimento ohmico). L’ampiezza in avanti è $f(0)=k^{2}\alpha_{m}$, dunque
+		            \[
+			            \Im f(0)=k^{2}\Im\alpha_{m}
+			            =k^{2}\frac{\omega A^{2}}{c^{2}R}.
+		            \]
+		            Il teorema ottico fornisce
+		            \[
+			            \boxed{\;
+			            \sigma_{\rm TOT}
+			            =\frac{4\pi}{k}\Im f(0)
+			            =\frac{4\pi\omega^{2}A^{2}}{c^{3}R}
+			            \;}
+		            \]
+		            che, nel regime $kL\ll1$, coincide con $\sigma_{\rm abs}$ (dominante) e soddisfa
+		            $\sigma_{\rm TOT}=\sigma_{\rm abs}+\sigma_{\rm el}$ con
+		            $\displaystyle \sigma_{\rm el}=\frac{16\pi}{3}\frac{\omega^{6}A^{4}}{c^{8}R^{2}}$.
+	      \end{enumerate}
+
+\item \textbf{Domanda:} Definire le quantità che in un nucleo usualmente si
+indicano con $A$, $Z$, $N$ (simbologia $\!{}^{A}_{Z}N X$). Dare la definizione
+di nuclei isotopi, isobari, isotoni, stabili, instabili. Scrivere nella
+simbologia il deutone e la particella $\alpha$.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item La notazione nucleare standard è
+  \[
+  {}^{A}_{Z}X,
+  \]
+  dove:
+  \begin{itemize}
+    \item $Z$ = numero atomico = numero di protoni nel nucleo (quindi anche il
+    numero di elettroni nell’atomo neutro);
+    \item $N$ = numero di neutroni nel nucleo;
+    \item $A=Z+N$ = numero di massa = numero totale di nucleoni
+    (protoni + neutroni).
+  \end{itemize}
+
+  \item \textbf{Definizioni.}
+  \begin{itemize}
+    \item \textbf{Isotopi:} nuclei con lo stesso $Z$ (stesso elemento chimico)
+    ma diverso $N$ (e quindi diverso $A$).  
+    Esempio: ${}^{12}_{6}C$, ${}^{14}_{6}C$.
+    \item \textbf{Isobari:} nuclei con lo stesso numero di massa $A$ ma diverso
+    $Z$.  
+    Esempio: ${}^{14}_{6}C$, ${}^{14}_{7}N$.
+    \item \textbf{Isotoni:} nuclei con lo stesso numero di neutroni $N$ ma
+    diverso $Z$.  
+    Esempio: ${}^{14}_{6}C$ ($N=8$), ${}^{15}_{7}N$ ($N=8$).
+    \item \textbf{Nuclei stabili:} nuclei che non decadono spontaneamente (tempo
+    di vita infinito o molto maggiore dell’età dell’universo).
+    \item \textbf{Nuclei instabili:} nuclei radioattivi, che decadono
+    spontaneamente con emissione di particelle o radiazione, caratterizzati da
+    una vita media finita.
+  \end{itemize}
+
+  \item \textbf{Esempi in simbologia:}
+  \[
+  \text{Deuterone (nucleo di deuterio):}\quad {}^{2}_{1}\!H
+  \]
+  \[
+  \text{Particella $\alpha$ (nucleo di elio-4):}\quad {}^{4}_{2}\!He
+  \]
+\end{itemize}
+\item \textbf{Domanda:} Dopo avere definito l’unità di massa atomica e avere dato
+il suo valore in MeV/$c^{2}$, definire l’energia di legame ($B$) di un atomo e
+il “difetto” [o “eccesso”] di massa ($\Delta$) di un atomo.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Unità di massa atomica (u).}  
+  L’unità di massa atomica unificata è definita come
+  \[
+  1\ \text{u} = \frac{1}{12}\, m\big({}^{12}_{\ 6}\text{C}\big),
+  \]
+  cioè un dodicesimo della massa dell’atomo neutro di carbonio-12 nello stato
+  fondamentale.  
+  In unità energetiche (tramite $E=mc^{2}$):
+  \[
+  1\ \text{u} \;\simeq\; 931.5\ \text{MeV}/c^{2}.
+  \]
+
+  \item \textbf{Energia di legame $B$.}  
+  È l’energia necessaria per separare completamente un nucleo nei suoi nucleoni
+  costituenti (protoni e neutroni). Equivalentemente, è l’energia liberata
+  quando i nucleoni si legano a formare il nucleo.  
+  Se il nucleo contiene $Z$ protoni e $N$ neutroni ($A=Z+N$), la sua energia di
+  legame è
+  \[
+  B = \big[ Z m_{p} + N m_{n} - M(A,Z) \big] c^{2},
+  \]
+  dove $M(A,Z)$ è la massa del nucleo (o dell’atomo, tenendo conto anche degli
+  elettroni in modo coerente).
+
+  \item \textbf{Difetto di massa $\Delta$.}  
+  È la differenza tra la somma delle masse dei nucleoni liberi e la massa
+  misurata del nucleo:
+  \[
+  \Delta = Z m_{p} + N m_{n} - M(A,Z).
+  \]
+  Esprime la riduzione di massa dovuta all’energia di legame: infatti
+  \[
+  B = \Delta\, c^{2}.
+  \]
+
+\end{itemize}
+\item \textbf{Domanda:} Enunciare la formula semiempirica $B = B(A,Z)$ ed
+indicare i suoi termini che sono spiegati dal modello a goccia. Spiegare le
+ipotesi su cui tale modello è basato e fornire l’ordine di grandezza
+dell’energia media di legame di un nucleone all’interno di un nucleo.
+
+\textbf{Risposta.}
+
+\textbf{Formula semiempirica di Weizsäcker (o formula a goccia):}
+\[
+B(A,Z) \;=\; a_{v}A \;-\; a_{s}A^{2/3} \;-\; a_{c}\frac{Z^{2}}{A^{1/3}}
+\;-\; a_{a}\frac{(A-2Z)^{2}}{A} \;\pm\; \delta(A,Z).
+\]
+
+\begin{itemize}
+  \item $a_{v}A$: \textbf{termine di volume}, energia di legame proporzionale al
+  numero di nucleoni, perché ciascun nucleone interagisce con un numero
+  costante di vicini.  
+  \item $-a_{s}A^{2/3}$: \textbf{termine di superficie}, riduzione di energia
+  per i nucleoni che si trovano sulla superficie del nucleo (meno vicini).  
+  \item $-a_{c}Z^{2}/A^{1/3}$: \textbf{termine coulombiano}, energia di
+  repulsione elettrostatica fra i protoni.  
+  \item $-a_{a}(A-2Z)^{2}/A$: \textbf{termine di asimmetria}, penalizza
+  l’eccesso di neutroni o protoni, conseguenza del principio di Pauli.  
+  \item $\pm \delta(A,Z)$: \textbf{termine di pairing}, tiene conto della
+  maggiore stabilità dei nuclei con $Z$ e $N$ pari (segno $+$), e minore
+  stabilità per nuclei con entrambi dispari (segno $-$).
+\end{itemize}
+
+\medskip
+\textbf{Ipotesi del modello a goccia.}
+\begin{itemize}
+  \item Il nucleo si comporta come una goccia di liquido incomprimibile di
+  densità costante.
+  \item L’interazione nucleare è a corto raggio e satura: ogni nucleone interagisce
+  solo con i vicini immediati.
+  \item L’energia totale è la somma di contributi macroscopici: volume,
+  superficie, repulsione coulombiana, simmetria, pairing.
+\end{itemize}
+
+\medskip
+\textbf{Ordine di grandezza.}  
+L’energia media di legame per nucleone è
+\[
+\frac{B}{A} \;\approx\; 8\ \text{MeV},
+\]
+quasi costante per un’ampia gamma di nuclei (esclusi i più leggeri e i più
+pesanti). Questo valore spiega la stabilità dei nuclei e i processi di
+fissione/fusione nucleare.
+
+\item \textbf{Domanda:} Calcolare l’energia di configurazione di una sfera
+uniformemente carica ed applicare il risultato per stimare il coefficiente
+$c$ della formula semiempirica di massa.
+
+\textbf{Risposta.}
+
+\textbf{Energia elettrostatica di una sfera uniformemente carica.}  
+Consideriamo un nucleo come una sfera di raggio $R$ con carica totale
+$Q=Ze$ uniformemente distribuita. L’energia di configurazione elettrostatica
+(cioè il lavoro per assemblare la carica) è
+\[
+E_{C} \;=\; \frac{3}{5}\,\frac{Q^{2}}{4\pi\varepsilon_{0}R}
+= \frac{3}{5}\,\frac{Z^{2}e^{2}}{4\pi\varepsilon_{0}R}.
+\]
+
+\textbf{Raggio nucleare.}  
+Dal modello a goccia si assume che il volume sia proporzionale al numero di
+nucleoni $A$:
+\[
+R = r_{0}\,A^{1/3}, \qquad r_{0}\simeq 1.2\ \text{fm}.
+\]
+
+\textbf{Energia coulombiana per il nucleo.}  
+Sostituendo:
+\[
+E_{C} = \frac{3}{5}\,\frac{Z^{2}e^{2}}{4\pi\varepsilon_{0} r_{0} A^{1/3}}.
+\]
+
+\textbf{Confronto con la formula semiempirica.}  
+Il termine coulombiano nella formula di Weizsäcker è
+\[
+B_{C} = -\,a_{c}\,\frac{Z^{2}}{A^{1/3}}.
+\]
+
+Identificando i coefficienti:
+\[
+a_{c} = \frac{3}{5}\,\frac{e^{2}}{4\pi\varepsilon_{0}\,r_{0}}.
+\]
+
+\textbf{Valore numerico.}  
+Poiché
+\[
+\frac{e^{2}}{4\pi\varepsilon_{0}} \simeq 1.44\ \text{MeV·fm}, 
+\qquad r_{0}\simeq 1.2\ \text{fm},
+\]
+risulta
+\[
+a_{c} \simeq \frac{3}{5}\,\frac{1.44}{1.2}\ \text{MeV}
+\simeq 0.72\ \text{MeV}.
+\]
+
+\textbf{Conclusione.}  
+L’energia di configurazione di una sfera uniformemente carica riproduce il
+termine coulombiano della formula semiempirica, con coefficiente
+\[
+\boxed{\,a_{c} \approx 0.7\ \text{MeV}\,}.
+\]
+\item \textbf{Domanda:} Quali sono le informazioni che si possono dedurre sulle
+caratteristiche dell’interazione nucleare osservando l’andamento delle energie
+di legame dei nuclei in funzione di $A$? Quali sono le differenze principali
+con il caso dell’interazione tra gli elettroni in un atomo?
+
+\textbf{Risposta.}
+
+\textbf{Andamento delle energie di legame nucleari.}
+\begin{itemize}
+  \item L’energia di legame media per nucleone $B/A$ cresce rapidamente per i
+  nuclei leggeri, raggiunge un massimo attorno a $A \simeq 60$
+  ($\!{}^{56}\text{Fe}$, $\!{}^{62}\text{Ni}$), e decresce lentamente per nuclei
+  più pesanti.
+  \item Il valore medio è quasi costante, $\sim 8$ MeV per nucleone, per una
+  vasta gamma di nuclei intermedi.
+\end{itemize}
+
+\textbf{Informazioni sull’interazione nucleare.}
+\begin{itemize}
+  \item \textbf{Carattere saturante:} il fatto che $B/A$ sia quasi costante
+  indica che ogni nucleone interagisce solo con un numero limitato di vicini
+  (interazione a corto raggio).
+  \item \textbf{Forte intensità:} l’energia media di legame per nucleone è
+  dell’ordine di MeV, molto più grande delle energie tipiche delle interazioni
+  atomiche (eV).
+  \item \textbf{Equilibrio fra attrazione e repulsione:} nei nuclei leggeri
+  domina l’interazione nucleare attrattiva; nei nuclei molto pesanti la
+  repulsione coulombiana tra protoni riduce la stabilità, portando a una
+  diminuzione di $B/A$ e alla possibilità di fissione.
+\end{itemize}
+
+\textbf{Differenze rispetto all’interazione atomica.}
+\begin{itemize}
+  \item \textbf{Raggio d’azione:} l’interazione nucleare è a corto raggio
+  (pochi fm), mentre l’interazione coulombiana elettrone-nucleo è a lungo
+  raggio.
+  \item \textbf{Saturazione:} l’interazione nucleare satura, mentre quella
+  coulombiana no (ogni elettrone “sente” l’intero nucleo e tutti gli altri
+  elettroni).
+  \item \textbf{Energia tipica:} legami nucleari $\sim$ MeV per nucleone,
+  legami atomici $\sim$ eV per elettrone (fattore $10^{6}$ di differenza).
+  \item \textbf{Stabilità:} negli atomi l’energia di legame per elettrone
+  decresce con $n$ e con $Z$, senza un massimo come nei nuclei; nei nuclei
+  invece l’andamento di $B/A$ presenta un massimo intermedio che spiega la
+  possibilità di fusione (nuclei leggeri) e fissione (nuclei pesanti).
+\end{itemize}
+
+\item \textbf{Domanda:} Per gli urti fra due particelle definire le sezioni
+d’urto: elastica, inelastica, totale e “di estinzione”. Fornire alcuni esempi.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Sezione d’urto elastica $\sigma_{\rm el}$:}  
+  misura la probabilità di un urto in cui le particelle dopo la collisione
+  restano nello stesso stato interno, cambiando solo gli impulsi (cioè la
+  direzione o il modulo della quantità di moto).  
+  Esempio: scattering Rutherford di un $\alpha$ su un nucleo senza eccitazione.
+
+  \item \textbf{Sezione d’urto inelastica $\sigma_{\rm inel}$:}  
+  misura la probabilità di un urto in cui almeno una delle particelle cambia
+  stato interno (eccitazione, ionizzazione, produzione di nuove particelle).  
+  Esempio: urto elettrone-atomo con eccitazione atomica; scattering Compton
+  $\gamma+e^{-}\to\gamma+e^{-}$ (cambio di energia del fotone).
+
+  \item \textbf{Sezione d’urto totale $\sigma_{\rm tot}$:}  
+  è la somma delle due componenti:
+  \[
+  \sigma_{\rm tot} = \sigma_{\rm el} + \sigma_{\rm inel}.
+  \]
+
+  \item \textbf{Sezione d’urto di estinzione $\sigma_{\rm ext}$:}  
+  è la sezione d’urto che tiene conto della riduzione dell’intensità del fascio
+  incidente in una certa direzione (in particolare quella in avanti) dovuta sia
+  a scattering che ad assorbimento. In generale:
+  \[
+  \sigma_{\rm ext} = \sigma_{\rm tot}.
+  \]
+  Nel linguaggio ottico, essa appare nel \emph{teorema ottico}, che lega
+  $\sigma_{\rm ext}$ all’ampiezza di scattering in avanti:
+  \[
+  \sigma_{\rm ext} = \frac{4\pi}{k}\,\Im f(0).
+  \]
+  Esempio: attenuazione di un fascio luminoso da parte di una particella
+  sospesa (Mie scattering).
+\end{itemize}
+
+\textbf{Conclusione.}  
+Le diverse sezioni d’urto distinguono i vari canali della collisione, mentre la
+sezione d’urto totale (o di estinzione) è la grandezza globale che descrive la
+probabilità complessiva di interazione.
+
+\item \textbf{Domanda:} Per gli urti fra due particelle definire quando l’urto è
+osservato in maniera inclusiva o esclusiva, fornendo alcuni esempi.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Urto esclusivo:}  
+  Si parla di osservazione \emph{esclusiva} quando vengono misurati tutti i
+  prodotti finali della collisione, cioè l’esperimento è in grado di
+  ricostruire l’intero canale di reazione.  
+  Esempi:
+  \begin{itemize}
+    \item Reazione $p + p \to p + p$, misurando le traiettorie e le energie di
+    entrambi i protoni finali.
+    \item Scattering elastico $e + p \to e + p$, con rivelazione simultanea
+    dell’elettrone e del protone.
+  \end{itemize}
+
+  \item \textbf{Urto inclusivo:}  
+  Si parla di osservazione \emph{inclusiva} quando si misura solo una parte
+  dei prodotti finali, mentre gli altri restano non osservati e quindi sono
+  sommati (integrati) su tutti i possibili stati accessibili.  
+  Esempi:
+  \begin{itemize}
+    \item Deep inelastic scattering (DIS): $e + p \to e + X$, dove si rileva
+    solo l’elettrone diffuso e $X$ rappresenta l’insieme degli adroni prodotti.
+    \item Reazioni nucleari: $p + A \to n + X$, in cui si misura solo il neutrone
+    emesso senza specificare il residuo nucleare.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Osservazione.}  
+La distinzione inclusivo/esclusivo è importante nella teoria dello scattering
+perché determina se la sezione d’urto sperimentale si riferisce a un singolo
+canale (esclusivo) oppure a una somma incoerente di molti canali (inclusivo).
+
+\item \textbf{Domanda:} Definire il $Q$-valore di un processo e i processi
+esotermici o endotermici.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{$Q$-valore:}  
+  In una reazione nucleare o in un decadimento il $Q$-valore è definito come la
+  differenza tra le energie totali (masse-energia) iniziali e finali:
+  \[
+  Q = \left( \sum_{i} m_{i}c^{2} \right)_{\text{iniziali}}
+      - \left( \sum_{f} m_{f}c^{2} \right)_{\text{finali}} .
+  \]
+  Equivalentemente, è l’energia liberata (se positiva) o assorbita (se
+  negativa) nella reazione.
+
+  \item \textbf{Processo esotermico:}  
+  Se $Q>0$, la reazione rilascia energia sotto forma di energia cinetica dei
+  prodotti o radiazione.  
+  Esempi:  
+  \begin{itemize}
+    \item Decadimento $\alpha$: ${}^{238}\text{U} \to {}^{234}\text{Th} + \alpha + Q$.
+    \item Reazioni di fusione leggera, come ${}^{2}\text{H}+{}^{3}\text{H}\to{}^{4}\text{He}+n+Q$.
+  \end{itemize}
+
+  \item \textbf{Processo endotermico:}  
+  Se $Q<0$, la reazione richiede un apporto di energia dall’esterno per
+  avvenire, cioè deve essere fornita energia cinetica agli stati iniziali.  
+  Esempio:  
+  \begin{itemize}
+    \item Reazione $(p,n)$ su un nucleo che richiede una soglia energetica per
+    essere attivata.
+  \end{itemize}
+\end{itemize}
+
+\textbf{Osservazione.}  
+Il $Q$-valore rappresenta dunque il bilancio energetico della reazione e
+determina se essa è spontaneamente possibile (esotermica, $Q>0$) o richiede
+energia esterna (endotermica, $Q<0$).
+\item \textbf{Domanda:} Definire numero barionico ($B$) e numeri leptonici ($L$).
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Numero barionico $B$:}  
+  È una grandezza quantica che conta il numero di barioni (protoni, neutroni e
+  altre particelle composte da tre quark). Per convenzione:
+  \[
+  B = +1 \ \text{per ogni barione}, \qquad
+  B = -1 \ \text{per ogni antibarione}, \qquad
+  B = 0 \ \text{per leptoni, fotoni, mesoni, ecc.}
+  \]
+  Il numero barionico totale si conserva in tutte le interazioni note
+  (eccetto, forse, a livello di processi non perturbativi in teoria unificata).
+
+  \item \textbf{Numeri leptonici $L$:}  
+  Sono definiti per ciascuna \emph{famiglia leptonica} separatamente:
+  \[
+  L_{e}, \quad L_{\mu}, \quad L_{\tau}.
+  \]
+  Per convenzione:
+  \[
+  L_{x} = +1 \ \text{per leptone della famiglia $x$}, \qquad
+  L_{x} = -1 \ \text{per antileptone della famiglia $x$}, \qquad
+  L_{x} = 0 \ \text{per le altre particelle},
+  \]
+  con $x = e, \mu, \tau$.
+  Per esempio:  
+  $L_{e}(e^{-})=+1$, $L_{e}(\bar\nu_{e})=-1$;  
+  $L_{\mu}(\mu^{-})=+1$, $L_{\mu}(\bar\nu_{\mu})=-1$.
+
+  \item \textbf{Conservazione:}  
+  Nelle interazioni deboli e forti si conserva il numero barionico totale e
+  ciascun numero leptonico di famiglia. Tuttavia, fenomeni di oscillazione dei
+  neutrini violano la conservazione dei singoli $L_{e},L_{\mu},L_{\tau}$,
+  pur mantenendo conservato il numero leptonico totale
+  \[
+  L = L_{e}+L_{\mu}+L_{\tau}.
+  \]
+\end{itemize}
+
+\item \textbf{Domanda:} Dare la definizione operativa della grandezza fisica
+denominata “densità di corrente (di particelle)” oppure “rateo di fluence”
+oppure “densità di flusso (di particelle)”.
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Definizione operativa:}  
+  La \emph{densità di corrente di particelle} (detta anche \emph{rateo di
+  fluence} o \emph{densità di flusso}) è definita come il numero di particelle
+  che attraversano, per unità di tempo, l’unità di area disposta
+  perpendicolarmente alla direzione del moto delle particelle.  
+
+  \item \textbf{Espressione matematica:}  
+  Se $dN$ è il numero di particelle che attraversano un’area $dA$ in un
+  intervallo di tempo $dt$, la densità di flusso è
+  \[
+  \phi = \frac{dN}{dA\,dt}.
+  \]
+
+  \item \textbf{Caso di distribuzione angolare:}  
+  Più in generale, se le particelle non sono tutte parallele, la corrente
+  attraverso una superficie con versore normale $\hat{n}$ è
+  \[
+  j = n\,v \cos\theta,
+  \]
+  dove $n$ è la densità volumetrica di particelle, $v$ la velocità, $\theta$
+  l’angolo tra $\vec{v}$ e $\hat{n}$.
+
+  \item \textbf{Unità di misura:}  
+  \[
+  [\phi] = \frac{\text{particelle}}{\text{m}^{2}\,\text{s}}.
+  \]
+
+  \item \textbf{Interpretazione:}  
+  La grandezza descrive l’intensità di un fascio di particelle ed è fondamentale
+  nelle definizioni operative delle sezioni d’urto, poiché il numero di eventi
+  osservati in un rivelatore è proporzionale al flusso incidente.
+\end{itemize}
+\item \textbf{Domanda:} Definire la sezione d’urto nei seguenti casi e dimostrarne l’equivalenza:
+\begin{itemize}
+  \item particella singola su bersaglio singolo;  
+  \item particelle incidenti su un unico bersaglio [dati: densità di corrente di particelle incidenti; frequenza di eventi osservati];  
+  \item sottile fascio di particelle incidenti su una lastra contenente i bersagli [dati: flusso di particelle incidenti, densità superficiale dei bersagli, frequenza di eventi osservati];  
+  \item urti nel volume fra particelle di due specie diverse e differenti concentrazioni [dati: numero di eventi osservati per unità di tempo e per unità di volume, concentrazione delle particelle interagenti, velocità relativa].  
+\end{itemize}
+
+\textbf{Risposta.}
+
+\begin{enumerate}
+  \item \textbf{Particella singola su bersaglio singolo:}  
+  La sezione d’urto $\sigma$ è definita come l’area efficace del bersaglio per cui un proiettile incidente interagisce con esso. È quindi una quantità con dimensione di superficie:
+  \[
+  [\sigma] = \text{m}^2.
+  \]
+
+  \item \textbf{Particelle incidenti su un unico bersaglio:}  
+  Se la densità di corrente di particelle incidenti (flusso) è $\phi$ e la frequenza di eventi osservati è $R$, la sezione d’urto è definita da:
+  \[
+  R = \phi \, \sigma.
+  \]
+
+  \item \textbf{Sottile fascio di particelle incidenti su una lastra con bersagli:}  
+  Sia $n_{t}$ la densità superficiale di bersagli nella lastra (numero di centri bersaglio per unità di area), e $\phi$ il flusso di particelle incidenti. Allora la frequenza di eventi è:
+  \[
+  R = \phi \, n_{t} \, \sigma.
+  \]
+
+  \item \textbf{Urti fra particelle di due specie in un volume:}  
+  Siano $n_{1}$ e $n_{2}$ le densità di numero delle due specie, $v_{\text{rel}}$ la velocità relativa media. Il numero di eventi per unità di volume e di tempo è:
+  \[
+  \frac{dN}{dV\,dt} = n_{1}\, n_{2}\, v_{\text{rel}} \, \sigma.
+  \]
+\end{enumerate}
+
+\medskip
+
+\textbf{Equivalenza:}  
+Tutte le definizioni coincidono perché riconducono sempre il numero di eventi osservati (per unità di tempo o volume) al prodotto di:
+\[
+\text{(densità o flusso di particelle incidenti)} \times \text{(numero di centri bersaglio)} \times \sigma.
+\]
+Quindi la sezione d’urto rappresenta l’area efficace di interazione, indipendentemente dal contesto sperimentale.
+\item \textbf{Domanda:} Dimostrare la relazione fra la definizione della sezione
+d’urto \emph{elastica} nel caso di fotoni incidenti su un unico bersaglio e la
+definizione di sezione d’urto elastica per un’onda e.m. monocromatica su un
+unico bersaglio.
+
+\textbf{Risposta.}
+Consideriamo fotoni \emph{monoenergetici} di frequenza $\nu=\omega/2\pi$ che
+incidono su un bersaglio localizzato.
+
+\medskip
+\textbf{(A) Definizione “a fotoni”:} se $\Phi$ è il flusso numerico di fotoni
+(fotoni per unità di area e di tempo) e $\dot N(\Omega)$ è il tasso di fotoni
+elastici diffusi nell’elemento solido $d\Omega$, la sezione d’urto elastica
+\emph{differenziale} è
+\[
+\boxed{\;
+\frac{d\sigma_{\rm el}}{d\Omega}
+= \frac{1}{\Phi}\,\frac{d\dot N}{d\Omega}\; } .
+\tag{1}
+\]
+
+\textbf{(B) Definizione “a onde”:} se $I_{\rm inc}$ è l’intensità dell’onda
+incidente (potenza per unità di area) e $\dfrac{dP_{\rm el}}{d\Omega}$ è la
+potenza elastica diffusa per unità di angolo solido, si definisce
+\[
+\boxed{\;
+\frac{d\sigma_{\rm el}}{d\Omega}
+= \frac{1}{I_{\rm inc}}\,\frac{dP_{\rm el}}{d\Omega}\; } .
+\tag{2}
+\]
+
+\textbf{Equivalenza.} Per fotoni monoenergetici vale la corrispondenza
+\[
+I_{\rm inc}=\Phi\,h\nu,\qquad
+\frac{dP_{\rm el}}{d\Omega} = h\nu\,\frac{d\dot N}{d\Omega},
+\]
+poiché ciascun fotone trasporta energia $h\nu$. Sostituendo queste relazioni in
+(2) si ottiene
+\[
+\frac{d\sigma_{\rm el}}{d\Omega}
+=\frac{1}{\Phi h\nu}\,h\nu\,\frac{d\dot N}{d\Omega}
+=\frac{1}{\Phi}\,\frac{d\dot N}{d\Omega},
+\]
+che coincide con (1). Dunque le due definizioni sono \emph{identiche} quando
+l’onda è monocromatica, essendo legati flusso numerico e intensità dal fattore
+$h\nu$.
+
+\medskip
+\textit{Nota.} L’uguaglianza vale indipendentemente dalla polarizzazione:
+per onde polarizzate si usa la corrispondente $\dfrac{dP_{\rm el}}{d\Omega}$;
+per onde non polarizzate si media su due polarizzazioni, sia nella descrizione
+a onde sia in quella a fotoni.
+
+\item \textbf{Domanda:} Quale calcolo si deve effettuare per determinare il numero
+di eventi per unità di tempo e di volume che si producono negli urti fra
+particelle di due specie diverse e differenti concentrazioni, le cui velocità
+relative sono distribuite con una funzione $f(v_{\rm rel})$ (normalizzata
+all’unità), e la cui sezione d’urto è $\sigma(v_{\rm rel})$?
+
+\textbf{Risposta.}
+Siano $n_{1}$ e $n_{2}$ le concentrazioni (densità numeriche) delle due specie.
+Il \emph{tasso di urti per unità di volume} si ottiene mediando su la
+distribuzione delle velocità relative la quantità elementare
+$\sigma(v_{\rm rel})\,v_{\rm rel}$:
+\[
+\boxed{\;
+\frac{dN}{dV\,dt}
+= n_{1}\,n_{2}\,\big\langle \sigma v_{\rm rel}\big\rangle
+\;},\qquad
+\big\langle \sigma v_{\rm rel}\big\rangle
+=\int \sigma(v_{\rm rel})\,v_{\rm rel}\, f(\mathbf{v}_{\rm rel})\,d^{3}v_{\rm rel}.
+\]
+
+Se la distribuzione è isotropa e fornita in funzione del modulo $v_{\rm rel}$,
+con normalizzazione $\int_{0}^{\infty} 4\pi v_{\rm rel}^{2} f(v_{\rm rel})\,dv_{\rm rel}=1$,
+allora
+\[
+\boxed{\;
+\big\langle \sigma v_{\rm rel}\big\rangle
+=\int_{0}^{\infty} \sigma(v_{\rm rel})\,v_{\rm rel}\,4\pi v_{\rm rel}^{2}
+\,f(v_{\rm rel})\,dv_{\rm rel}.
+\;}
+\]
+
+\textit{Nota.} Se le due specie sono identiche (stessa particella), per evitare
+il doppio conteggio si introduce un fattore $1/2$:
+$\ (dN/dVdt)=\tfrac{1}{2}\,n^{2}\,\langle \sigma v_{\rm rel}\rangle$.
+
+\item \textbf{Domanda:} Calcolare la probabilità di interazione per una particella
+che incide su una lamina sottile [dati: sezione d’urto del processo, numero di
+bersagli per unità superficie]. Che significato avrebbe una probabilità maggiore
+di uno? Quest’ultima risposta dipende dalle tipologie degli urti?
+
+\textbf{Risposta.}
+Sia $\sigma$ la sezione d’urto (del processo considerato) e sia
+$n_{t}$ il \emph{numero di centri bersaglio per unità di superficie}
+(“areal density”; se la lamina ha spessore $t$ e densità numerica $n$,
+allora $n_{t}=n\,t$). 
+
+\medskip
+\textbf{Lamina sottile (singolo urto).}  
+Se $n_{t}\sigma\ll 1$, la probabilità che una particella \emph{subisca
+l’interazione} (almeno una volta) nell’attraversare la lamina è
+\[
+\boxed{\;P_{\rm int}\simeq n_{t}\,\sigma\; } \qquad
+\big(n_{t}\sigma\ll 1\big).
+\]
+Per più canali indipendenti con sezioni $\sigma_{i}$:
+\[
+P_{i}\simeq n_{t}\sigma_{i},\qquad
+P_{\rm int}\simeq n_{t}\sigma_{\rm tot},\quad
+\sigma_{\rm tot}=\sum_{i}\sigma_{i}.
+\]
+
+\medskip
+\textbf{Lamina non sottile (trattamento esatto a urti indipendenti).}  
+La sopravvivenza senza interazione è $P_{0}=e^{-n_{t}\sigma_{\rm tot}}$,
+quindi
+\[
+\boxed{\;P_{\rm int}=1-e^{-n_{t}\sigma_{\rm tot}}\le 1\; } .
+\]
+La probabilità per il canale $i$ (assumendo canali mutuamente esclusivi
+e indipendenti) è
+\[
+\boxed{\;P_{i}=\frac{\sigma_{i}}{\sigma_{\rm tot}}\,
+\big(1-e^{-n_{t}\sigma_{\rm tot}}\big)\; } ,
+\]
+che torna a $P_{i}\simeq n_{t}\sigma_{i}$ per $n_{t}\sigma_{\rm tot}\ll1$.
+
+\medskip
+\textbf{“Probabilità maggiore di uno”.}  
+Un valore $n_{t}\sigma>1$ nella formula \emph{lineare} non significa una
+probabilità fisica $>1$ (che è impossibile): indica soltanto che il regime
+“lamina sottile” è violato e che sono probabili \emph{urti multipli}. In tal
+caso va usata la legge esponenziale $P_{\rm int}=1-e^{-n_{t}\sigma_{\rm tot}}$,
+che è sempre $\le1$.
+
+\medskip
+\textbf{Dipendenza dal tipo di urto.}  
+Sì: per “almeno un’interazione” si usa $\sigma_{\rm tot}$; per un canale
+\emph{specifico} (elastico, inelastico, reazione $i$) si usa $\sigma_{i}$
+e, fuori dal regime sottile, la formula con il fattore
+$\sigma_{i}/\sigma_{\rm tot}$. In presenza di processi che modificano lo
+stato della particella (energia, carica, direzione) lungo lo spessore, le
+sezioni d’urto possono variare con la profondità e occorre integrare
+$\exp\!\left[-\int n(z)\sigma_{\rm tot}(z)\,dz\right]$.
+
+\item \textbf{Domanda:} Dimostrare che un fascio di particelle incidenti su un
+materiale omogeneo, costituito da atomi di una sola specie, si attenua con una
+legge esponenziale al crescere dello spessore attraversato. [Dati: sezione
+d’urto di estinzione per atomo $\sigma_{\rm ext}$, densità di massa del mezzo
+$\rho$, numero (massa) atomico $A$].
+
+\textbf{Risposta.}
+In un mezzo omogeneo la densità numerica di atomi è
+\[
+n=\frac{N_{\!A}\,\rho}{A},
+\]
+dove $N_{\!A}$ è il numero di Avogadro e $A$ è la massa atomica (in g/mol).
+Per un elemento di spessore $dx$, la \emph{probabilità} che una particella
+interagisca (estinzione = scattering $+$ assorbimento) è
+\[
+dP_{\rm int}=n\,\sigma_{\rm ext}\,dx.
+\]
+Se $I(x)$ è il numero di particelle che attraversano per unità di tempo e
+superficie una sezione posta alla profondità $x$, il numero che viene estinto
+fra $x$ e $x+dx$ è $dI=-I(x)\,dP_{\rm int}$; quindi
+\[
+\frac{dI}{dx}=-n\,\sigma_{\rm ext}\,I(x)\equiv -\mu\,I(x),
+\qquad
+\mu=n\,\sigma_{\rm ext}=\frac{N_{\!A}\,\rho}{A}\,\sigma_{\rm ext}.
+\]
+L’equazione differenziale ha soluzione
+\[
+\boxed{\; I(x)=I_0\,e^{-\mu x}\;},\qquad
+\mu=\frac{N_{\!A}\,\rho}{A}\,\sigma_{\rm ext}\quad [\mu]={\rm lunghezza}^{-1}.
+\]
+In termini di \emph{spessore areale} $X\equiv\rho x$ si ottiene la forma
+\[
+\boxed{\; I(X)=I_0\,\exp\!\Big[-\Big(\frac{\mu}{\rho}\Big)X\Big]\;},\qquad
+\frac{\mu}{\rho}=\frac{N_{\!A}}{A}\,\sigma_{\rm ext}\quad
+\left[\frac{\mu}{\rho}\right]={\rm area/massa}.
+\]
+
+\textit{Osservazione.} La sezione d’urto di \emph{estinzione}
+$\sigma_{\rm ext}$ comprende tutti i processi che sottraggono particelle dal
+fascio diretto (assorbimento e diffusione fuori dalla direzione del fascio).
+La legge esponenziale discende dall’ipotesi di urti indipendenti e mezzo
+omogeneo (coefficiente $\mu$ costante lungo il cammino).
+
+\item \textbf{Domanda:} Calcolare l’attenuazione di un fascio di particelle
+incidenti su un materiale omogeneo composto da atomi di \emph{diverse} specie
+in funzione dello spessore attraversato. [Dati: sezione d’urto di estinzione
+del processo su ogni atomo del bersaglio, densità di massa del mezzo, numeri
+atomici, composizione chimica del mezzo.]
+
+\textbf{Risposta.}
+Sia il mezzo una miscela omogenea di specie atomiche $j=1,\dots,m$, con densità
+di massa totale $\rho$ e frazioni in peso $w_{j}$ (con $\sum_{j} w_{j}=1$).
+Indichiamo con $A_{j}$ la massa atomica e con $\sigma_{{\rm ext},j}$ la sezione
+d’urto \emph{per atomo} del processo considerato (estinzione = scattering $+$ assorbimento).
+
+La \textbf{densità numerica} della specie $j$ è
+\[
+n_{j}=\frac{N_{\!A}\,\rho\,w_{j}}{A_{j}},
+\]
+perciò il coefficiente di attenuazione (sezione d’urto \emph{macroscopica})
+della miscela è la somma dei contributi:
+\[
+\mu=\sum_{j} n_{j}\,\sigma_{{\rm ext},j}
+= \rho\sum_{j} \frac{N_{\!A}\,w_{j}}{A_{j}}\,\sigma_{{\rm ext},j}.
+\]
+Segue la \textbf{legge esponenziale di attenuazione}:
+\[
+\boxed{\; I(x)=I_{0}\,e^{-\mu x}\;},\qquad
+\boxed{\; \mu=\sum_{j} n_{j}\sigma_{{\rm ext},j}
+=\rho\sum_{j}\frac{N_{\!A}\,w_{j}}{A_{j}}\sigma_{{\rm ext},j}\; } .
+\]
+
+È spesso utile la \textbf{attenuazione per massa} (regola additiva di Bragg):
+\[
+\boxed{\; \frac{\mu}{\rho}=\sum_{j} w_{j}\,\Big(\frac{\mu}{\rho}\Big)_{j}\;},\qquad
+\Big(\frac{\mu}{\rho}\Big)_{j}=\frac{N_{\!A}}{A_{j}}\,\sigma_{{\rm ext},j}.
+\]
+
+\textit{Varianti di composizione.}
+Se la miscela è descritta da frazioni atomiche $x_{j}$ (con $\sum_j x_j=1$),
+la densità numerica è $n_{j}=x_{j}\,n_{\rm tot}$ con
+$n_{\rm tot}=\sum_j n_{j}=\rho \sum_j \dfrac{N_{\!A} w_j}{A_j}$, e
+\[
+\mu=\sum_{j} n_{j}\sigma_{{\rm ext},j}=n_{\rm tot}\sum_{j} x_{j}\sigma_{{\rm ext},j}.
+\]
+
+\textbf{Conclusione.}
+Per un materiale composto, il fascio si attenua come $I(x)=I_{0}e^{-\mu x}$ con
+coefficiente $\mu$ dato dalla somma dei contributi delle specie presenti,
+pesati dalle loro abbondanze (per peso o per numero) e dalle sezioni d’urto
+atomiche del processo.
+\item \textbf{Domanda:} Quante sono le variabili indipendenti nello stato finale
+di una reazione in cui due particelle collidono e $N$ particelle sono prodotte?
+
+\textbf{Risposta.}
+Ogni particella nello stato finale è descritta dal suo quadrimpulso
+$p_{i}=(E_{i},\vec{p}_{i})$ con $4$ componenti. Per $N$ particelle si hanno
+dunque $4N$ variabili.
+
+\begin{itemize}
+  \item \textbf{Vincoli:}
+  \begin{enumerate}
+    \item Conservazione dell’energia e della quantità di moto (4 equazioni).
+    \item Relazione di massa su ciascun quadrimpulso ($p_{i}^{2}=m_{i}^{2}c^{2}$, $N$ equazioni).
+  \end{enumerate}
+\end{itemize}
+
+Il numero di variabili indipendenti risulta quindi
+\[
+N_{\rm var} = 4N - 4 - N = 3N - 4.
+\]
+
+\textbf{Conclusione.}  
+Lo stato finale di una reazione $2 \to N$ è descritto da
+\[
+\boxed{3N - 4}
+\]
+variabili indipendenti (dette anche \emph{variabili cinematiche}).
+
+\textit{Nota.} Questa è la dimensionalità dello \emph{spazio delle fasi} (phase space)
+delle $N$ particelle prodotte, dopo avere imposto tutti i vincoli cinematici.
+\item \textbf{Domanda:} Quante sono le variabili indipendenti nello stato finale
+di una reazione in cui una particella decade in due o tre particelle? Quali
+implicazioni avremmo se la particella che decade avesse un momento angolare nullo?
+
+\textbf{Risposta.}
+
+\begin{itemize}
+  \item \textbf{Caso 2-corpi ($1 \to 2$):}  
+  Ogni particella è descritta da 3 componenti di impulso, quindi in totale
+  $3\times 2 = 6$ variabili.  
+  I vincoli sono:
+  \begin{enumerate}
+    \item Conservazione dell’energia e della quantità di moto (4 equazioni).
+    \item Relazioni di massa sui quadrimpulsi finali (2 equazioni).
+  \end{enumerate}
+  Quindi:
+  \[
+  N_{\rm var} = 6 - 4 = 2.
+  \]
+  Ma queste 2 variabili corrispondono soltanto all’orientazione nello spazio
+  del sistema a due corpi: i moduli degli impulsi sono fissati
+  cinematicamente.  
+  In pratica, nel centro di massa la configurazione è completamente
+  determinata, a meno della direzione (angoli $\theta, \phi$).
+
+  \item \textbf{Caso 3-corpi ($1 \to 3$):}  
+  Si hanno $3\times 3 = 9$ variabili.  
+  Vincoli:
+  \begin{enumerate}
+    \item Conservazione dell’energia e della quantità di moto (4 equazioni).
+    \item Relazioni di massa sui quadrimpulsi finali (3 equazioni).
+  \end{enumerate}
+  Risultato:
+  \[
+  N_{\rm var} = 9 - 4 = 5.
+  \]
+  Dunque il decadimento a 3 corpi è descritto da 5 variabili indipendenti,
+  che possono essere scelte come due energie (o invarianti cinematici) e tre
+  angoli.
+
+  \item \textbf{Implica\-zioni del momento angolare nullo:}  
+  Se la particella iniziale ha spin $J=0$, non esiste alcuna direzione
+  privilegiata nello spazio.  
+  - Nel decadimento a due corpi, ciò implica una distribuzione
+  \emph{isotropa} degli angoli nello spazio del centro di massa.  
+  - Nel decadimento a tre corpi, il vincolo di isotropia resta valido, ma la
+  distribuzione tra le variabili cinematiche (ad esempio il diagramma di
+  Dalitz) può non essere uniforme, dipendendo dalle dinamiche della
+  transizione.
+\end{itemize}
+
+\textbf{Conclusione.}  
+\[
+\boxed{\; N_{\rm var}(1\to 2)=2 \quad (\text{solo angoli}); \qquad
+N_{\rm var}(1\to 3)=5 \;}
+\]  
+Con $J=0$ iniziale, il decadimento $1\to 2$ è isotropo nello spazio del centro
+di massa.
+\item \textbf{Domanda:} Spiegare il metodo della ``massa invariante'' per
+identificare una particella instabile e misurarne la sua massa.
+
+\textbf{Risposta.}
+Una particella instabile $X$ non può essere rivelata direttamente, ma i suoi
+prodotti di decadimento (particelle stabili o a vita media lunga) possono
+essere misurati da un rivelatore, che fornisce energia e impulso delle
+particelle finali.
+
+\medskip
+\textbf{Definizione di massa invariante.}  
+Dato un decadimento
+\[
+X \;\to\; 1 + 2 + \dots + N,
+\]
+con quadrimpulsi finali $p_{i}=(E_{i},\vec{p}_{i})$, si definisce la
+\emph{massa invariante} del sistema finale come
+\[
+M_{X}^{2}c^{4} = \left(\sum_{i=1}^{N} E_{i}\right)^{2} - 
+\left|\sum_{i=1}^{N} \vec{p}_{i}c\right|^{2}.
+\]
+Questa quantità è \emph{lorentz-invariante}: non dipende dal sistema di
+riferimento in cui viene calcolata.
+
+\medskip
+\textbf{Metodo sperimentale.}  
+\begin{enumerate}
+  \item Si misurano energia e impulso dei prodotti finali con il rivelatore.
+  \item Si calcola $M_{X}$ evento per evento usando la formula sopra.
+  \item Ripetendo la misura su molti decadimenti, si ottiene uno spettro di
+  masse invarianti.
+\end{enumerate}
+
+\textbf{Identificazione.}  
+Nello spettro si osserva un picco centrato intorno al valore della massa della
+particella instabile $X$. L’altezza del picco è legata al numero di eventi di
+decadimento, mentre la sua larghezza è determinata dalla risoluzione
+sperimentale e, per particelle molto instabili, dalla larghezza intrinseca
+($\Gamma$) connessa al tempo di vita tramite la relazione di indeterminazione
+$\tau \sim \hbar/\Gamma$.
+
+\medskip
+\textbf{Conclusione.}  
+Il metodo della massa invariante permette di
+\begin{itemize}
+  \item identificare una particella instabile riconoscendo un picco nello
+  spettro di masse invarianti dei suoi prodotti di decadimento;
+  \item misurarne la massa centrale $M_{X}$ con precisione elevata;
+  \item stimarne anche la larghezza di decadimento $\Gamma$.
+\end{itemize}
+
+\item \textbf{Domanda:} Dire quali fra le seguenti particelle sono soggette ad
+interazioni forti: $p,\ \bar p,\ \pi^{+},\ \pi^{-},\ \mu^{+},\ \mu^{-},\ e^{+},\ e^{-},\ \nu_{e},\ \bar\nu_{e}$, nucleo di Azoto.
+
+\textbf{Risposta.}
+L’interazione forte agisce solo su \emph{adroni} (barioni e mesoni) e sui
+nuclei (sistemi di adroni). Dunque:
+
+\[
+\begin{array}{ll}
+\text{soggetti a interazione forte:} & p,\ \bar p,\ \pi^{+},\ \pi^{-},\ \text{nucleo di }{}^{14}\!N\ (\text{o }N);\\[4pt]
+\text{non soggetti a interazione forte:} &
+\mu^{+},\ \mu^{-},\ e^{+},\ e^{-},\ \nu_{e},\ \bar\nu_{e}.
+\end{array}
+\]
+
+\textit{Nota:} leptoni ($e^{\pm},\mu^{\pm},\nu,\bar\nu$) non sentono la forza
+forte; gli adroni (protoni, antiprotoni, pioni) e i nuclei sì.
+
+
+\item \textbf{Domanda:} Utilizzando le masse atomiche si calcoli il $Q$–valore
+dei processi
+\[
+\begin{aligned}
+&\text{(a)}\quad p + {}^{40}\!{\rm Ar} \to p + {}^{39}\!{\rm Ar} + n,\\
+&\text{(b)}\quad n + {}^{14}\!{\rm N} \to p + {}^{14}\!{\rm C},\\
+&\text{(c)}\quad {}^{2}\!{\rm H}+{}^{3}\!{\rm H}\to{}^{4}\!{\rm He}+n,\\
+&\text{(d)}\quad {}^{2}\!{\rm H}+{}^{2}\!{\rm H}\to{}^{4}\!{\rm He}+\gamma,\\
+&\text{(e)}\quad p+{}^{198}\!{\rm Hg}\to{}^{197}\!{\rm Au}+p+p\quad[(p,2p)] .
+\end{aligned}
+\]
+
+\textbf{Risposta.} (Si usano \emph{masse atomiche} così da avere lo stesso numero
+di elettroni nei due membri; $Q=(M_{\rm ini}-M_{\rm fin})c^{2}$ e
+$1\ {\rm u}=931.494\ {\rm MeV}/c^{2}$.)
+
+Masse (u) impiegate:  
+$\,{}^{40}{\rm Ar}=39.9623831$, $\,{}^{39}{\rm Ar}\approx38.964313$,  
+$\,n=1.008664916$, $\,{}^{14}{\rm N}=14.0030740$, $\,{}^{14}{\rm C}=14.00324199$,  
+$\,{}^{2}{\rm H}=2.01410178$, $\,{}^{3}{\rm H}=3.01604928$,  
+$\,{}^{4}{\rm He}=4.00260325$, $\,{}^{198}{\rm Hg}=197.9667686$,  
+$\,{}^{197}{\rm Au}=196.9665696$, $\,{}^{1}{\rm H}=1.00782503$.
+
+\medskip
+\begin{enumerate}
+\item[(a)] $Q = M(^{40}{\rm Ar})-M(^{39}{\rm Ar})-M(n)
+\simeq -0.01059\ {\rm u}\ \Rightarrow\
+\boxed{Q \approx -9.9\ {\rm MeV}}$ (endoenergetica).
+
+\item[(b)] $Q = M(n)+M(^{14}{\rm N})-M(^{1}{\rm H})-M(^{14}{\rm C})
+\simeq +0.000672\ {\rm u}\ \Rightarrow\
+\boxed{Q \approx +0.626\ {\rm MeV}}$ (esoenergetica).
+
+\item[(c)] $Q = M(^{2}{\rm H})+M(^{3}{\rm H})
+ -M(^{4}{\rm He})-M(n)\simeq 0.018883\ {\rm u}
+\Rightarrow \boxed{Q \approx 17.6\ {\rm MeV}}$.
+
+\item[(d)] $Q = 2M(^{2}{\rm H})-M(^{4}{\rm He})
+\simeq 0.025600\ {\rm u}
+\Rightarrow \boxed{Q \approx 23.85\ {\rm MeV}}$.
+
+\item[(e)] $Q = M(^{1}{\rm H})+M(^{198}{\rm Hg})
+ -\big(M(^{197}{\rm Au})+2M(^{1}{\rm H})\big)
+= M(^{198}{\rm Hg})-M(^{197}{\rm Au})-M(^{1}{\rm H})
+\simeq -0.007626\ {\rm u}
+\Rightarrow \boxed{Q \approx -7.1\ {\rm MeV}}$ (endoenergetica).
+\end{enumerate}
+
+\textit{Nota:} i valori numerici sono arrotondati; cambiando leggermente le
+masse tabulate si ottengono differenze dell’ordine di pochi keV.
+
+
+\end{enumerate}
+\end{document}

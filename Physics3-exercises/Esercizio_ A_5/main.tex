@@ -1,0 +1,184 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage[colorlinks]{hyperref}
+
+\title{Tema A.5}
+\author{\textsc{Jacopo Martellotto}}
+\date{Settembre 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Resistenza di irraggiamento}
+Siano $\hat{y}$ la direzione perpendicolare alle lastre del condensatore e $\hat{z}$ la direzione perpendicolare al piano del circuito. La radiazione irraggiata è dovuta sia al momento di dipolo del condensatore $\vec{p} = Q(t)d\ \hat{y}$, sia al momento di dipolo magnetico della spira $\vec{\mu} = I(t)l^2\ \hat{z}$. Nel caso di corrente monocromatica $I(t) = I_0e^{i\omega t}$, queste due quantità valgono:
+\begin{align*}
+    \vec{p}(t) &= \frac{I_0 d}{i\omega} e^{i\omega t}\,\hat{y},
+    & \ddot{\vec{p}}(t) &= \frac{I_0 d}{i\omega}(i\omega)^2 e^{i\omega t}\,\hat{y}
+    = i\omega I_0 d \, e^{i\omega t}\,\hat{y}, \\[6pt]
+    %
+    \vec{\mu}(t) &= I_0 l^2 e^{i\omega t}\,\hat{z},
+    & \ddot{\vec{\mu}}(t) &= (i\omega)^2 I_0 l^2 e^{i\omega t}\,\hat{z}
+    = -\omega^2 I_0 l^2 \, e^{i\omega t}\,\hat{z}.
+\end{align*}
+
+L'espressione del campo elettrico di radiazione è quindi:
+\begin{align*}
+    \vec{E}_{rad} &= \frac{1}{4\pi\varepsilon_0}\frac{\hat{n}\times(\hat{n}\times\ddot{\vec{p}}(t_{rit}))}{rc^2} 
+    + \frac{1}{4\pi\varepsilon_0}\frac{\hat{n}\times\ddot{\vec{\mu}}(t_{rit})}{rc^3} \\[6pt]
+    %
+    &= \frac{1}{4\pi\varepsilon_0 rc^2}\,
+    \hat{n}\times\Big(\hat{n}\times\big(i\omega I_0 d\,e^{i\omega t_{rit}}\hat{y}\big)\Big)
+    + \frac{1}{4\pi\varepsilon_0 rc^3}\,
+    \hat{n}\times\big(-\omega^2 I_0 l^2\,e^{i\omega t_{rit}}\hat{z}\big) \\[6pt]
+    %
+    &= \frac{i\omega I_0 d}{4\pi\varepsilon_0 rc^2} 
+    e^{i\omega t - i k r}\,(\hat{n}\times(\hat{n}\times\hat{y}))
+    - \frac{\omega^2 I_0 l^2}{4\pi\varepsilon_0 rc^3} 
+    e^{i\omega t - i k r}\,(\hat{n}\times\hat{z}) \\[6pt]
+    %
+    &= \frac{i I_0 d}{4\pi\varepsilon_0 rc^2}\,\frac{2\pi c}{\lambda}
+    e^{i\omega t - i k r}\,(\hat{n}\times(\hat{n}\times\hat{y}))
+    - \frac{I_0 l^2}{4\pi\varepsilon_0 rc^3}\,\frac{4\pi^2 c^2}{\lambda^2}
+    e^{i\omega t - i k r}\,(\hat{n}\times\hat{z}) \\[6pt]
+    %
+    &= i\frac{I_0}{2\varepsilon_0 rc}\frac{d}{\lambda}\,
+    e^{i\omega t - i k r}(\hat{n}\times(\hat{n}\times\hat{y}))
+    - \frac{\pi I_0}{\varepsilon_0 rc}\frac{l^2}{\lambda^2}\,
+    e^{i\omega t - i k r}(\hat{n}\times\hat{z}).
+\end{align*}
+Per calcolare la potenza irraggiata dal circuito dobbiamo integrare il vettore di Poynting corrispondente ai campi di irraggiamento $\vec{E}_{rad}$, $\vec{B}_{rad} = \hat{n}\times\vec{E}_{rad}$. Notiamo che:
+\begin{gather*}
+    \vec{S} = \frac{1}{\mu_0} \vec{E}_{rad}\times\vec{B}_{rad}
+    = \frac{1}{\mu_0} |\vec{E}_{rad}|^2 
+    = \frac{1}{\mu_0} (|\vec{E}_p|^2 + |\vec{E}_\mu|^2 + 2\vec{E}_p\cdot\vec{E}_\mu)
+\end{gather*}
+dove $\vec{E}_p$ e $\vec{E}_\mu$ sono le componenti di $\vec{E}_{rad}$ rispettivamente dovute a $\vec{p}$ e a $\vec{\mu}$. Tenendo a mente le regole sui tensori e sulla contrazione degli indici (come riportato in parentesi quadre), il termine misto in $\vec{S}$ risulta proporzionale a:
+\[
+\text{[ } (\mathbf{a}\times\mathbf{b})_i=\varepsilon_{ijk}a_j b_k,\quad 
+\varepsilon_{ijk}\varepsilon_{imn}=\delta_{jm}\delta_{kn}-\delta_{jn}\delta_{km},\quad
+y_i=\delta_{i2},\ z_i=\delta_{i3},\ \hat n\!\cdot\!\hat n=1,\ \hat n\!\cdot\!\hat y=n_y.\text{ ]}
+\]
+\begin{align*}
+(\hat n\times(\hat n\times\hat y))\cdot(\hat n\times\hat z)
+&= \big(\varepsilon_{i\ell m} n_\ell\, \varepsilon_{mpq} n_p y_q\big)\,(\varepsilon_{irs} n_r z_s) \\[2pt]
+&= \big((\delta_{ip}\delta_{\ell q}-\delta_{iq}\delta_{\ell p}) n_\ell n_p y_q\big)\,(\varepsilon_{irs} n_r z_s) 
+\qquad\text{(contrazione di }\varepsilon\varepsilon)\\[2pt]
+&= \big(n_i(\hat n\!\cdot\!\hat y)-y_i(\hat n\!\cdot\!\hat n)\big)\,(\varepsilon_{irs} n_r z_s) \\[2pt]
+&= n_y\, n_i\,\varepsilon_{irs} n_r z_s \;-\; y_i\,\varepsilon_{irs} n_r z_s \\[2pt]
+&= 0 \;-\; y_i\,\varepsilon_{irs} n_r z_s \qquad\text{(poiché } n_i\varepsilon_{irs}n_r=0)\\[2pt]
+&= -\,\delta_{i2}\,\varepsilon_{irs} n_r \delta_{s3} \\[2pt]
+&= -\,\varepsilon_{2 r 3}\, n_r \\[2pt]
+&= -\big(\varepsilon_{213} n_1 + \varepsilon_{223} n_2 + \varepsilon_{233} n_3\big) \\[2pt]
+&= -(-1)\,n_1 \;=\; n_1 \;=\; n_x.
+\end{align*}
+Deduciamo che il termine misto dipende linearmente dalle componenti di $\hat{n}$. 
+Integrando su tutta la sfera si ha
+\[
+\int d\Omega \; n_x = 0,
+\]
+poiché per simmetria i contributi positivi e negativi si cancellano. 
+Concludiamo che il termine misto in $\vec{S}$ non contribuisce alla potenza totale irradiata.\\
+Quindi le potenze irraggiate da $\vec{p}$ e da $\vec{\mu}$ si sommano. Poiché ognuno dei due campi è della forma $\vec{E}(t) = \vec{E}_0e^{i\omega t}$, abbiamo per la potenza irraggiata:
+\begin{gather*}
+    P_{irr} = 4\pi r^2\langle\vec{S}\rangle = \frac{2\pi d^2}{3\varepsilon_0c\lambda^2} I_0^2 + \frac{8\pi^3l^4}{3\varepsilon_0c\lambda^4} I_0^2
+\end{gather*}
+Poiché questa potenza è proporzionale a $I^2$ possiamo considerare l'effetto della radiazione sul circuito come quello dovuto ad una ``resistenza di irraggiamento" pari a:
+\begin{equation*}
+    R_{irr} = \frac{2\pi d^2}{3\varepsilon_0c\lambda^2} + \frac{8\pi^3l^4}{3\varepsilon_0c\lambda^4} =
+    \frac{2}{3}\pi Z_0 \left(\frac{d}{\lambda}\right)^2 + \frac{8}{3}\pi^3 Z_0 \left(\frac{l}{\lambda}\right)^4
+\end{equation*}
+
+\section{Sezioni d'urto}
+Sul circuito ora incide l'onda con $\vec{B}=B_0e^{i\omega t-i\vec{k}\cdot\vec{r}}\ \hat{z}$, dove $\vec{k} = \frac{2\pi}{\lambda}(\cos\theta\ \hat{x} + \sin\theta\ \hat{y})$ è il vettore d'onda. Dalla legge di Faraday sappiamo che nel circuito si genera una f.e.m. pari a  $\mathcal{E} = i\omega B_0l^2e^{i\omega t}$. La caduta di potenziale ai capi del condensatore è pari a:
+\begin{gather*}
+    Q = C(\Delta V - \vec{E}\cdot(d\ \hat{y})) = C(\Delta V - Ed\cos\theta)\\
+    \Delta V = \frac{Q}{C} + Ed \cos\theta
+\end{gather*}
+Dove $C=\varepsilon_0A/d$ è la capacità del condensatore. Effettuando il bilancio energetico si ottiene quindi:
+\begin{align*}
+    \mathcal{E}I &= R_{load}I^2 + R_{irr}I^2 + \Delta V I \\
+    \mathcal{E} &= (R_{load}+R_{irr})I + \left(\frac{Q}{C}+Ed\cos\theta\right) \\
+    &= (R_{load}+R_{irr})I + \frac{1}{i\omega C}I + Ed\cos\theta \\[4pt]
+    &= ZI + Ed\cos\theta,
+\end{align*}
+dove $Q=I/(i\omega)$ e $Z=R_{load}+R_{irr}+1/(i\omega C)$ è l’impedenza totale. La corrente risulta:
+\begin{align*}
+    I &= \frac{\mathcal{E}-E_0d\cos\theta}{Z} 
+    = \frac{-E_0d\cos\theta+i\omega B_0l^2}{Z}\,e^{i\omega t}.
+\end{align*}
+Per separare parte reale e immaginaria moltiplichiamo per il complesso coniugato di $Z$:
+\begin{align*}
+    I &= \frac{\big(-c d\cos\theta+i\omega l^2\big)(R+\tfrac{i}{\omega C})}{|Z|^2}\,B_0e^{i\omega t}, 
+    \quad R=R_{load}+R_{irr},\\
+    &= \frac{B_0e^{i\omega t}}{|Z|^2}\left[-\Big(Rcd\cos\theta+\tfrac{l^2}{C}\Big)
+    + i\Big(R\omega l^2-\tfrac{cd}{\omega C}\cos\theta\Big)\right].
+\end{align*}
+Infine, la potenza media su ciascun resistore è
+\begin{align*}
+    \langle P_{abs}\rangle &= \tfrac{1}{2}R_{load}|I_0|^2
+    = \frac{R_{load}B_0^2}{2}\,\frac{c^2d^2\cos^2\theta+\omega^2l^4}{|Z|^2},\\
+    \langle P_{el}\rangle &= \tfrac{1}{2}R_{irr}|I_0|^2
+    = \frac{R_{irr}B_0^2}{2}\,\frac{c^2d^2\cos^2\theta+\omega^2l^4}{|Z|^2},
+\end{align*}
+dove si è usato $|{-}cd\cos\theta+i\omega l^2|^2=c^2d^2\cos^2\theta+\omega^2l^4$.\\
+Poiché il modulo medio del vettore di Poynting incidente è 
+\[
+\langle|\vec{S}_{in}|\rangle=\frac{cB_0^2}{2\mu_0}=\frac{B_0^2}{2Z_0},\qquad Z_0=\mu_0c,
+\]
+le sezioni d’urto assumono la forma generale
+\[
+\sigma_X=\left(\frac{4\pi^2l^4}{\lambda^2}+d^2\cos^2\theta\right)
+\frac{Z_0R_X}{(R_{load}+R_{irr})^2+\tfrac{1}{\omega^2C^2}},
+\]
+dove $R_X$ è resistenza efficace: 
+\[
+R_X = 
+\begin{cases}
+R_{load} &\Rightarrow \sigma_{abs},\\
+R_{irr} &\Rightarrow \sigma_{el},\\
+R_{load}+R_{irr} &\Rightarrow \sigma_{tot}.
+\end{cases}
+\]
+\begin{align*}
+    \sigma_{abs} &=\left(\frac{4\pi^2l^4}{\lambda^2} + d^2\cos^2\theta\right)\frac{Z_0R_{load}}{(R_{load} + R_{irr})^2 + \frac{1}{\omega^2C^2}} \\
+    \sigma_{el} &= \left(\frac{4\pi^2l^4}{\lambda^2} + d^2\cos^2\theta\right)\frac{Z_0R_{irr}}{(R_{load} + R_{irr})^2 + \frac{1}{\omega^2C^2}} \\
+    \sigma_{tot} &= \left(\frac{4\pi^2l^4}{\lambda^2} + d^2\cos^2\theta\right)\frac{Z_0(R_{load}+R_{irr})}{(R_{load} + R_{irr})^2 + \frac{1}{\omega^2C^2}}
+\end{align*}
+
+\section{Ampiezza di scattering e teorema ottico}
+Sostituendo nell'equazione per $\vec{E}_{rad}$ trovata all'inizio l'espressione per $I_0$ otteniamo:
+\begin{align*}
+    \vec{E}_{rad} &= \frac{i\omega I_0d}{4\pi\varepsilon_0rc^2}e^{i\omega t-ikr} (\hat{n}\times(\hat{n}\times\hat{y})) - \frac{\omega^2I_0l^2}{4\pi\varepsilon_0rc^3}e^{i\omega t-ikr}(\hat{n}\times\hat{z}) \\
+    &= \frac{B_0e^{i\omega t-ikr}}{4\pi\varepsilon_0rc^3} \frac{-cd\cos\theta + i\omega l^2}{Z}(ic\omega d\ (\hat{n}\times(\hat{n}\times\hat{y}))\ -\omega^2l^2\ (\hat{n}\times\hat{z}))
+\end{align*}
+L'ampiezza di scattering risulta quindi:
+\begin{equation*}
+    \vec{f}(k\vec{n}) = \frac{B_0}{4\pi\varepsilon_0c^3} \frac{-cd\cos\theta + i\omega l^2}{R_{load} + R_{irr} + \frac{1}{i\omega C}}(ic\omega d\ (\hat{n}\times(\hat{n}\times\hat{y}))\ -\omega^2l^2\ (\hat{n}\times\hat{z}))
+\end{equation*}
+Troviamo ora $P_{diss}$ utilizzando il teorema ottico. Ricordiamo che $\vec{k} = k(\cos\theta\ \hat{x} + \sin\theta\ \hat{y})$ è il vettore d'onda dell'onda incidente, per cui abbiamo:
+\begin{gather*}
+\hat{k}\times(\hat{k}\times\hat{y}) = \cos\theta(\sin\theta\hat{x} - \cos\theta\hat{y}), \quad
+    \hat{k}\times\hat{z} = \sin\theta\hat{x} - \cos\theta\hat{y} \\
+    \vec{E}_0 = E_0(-\sin\theta\hat{x} + \cos\theta\hat{y})
+\end{gather*}
+\begin{align*}
+    P_{diss} &= \frac{2\pi\varepsilon_0c}{k}\Im[\vec{E}_0^*\cdot\vec{f}(\vec{k})] = \\
+    &= \frac{E_0B_0}{2kc^2|Z|^2} \left[
+    \left((R_{load} + R_{irr})cd\cos\theta + \frac{l^2}{C} \right)c\omega d\cos\theta +
+    \left((R_{load} + R_{irr})\omega l^2 - \frac{cd}{\omega C}\cos\theta\right)\omega^2l^2
+    \right] =\\
+    &= \frac{(R_{load} + R_{irr})B_0^2}{2|Z|^2} (c^2d^2\cos^2\theta + \omega^2l^4) =
+    \langle P_{abs}\rangle + \langle P_{irr}\rangle
+\end{align*}
+Notiamo che troviamo $P_{diss} = \langle P_{abs}\rangle + \langle P_{irr}\rangle$, come atteso.
+
+\end{document}

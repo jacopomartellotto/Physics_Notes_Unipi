@@ -1,0 +1,79 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{comment}
+\usepackage{cancel}
+\usepackage[colorlinks]{hyperref}
+
+\title{Tema B.3}
+\author{\textsc{Jacopo Martellotto}}
+\date{Settembre 2025}
+
+\begin{document}
+
+\maketitle
+\noindent
+Vogliamo calcolare e disegnare il contorno del Dalitz plot per il decadimento del neutrone:
+\[n \rightarrow p + e^- + \Bar{\nu}_e\]
+Le masse delle particelle coinvolte sono: 
+\begin{align*}
+    m_n &= 0.939\ 565 \text{ GeV}\\
+    m_p &= 0.938\ 272 \text{ GeV}\\
+    m_e &= 0.510\ 999 \text{ MeV} \\
+    m_{\bar\nu_e} &\lesssim 1.1 \text{ eV} \sim 0
+\end{align*}
+Nel riferimento del centro di massa vale \(s=m_n^2\) (quindi \(\sqrt{s}=m_n\)) e l’impulso totale si annulla, \(\vec{P}_1+\vec{P}_2+\vec{P}_3=\vec{0}\).
+Indichiamo con \(E_{1,2,3}\) le energie e con \(\vec{P}_{1,2,3}\) gli impulsi di protone, elettrone e antineutrino; i corrispondenti quadrivettori sono \(P_i=(E_i,\vec{P}_i)\), mentre \(P_n\) è il quadrivettore totale nel CM.
+La costruzione del Dalitz plot richiede di determinare la porzione di spazio delle fasi consentita dai vincoli di conservazione di energia e quantità di moto.
+Per un decadimento a tre corpi lo spazio delle fasi è 5-dimensionale; nel CM i tre impulsi sono coplanari, per cui il processo giace su un piano.
+Una scelta naturale di coordinate consiste allora nei tre angoli che fissano l’orientazione di tale piano, insieme a due invarianti di massa:
+\[
+s_{12}=(P_1+P_2)^2=(P_n-P_3)^2,\qquad
+s_{23}=(P_2+P_3)^2=(P_n-P_1)^2.
+\]
+In questa base la regione ammissibile per il Dalitz plot è rappresentata nel piano \((s_{12},s_{23})\). Poiché adotteremo \((s_{12},s_{23})\) come coordinate, il passo successivo è determinarne il dominio fisicamente accessibile.
+Vogliamo quindi fissare gli intervalli di variazione di \(s_{12}\) e \(s_{23}\) compatibili con i vincoli on–shell \(P_i^2=m_i^2\) e con la conservazione di energia e quantità di moto.
+A tal fine risolviamo la cinematica del processo esprimendo le condizioni dell’urto direttamente in funzione di \(s_{12}\) e \(s_{23}\).
+Introduciamo $s_{13} = (P_1 + P_3)^2$ che, in termini di $s_{12}$ e $s_{23}$ si esprime come:
+\begin{gather*}
+s_{12} + s_{23} + s_{13} = s + m_p^2 + m_e^2 + m_{\bar\nu_e}^2 \sim s + m_p^2 + m_e^2 \\
+s_{13} = s + m_p^2 + m_e^2 - s_{12} - s_{23}
+\end{gather*}
+L'energia $E_1$ è data da:
+\begin{gather*}
+s_{23} = (P_n - P_1)^2 = s + m_p^2 - 2\sqrt{s}E_1 \\
+E_1 = \frac{1}{2\sqrt{s}}(s + m_p^2 - s_{23})
+\end{gather*}
+Nello stesso modo ricaviamo le espressioni per $E_2$ ed $E_3$:
+\begin{gather*}
+E_2 = \frac{1}{2\sqrt{s}}(s + m_e^2 - s_{13}) = \frac{1}{2\sqrt{s}}(s_{12} + s_{23} - m_p^2)\\
+E_3 = \frac{1}{2\sqrt{s}}(s - s_{12})
+\end{gather*}
+I moduli degli impulsi sono dati da $|\vec{P_i}| = \sqrt{E_i^2 - m_i^2}$, mentre gli angoli fra questi si possono trovare scomponendo la conservazione dell'impulso nelle componenti parallela ed ortogonale a $\vec{P_1}$. Detto $\theta$ l'angolo fra $\vec{P_1}$ e $\vec{P_2}$ e $\varphi$ quello fra $\vec{P_1}$ e $\vec{P_3}$, queste condizioni diventano:
+\begin{gather*}
+    |\vec{P_1}| + |\vec{P_2}|\cos\theta + |\vec{P_3}|\cos\varphi = 0 \\
+    |\vec{P_2}|\sin\theta = |\vec{P_3}|\sin\varphi
+\end{gather*}
+Risolvendo queste equazioni si trova:
+\begin{align*}
+    &\cos\theta = \frac{1}{2|\vec{P_1}||\vec{P_2}|}(\vec{P_3}^2 - \vec{P_2}^2 - \vec{P_1}^2)\\
+    &\cos\varphi = \frac{1}{2|\vec{P_1}||\vec{P_3}|}(\vec{P_2}^2 - \vec{P_3}^2 - \vec{P_1}^2)
+\end{align*}
+Affinché l'urto avvenga devono quindi risultare positive le differenze $E_i^2 - m_i^2$ ed inoltre devono valere $\cos^2\theta\leq1$, $\cos^2\varphi \leq 1$. Possiamo quindi implementare un codice che controlla la validità di queste condizioni al variare di $s_{12}$ e $s_{23}$ per ottenere il contorno del Dalitz plot. Facendo ciò si ottiene il grafico in Fig. \ref{fig:Dalitz-plot}. Per migliorare la leggibilità del Dalitz plot, limitiamo \(s_{12}\) e \(s_{23}\) ai loro intervalli cinematicamente consentiti.
+\begin{align*}
+    (m_p + m_e)^2 \leq&\ s_{12} \leq (\sqrt{s} - m_{\bar\nu_e})^2 \sim s \\
+    (m_e + m_{\bar\nu_e})^2 \sim m_e^2 \leq&\ s_{23} \leq (\sqrt{s} - m_p)^2 = (m_n-m_p)^2
+\end{align*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\linewidth]{Dalitz_plot_neutron_beta_decay.png}
+\caption{Dalitz plot del decadimento beta del neutrone nel sistema di centro di massa. L’area azzurra indica la regione cinematicamente ammessa. Il bordo tratteggiato blu è il contorno ricavato numericamente dalla maschera su griglia; le curve arancioni sono i limiti analitici previsti dalla cinematica a tre corpi. La buona sovrapposizione tra i due bordi conferma la coerenza tra calcolo numerico e previsione teorica.}
+    \label{fig:Dalitz-plot}
+\end{figure}
+
+\end{document}
