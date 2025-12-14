@@ -1,0 +1,102 @@
+\documentclass[11pt,a4paper]{book}
+
+% -----------------------
+% Pacchetti base
+% -----------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{placeins}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{parskip}
+\usepackage{color}
+\usepackage{pdfpages}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{physics}
+
+% -----------------------
+% Layout
+% -----------------------
+\geometry{margin=2.5cm}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\fancyhead[L]{\leftmark}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% -----------------------
+% Colori e link
+% -----------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={Appunti di Fisica dei Materiali per la Fotonica}
+}
+
+% -----------------------
+% Stile titoli capitoli
+% -----------------------
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}
+  {\filleft\Huge\thechapter}
+  {1ex}
+  {\titlerule\vspace{1ex}\filright}
+  [\vspace{1ex}\titlerule]
+
+% -----------------------
+% Copertina
+% -----------------------
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    
+    {\scshape\LARGE Università di Pisa \par}
+    \vspace{1.5cm}
+    {\Huge\bfseries Notes on \\[0.5cm]
+    Physics of Materials for Photonics\par}
+    \vspace{1.0cm}
+    {\Large Notes written by Jacopo Martellotto\par}
+    \vspace{0.5cm}
+    \begin{center}
+      % Immagine di copertina
+    \includegraphics[width=0.6\textwidth]{img/cover.png}
+    \vspace{1cm}
+    \end{center}
+    {\large \today\par}
+\end{titlepage}
+
+% Indice
+% -----------------------
+\tableofcontents
+\newpage
+
+% -----------------------
+% Capitoli inclusi
+% -----------------------
+\input{chapters/Structural_Properties_of_Semiconductors.tex}
+\input{chapters/Semiconductor_Bandstructure.tex}
+\input{chapters/Bandstructure_Modifications.tex}
+\input{chapters/Lattice_Vibrations_Phonon.tex}
+\input{chapters/Optical_Properties_of_Semiconductor.tex}
+\input{chapters/Excitonic_effects.tex}
+\input{chapters/paper_exam.tex}
+
+% -----------------------
+% Bibliografia
+% -----------------------
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{ieeetr}
+\bibliography{bibliography}
+
+\end{document}
