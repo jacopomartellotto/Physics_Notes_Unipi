@@ -1,0 +1,21 @@
+alt:
+a = 0.000782
+sigma_a = 9e-06
+chisq = 226/9
+
+line:
+a = -0.013
+sigma_a = 0.005 
+b = 0.000793
+sigma_b = 3e-06
+norm cov = -0.75
+chisq = 3.9/8
+
+par:
+a:  -0.013
+sigma_a:  0.007
+b:  0.00079
+sigma_b:  1e-05
+c:  -4e-09
+sigma_c:  3e-09
+chisq = 3.9/7
